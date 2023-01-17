@@ -23,7 +23,7 @@ function Footer() {
                 </Box>
             ))}
         </Box>
-        <Box  display="flex" justifyContent={"center"} m="auto" py="30px">
+        <Box  display="flex" justifyContent={"center"} m="auto" py="30px" borderBottom={"1px solid lightgray"}>
             <VStack alignItems={"flex-start"}  fontSize="12px" p="10px"lineHeight={"10px"} color="gray" w="18%">
                 <Heading fontSize={"16px"} color="black">POLICY INFO</Heading>
                 <Text>Privacy Policy</Text>
