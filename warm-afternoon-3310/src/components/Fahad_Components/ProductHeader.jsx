@@ -7,7 +7,7 @@ const ProductHeader = ({products,search,setSearch,sort,setSort,popularity,setPop
     setSearch(e.target.value)
   }
   return (
-    <Box display="flex" mb="17px" border="1px solid black" >
+    <Box display="flex" mb="17px" >
 
      <Box display="flex" flex="0.6"  alignItems="center">
       <Text fontSize={20} mr="10px">Men Products</Text>

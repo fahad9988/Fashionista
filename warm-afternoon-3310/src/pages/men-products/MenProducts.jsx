@@ -53,9 +53,9 @@ dispatch(getMenProducts(joggers,jeans,sweatshirt,trousers,chinos,casualshirt,sea
   
   return (
     <>
-    <Box display="flex" position="relative" >
+    <Box display="flex" position="relative" p="10px">
 
-      <Box flex={0.3} border="1px solid red" >
+      <Box flex={0.3} >
       <SideBar 
       joggers={joggers} setJoggers={setJoggers} jeans={jeans} setJeans={setJeans} sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} trousers={trousers} setTrousers={setTrousers} chinos={chinos} setChinos={setChinos} casualshirt={casualshirt} setCasualShirt={setCasualShirt} roadster={roadster} setRoadster={setRoadster} highlander={highlander} setHighlander={setHighlander} locomotive={locomotive} setLocomotive={setLocomotive} ivoc={ivoc} setIvoc={setIvoc} slider={slider} setSlider={setSlider}
       />

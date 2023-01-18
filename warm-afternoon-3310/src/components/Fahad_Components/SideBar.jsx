@@ -30,12 +30,12 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
 
   return (
     <>
-    <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} >
-      <Flex flexDirection="column"  p="14px 15px">
+    <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
+      <Flex flexDirection="column"  p="15px 15px">
          
           <SideBarHeader/>
 
-        <Accordion allowToggle mt="17.5px">
+        <Accordion  defaultIndex={[0]} allowMultiple mt="17.6px">
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -233,7 +233,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             <h2>
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left">
-                  Pattern
+                  Size
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
@@ -242,32 +242,32 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
               <Flex flexDirection="column">
                 <Checkbox>
                   <Text  color="grey">
-                    Stripped
+                    XS
                   </Text>
                 </Checkbox>
                 <Checkbox>
                   <Text  color="grey">
-                    Printed
+                    S
                   </Text>
                 </Checkbox>
                 <Checkbox>
                   <Text  color="grey">
-                    Plain
+                    M
                   </Text>
                 </Checkbox>
                 <Checkbox>
                   <Text  color="grey">
-                    Patterened
+                    L
                   </Text>
                 </Checkbox>
                 <Checkbox>
                   <Text  color="grey">
-                    Embellished
+                    XL
                   </Text>
                 </Checkbox>
                 <Checkbox>
                   <Text  color="grey">
-                    Checked
+                    XXL
                   </Text>
                 </Checkbox>
               </Flex>

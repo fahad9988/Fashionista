@@ -11,6 +11,7 @@ try {
  }else{
   url=`https://snapdeal-json-server.onrender.com/mens?q=${search}`
  }
+
  
  if(sort){
   if(low||high){
@@ -29,56 +30,73 @@ try {
 
  }
 
- if(joggers||jeans||sweatshirt||trousers||chinos||casualshirt||roadster||locomotive||highlander||ivoc){
+ if((joggers||jeans||sweatshirt||trousers||chinos||casualshirt)&&(roadster||locomotive||highlander||ivoc)){
 
   if(sort){
-   if(roadster||locomotive||highlander||ivoc){
+   
     if(low||high){
      url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
     }else{
      url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}`
     }
-   }else{
-    if(low||high){
-     url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
-    }else{
-     url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}`
-    }
-   
-   }
  
  }else if(popularity){
-  if(roadster||locomotive||highlander||ivoc){
    if(low||high){
     url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=rating&_order=${popularity}&q=${search}&price_gte=${low}&price_lte=${high}`
    }else{
     url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=rating&_order=${popularity}&q=${search}`
    }
-  
-  }else{
-   if(low||high){
-    url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=rating&_order=${popularity}&q=${search}&price_gte=${low}&price_lte=${high}`
-   }else{
-    url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=rating&_order=${popularity}&q=${search}`
-   }
-  
-  }
  
  }else{
-  if(roadster||locomotive||highlander||ivoc){
    if(low||high){
     url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
    }else{
     url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}`
    }
    
+ }
+}
+
+if((joggers||jeans||sweatshirt||trousers||chinos||casualshirt)&&!(roadster||locomotive||highlander||ivoc)){
+ if(sort){
+  if(low||high){
+   url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
   }else{
-   if(low||high){
-    url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
-   }else{
-    url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}`
-   }
-   
+   url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}`
+  }
+ }else if(popularity){
+  if(low||high){
+   url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=rating&_order=${popularity}&q=${search}&price_gte=${low}&price_lte=${high}`
+  }else{
+   url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=rating&_order=${popularity}&q=${search}`
+  }
+ }else{
+  if(low||high){
+   url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
+  }else{
+   url=`https://snapdeal-json-server.onrender.com/mens?myStyle=${joggers}&myStyle=${jeans}&myStyle=${sweatshirt}&myStyle=${trousers}&myStyle=${chinos}&myStyle=${casualshirt}&_sort=price&_order=${sort}&q=${search}`
+  }
+ }
+}
+
+if(!(joggers||jeans||sweatshirt||trousers||chinos||casualshirt)&&(roadster||locomotive||highlander||ivoc)){
+ if(sort){
+  if(low||high){
+   url=`https://snapdeal-json-server.onrender.com/mens?title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
+  }else{
+   url=`https://snapdeal-json-server.onrender.com/mens?title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}`
+  }
+ }else if(popularity){
+  if(low||high){
+   url=`https://snapdeal-json-server.onrender.com/mens?title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=rating&_order=${popularity}&q=${search}&price_gte=${low}&price_lte=${high}`
+  }else{
+   url=`https://snapdeal-json-server.onrender.com/mens?title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=rating&_order=${popularity}&q=${search}`
+  }
+ }else{
+  if(low||high){
+   url=`https://snapdeal-json-server.onrender.com/mens?title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}&price_gte=${low}&price_lte=${high}`
+  }else{
+   url=`https://snapdeal-json-server.onrender.com/mens?title=${roadster}&title=${highlander}&title=${locomotive}&title=${ivoc}&_sort=price&_order=${sort}&q=${search}`
   }
  }
 }
