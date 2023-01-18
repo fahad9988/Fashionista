@@ -7,7 +7,7 @@ const ProductHeader = ({products}) => {
 
      <Box display="flex" flex="0.6"  alignItems="center">
       <Text fontSize={20} mr="10px">Men Products</Text>
-      <Text fontSize={14}>({products.length} items)</Text>
+      <Text fontSize={14}>({products.data.length} items)</Text>
      </Box>
 
      <Box flex="0.7" >

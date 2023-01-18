@@ -21,9 +21,9 @@ dispatch(getMenProducts())
   
   return (
     <>
-    <Box display="flex"  >
+    <Box display="flex" position="relative" >
 
-      <Box flex={0.3} border="1px solid red">
+      <Box flex={0.3} border="1px solid red" >
       <SideBar/>
       </Box>
 
