@@ -3,6 +3,8 @@ import {Box,Flex,HStack,Input,Text,Image,Button,Center,Divider,Icon} from "@chak
 import Fs from "./Images/Fashionista.png"
 import { BiLogIn } from "react-icons/bi";
 import { AiOutlineShoppingCart} from "react-icons/ai";
+import Auth from "../../pages/authentication/Auth";
+
 const Navbar = () => {
   return (
     <Box w="100%" m="auto" color="white">
@@ -34,9 +36,8 @@ const Navbar = () => {
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
-          <Box alignItems="center"  display="flex" px="20px" >
-            Sign In
-            <Icon as={BiLogIn} />
+          <Box alignItems="center"  display="flex" px="20px">
+            <Auth />
           </Box>
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />

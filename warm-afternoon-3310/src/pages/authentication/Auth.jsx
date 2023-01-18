@@ -11,15 +11,13 @@ function Auth() {
   
     return (
       <>
-        <Box 
-          border={'1px solid'}
-          >
+        <Box>
             <Box display={'flex'}>
-          <Button onClick={onOpen}>
+          <Button onClick={onOpen} bgColor={'#e40046'}>
             Sign In
           </Button>
-            <AvatarGroup marginLeft={'1rem'}>
-              <Avatar name='user' bg='red.500' src='https://bit.ly/ryan-florence' />
+            <AvatarGroup marginLeft={'5px'}>
+              <Avatar bg='#e40046' size='sm' />
             </AvatarGroup>
             </Box>
   
@@ -33,13 +31,13 @@ function Auth() {
           <ModalContent>
             <ModalHeader>Login/Sign Up On Fashionista</ModalHeader>
             <ModalCloseButton />
-            <ModalBody pb={6}>
+            <ModalBody pb={86}>
               <FormControl>
                 <FormLabel>Please provide your Mobile Number or Email to Login/ Sign Up on Fashionista</FormLabel>
                 <Input ref={initialRef} placeholder='Mobile Number/ Email' />
               </FormControl>
               <Button colorScheme='blue' width='100%' marginTop={'20px'}>
-                Save
+                Login
               </Button>
             </ModalBody>
               <Text align={'center'}>or Login Using</Text>
