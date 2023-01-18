@@ -7,7 +7,6 @@ import {
   DrawerBody,
   DrawerContent,
   Text,
-  Divider,
   Flex,
   Accordion,
   AccordionItem,
@@ -15,20 +14,28 @@ import {
   AccordionIcon,
   AccordionPanel,
   Checkbox,
+  RangeSlider,
+  RangeSliderTrack,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
+  Spacer,
 } from "@chakra-ui/react";
+
 import { Box } from '@chakra-ui/react';
+import SideBarHeader from './SideBarHeader';
 
-import { useDispatch } from "react-redux";
+const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,trousers ,setTrousers ,chinos ,setChinos ,casualshirt ,setCasualShirt ,roadster,setRoadster,highlander,setHighlander,locomotive,setLocomotive,ivoc,setIvoc,slider,setSlider}) => {
 
-const SideBar = () => {
+
+
   return (
     <>
     <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} >
-      <Flex flexDirection="column" gap={2}>
+      <Flex flexDirection="column"  p="14px 15px">
          
-          
+          <SideBarHeader/>
 
-        <Accordion allowToggle mt={5}>
+        <Accordion allowToggle mt="17.5px">
           <AccordionItem>
             <h2>
               <AccordionButton>
@@ -40,30 +47,82 @@ const SideBar = () => {
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox
-                  onChange={() => {
-                    dispatch(getdata(1, "", "", category));
-                    norm();
-                    onClick();
-                  }}
-                >
-                  <Text className="hovereffect" color="grey">
-                    All
+                <Checkbox value="Sweatshirt"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setSweatshirt(value)
+                   }else{
+                     let new_str=sweatshirt.replace(value,"")
+                     setSweatshirt(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                    Sweatshirt
                   </Text>
                 </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Joggers
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                <Checkbox value="Jeans"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setJeans(value)
+                   }else{
+                     let new_str=jeans.replace(value,"")
+                     setJeans(new_str)
+                   }
+                }} >
+                  <Text  color="grey">
                     Jeans
                   </Text>
                 </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                   Shirts
+                <Checkbox value="Trousers"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setTrousers(value)
+                   }else{
+                     let new_str=trousers.replace(value,"")
+                     setTrousers(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                    Trousers
+                  </Text>
+                </Checkbox>
+                <Checkbox value="Joggers"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setJoggers(value)
+                   }else{
+                     let new_str=joggers.replace(value,"")
+                     setJoggers(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                   Joggers
+                  </Text>
+                </Checkbox>
+                <Checkbox value="Chinos"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setChinos(value)
+                   }else{
+                     let new_str=chinos.replace(value,"")
+                     setChinos(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                   Chinos
+                  </Text>
+                </Checkbox>
+                <Checkbox value="Casual Shirt"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setCasualShirt(value)
+                   }else{
+                     let new_str=casualshirt.replace(value,"")
+                     setCasualShirt(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                   Casual Shirt
                   </Text>
                 </Checkbox>
               </Flex>
@@ -81,34 +140,56 @@ const SideBar = () => {
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Gucci
+                <Checkbox  value="Roadster"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setRoadster(value)
+                   }else{
+                     let new_str=roadster.replace(value,"")
+                     setRoadster(new_str)
+                   }
+                }}>
+                  <Text color="grey">
+                    Roadster
                   </Text>
                 </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Herno
+                <Checkbox  value="HIGHLANDER"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setHighlander(value)
+                   }else{
+                     let new_str=highlander.replace(value,"")
+                     setHighlander(new_str)
+                   }
+                }}>
+                  <Text  color="grey">
+                    Highlander
                   </Text>
                 </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Kenzo
+                <Checkbox value="LOCOMOTIVE"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setLocomotive(value)
+                   }else{
+                     let new_str=locomotive.replace(value,"")
+                     setLocomotive(new_str)
+                   }
+                }} >
+                  <Text  color="grey">
+                    Locomotive
                   </Text>
                 </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Marni
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Tom Ford
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Versace
+                <Checkbox value="IVOC"  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setIvoc(value)
+                   }else{
+                     let new_str=ivoc.replace(value,"")
+                     setIvoc(new_str)
+                   }
+                }} >
+                  <Text  color="grey">
+                    IVOC
                   </Text>
                 </Checkbox>
               </Flex>
@@ -119,88 +200,31 @@ const SideBar = () => {
             <h2>
               <AccordionButton>
                 <Box as="span" flex="1" textAlign="left">
-                  Colours
+                  Price
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
-            <AccordionPanel pb={4} height="240px" overflow="scroll">
-              <Flex flexDirection="column">
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Black
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Green
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Maroon
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Pink
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Red
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Golden
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    White
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Yellow
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Multicoloured
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Orange
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Purple
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Grey
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Indigo
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Blue
-                  </Text>
-                </Checkbox>
-                <Checkbox>
-                  <Text className="hovereffect" color="grey">
-                    Brown
-                  </Text>
-                </Checkbox>
+            <AccordionPanel pb={4} >
+              <Flex flexDirection="column" >
+                <Box p="0px 15px" >
+                <RangeSlider colorScheme="red" aria-label={['min', 'max']} defaultValue={[0, 100]} onChange={(val)=>{
+                setSlider(val)
+              }} >
+                   <RangeSliderTrack>
+                     <RangeSliderFilledTrack />
+                   </RangeSliderTrack>
+                   <RangeSliderThumb bgColor="red.200" index={0} />
+                   <RangeSliderThumb bgColor="red.200" index={1} />
+               </RangeSlider>
+                </Box>
+              
+            <Flex direction="row">
+            <Box>Rs. 0</Box>
+            <Spacer/>
+            <Box>Rs. 3199</Box>
+            </Flex>
+
               </Flex>
             </AccordionPanel>
           </AccordionItem>
@@ -217,32 +241,32 @@ const SideBar = () => {
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
                 <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                  <Text  color="grey">
                     Stripped
                   </Text>
                 </Checkbox>
                 <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                  <Text  color="grey">
                     Printed
                   </Text>
                 </Checkbox>
                 <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                  <Text  color="grey">
                     Plain
                   </Text>
                 </Checkbox>
                 <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                  <Text  color="grey">
                     Patterened
                   </Text>
                 </Checkbox>
                 <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                  <Text  color="grey">
                     Embellished
                   </Text>
                 </Checkbox>
                 <Checkbox>
-                  <Text className="hovereffect" color="grey">
+                  <Text  color="grey">
                     Checked
                   </Text>
                 </Checkbox>
