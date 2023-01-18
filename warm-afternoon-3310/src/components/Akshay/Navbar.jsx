@@ -7,7 +7,7 @@ import Auth from "../../pages/authentication/Auth";
 
 const Navbar = () => {
   return (
-    <Box w="100%" m="auto" color="white">
+    <Box w="100%" m="auto" color="white" position="fixed">
       <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
         <Flex gap={"20px"}>
