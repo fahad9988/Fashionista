@@ -43,6 +43,11 @@ const Navbar = () => {
           </Center>
           </Flex>
       </Flex>
+      <Flex  bgColor={"rgb(228,0,70)"} px="60px" py="0px" borderTop="1px solid darkred" justifyContent="center"  gap="20%" fontSize={["8px","12px"]}>      
+          <Text>Men</Text>
+          <Text>Women</Text>
+          <Text>Kids</Text>
+      </Flex>
     </Box>
     
   )

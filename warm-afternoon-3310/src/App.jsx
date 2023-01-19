@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import HomePage from './pages/homepage/HomePage'
 import Footer from './components/Akshay/Footer'
 import Navbar from './components/Akshay/Navbar'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div >
       <Navbar />
+      <HomePage/>
       <Footer/>
     </div>
   )
