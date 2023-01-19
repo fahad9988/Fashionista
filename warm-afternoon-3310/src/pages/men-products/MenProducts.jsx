@@ -1,7 +1,6 @@
 import React from 'react';
 import {Box,Text,Grid,GridItem,Image,Skeleton,Tag,HStack, Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -13,10 +12,9 @@ import {useEffect} from "react";
 import { getMenProducts } from '../../redux/product/product.action';
 import SideBar from '../../components/Fahad_Components/SideBar';
 import ProductHeader from '../../components/Fahad_Components/ProductHeader';
-import {BsFillFilterSquareFill} from "react-icons/bs"
+import {BsFillFilterSquareFill} from "react-icons/bs";
 
-import "./MenProduct.css"
-
+import "./MenProducts.css";
 
 const MenProducts = () => {
 
