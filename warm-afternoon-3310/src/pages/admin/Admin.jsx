@@ -1,16 +1,18 @@
+import { useNavigate } from 'react-router';
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-let api = "http://localhost:8080/posts";
+let api = "https://snapdeal-json-server.onrender.com/kids";
 
 const Admin = () => {
   const [formData, setFormData] = useState({});
   const [refresh, setRefresh] = useState(false);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8080/posts")
+    fetch("https://snapdeal-json-server.onrender.com/kids")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -20,7 +22,7 @@ const Admin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:8080/posts", {
+    fetch("https://snapdeal-json-server.onrender.com/kids", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json" },
@@ -45,7 +47,7 @@ const Admin = () => {
       price: new_price,
       rating: new_rating,
       name: new_name,
-      image: new_image,
+      images: new_image,
     };
 
     let res = await fetch(`${api}/${id}`, {
@@ -55,6 +57,8 @@ const Admin = () => {
         "Content-Type": "application/json",
       },
     });
+
+    setRefresh(!refresh);
   };
 
   let removeProduct = async (id) => {
@@ -66,25 +70,53 @@ const Admin = () => {
 
   let sortHtoL = async () => {
     console.log("ok");
-    let res = await fetch("http://localhost:8080/posts?_sort=price&_order=asc");
+    let res = await fetch("https://snapdeal-json-server.onrender.com/kids?_sort=price&_order=desc");
     let data = await res.json();
     setData(data);
+    
+  };
+
+  let sortHightoLow = async () => {
+    console.log("ok");
+    let res = await fetch("https://snapdeal-json-server.onrender.com/kids?_sort=rating&_order=desc");
+    let data = await res.json();
+    setData(data);
+    
   };
 
   let sortLtoH = async () => {
     console.log("ok");
     let res = await fetch(
-      "http://localhost:8080/posts?_sort=price&_order=desc"
+      "https://snapdeal-json-server.onrender.com/kids?_sort=price&_order=asc"
     );
     let data = await res.json();
     setData(data);
+    
+  };
+
+  let sortLowtoHigh = async () => {
+    console.log("ok");
+    let res = await fetch("https://snapdeal-json-server.onrender.com/kids?_sort=rating&_order=asc");
+    let data = await res.json();
+    setData(data);
+    
   };
 
   const handleChange = (event) => {
-    if (event.target.name === "price" || event.target.name === "rating")
+    if (event.target.name === "price" || event.target.name === "rating"){
       setFormData({ ...formData, [event.target.name]: +event.target.value });
-    else setFormData({ ...formData, [event.target.name]: event.target.value });
+    }
+    // else if(event.target.name === "image"){
+    //   setFormData({ ...formData, [event.target.name]: [...event.target.value] });
+    // }
+    else {
+      setFormData({ ...formData, [event.target.name]: event.target.value });
+    }
   };
+
+  function userHandle(){
+    navigate('/usersdata')
+  }
 
   return (
     <div
@@ -100,7 +132,7 @@ const Admin = () => {
         style={{
           width: "370px",
           border: "1px solid red",
-          height: "400px",
+          height: "650px",
           backgroundColor: "Cornsilk",
           marginLeft: "20px",
           // position:"fixed"
@@ -132,7 +164,7 @@ const Admin = () => {
             />
             <input
               type="url"
-              name="image"
+              name="images"
               placeholder="Product Url"
               onChange={handleChange}
               style={{
@@ -226,6 +258,66 @@ const Admin = () => {
             〇 Price: Low To High
           </h2>
         </div>
+
+        <div
+          className="filtering"
+          style={{
+            border: "1px solid black",
+            marginTop: "0px",
+            borderRadius: "10px",
+            backgroundColor: "white",
+            height: "auto",
+            marginTop: "40px",
+          }}>
+          <h1
+            style={{
+              fontFamily: "sans-serif",
+              marginTop: "10px",
+              fontSize: "18px",
+              fontWeight: "bold",
+              marginLeft: "30px",
+            }}>
+            Sort By :- Rating
+          </h1>
+          <h2
+            onClick={() => sortHightoLow()}
+            style={{
+              fontFamily: "sans-serif",
+              marginTop: "10px",
+              fontSize: "16px",
+              marginLeft: "110px",
+            }}>
+            〇 Price: High To Low
+          </h2>
+          <h2
+            onClick={() => sortLowtoHigh()}
+            style={{
+              fontFamily: "sans-serif",
+              marginTop: "10px",
+              fontSize: "16px",
+              marginLeft: "110px",
+            }}>
+            〇 Price: Low To High
+          </h2>
+        </div>
+
+        <div>
+           
+          <button style={{
+                width: "350px",
+                marginBottom: "7px",
+                padding: "5px",
+                backgroundColor: "black",
+                fontSize: "19px",
+                marginLeft: "10px",
+                marginTop:"50px",
+                color:"white",
+                
+              }}
+               onClick={userHandle}
+              >Users Data</button>
+           
+        </div>
       </div>
 
       <div
@@ -263,7 +355,7 @@ const Admin = () => {
                     borderRadius: "10px",
                   }}>
                   <img
-                    src={ele.image}
+                    src={ele.images}
                     style={{
                       width: "200px",
                       height: "250px",
@@ -275,9 +367,10 @@ const Admin = () => {
                       fontFamily: "sans-serif",
                       marginTop: "10px",
                       fontSize: "20px",
-                      marginLeft: "80px",
+                      marginLeft: "20px",
+                      margin:"auto"
                     }}>
-                    {ele.name}
+                    {ele.subtitle}
                   </h1>
                   <h1
                     style={{
@@ -337,6 +430,7 @@ const Admin = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
