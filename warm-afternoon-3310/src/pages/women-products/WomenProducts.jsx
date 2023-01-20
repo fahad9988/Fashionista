@@ -15,6 +15,7 @@ import SideBar2 from "../../components/Fahad_Components/SideBar2"
 import ProductHeader2 from "../../components/Fahad_Components/ProductHeader2"
 
 import {BsFillFilterSquareFill} from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 import "./WomenProducts.css";
 
@@ -59,15 +60,16 @@ const WomenProducts = () => {
   
   return (
     <>
-    <Box display={{sm:"block",md:"flex"}} position="relative" p="10px">
+    <Box display={{base:"block",md:"flex"}} position="relative" p="10px">
 
-      <Box flex={0.3} display={{sm:"none",md:"block"}} >
+      <Box flex={0.3} display={{base:"none",md:"block"}} >
       <SideBar2 
       kurta={kurta} setKurta={setKurta} jeans={jeans} setJeans={setJeans} saree={saree} setSaree={setSaree} trousers={trousers} setTrousers={setTrousers}  kalini={kalini} setKalini={setKalini} anouk={anouk} setAnouk={setAnouk} khushalk={khushalk} setKhushalk={setKhushalk} fashor={fashor} setFashor={setFashor} slider={slider} setSlider={setSlider}
+      low={low} high={high}
       />
       </Box>
 
-      <Box display={{sm:"flex",md:"none"}} alignItems="center" >
+      <Box  pl="12px" display={{base:"flex",md:"none"}} alignItems="center" >
        <BsFillFilterSquareFill onClick={onOpen} fontSize={20} color="#E40046" />
        <Text onClick={onOpen} cursor="pointer" fontSize="20px" fontWeight="bold"  ml="7px" >Filter</Text>
        <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
@@ -89,6 +91,7 @@ const WomenProducts = () => {
 
         {
         products.loading && <Box display="grid" gridTemplateColumns={{
+          base:"repeat(1,1fr)",
           sm: "repeat(2,1fr)",
           md: "repeat(2,1fr)",
           lg: "repeat(3,1fr)",
@@ -116,6 +119,7 @@ const WomenProducts = () => {
          <Grid  
         
             templateColumns={{
+              base: "repeat(1,1fr)",
               sm: "repeat(2,1fr)",
               md: "repeat(2,1fr)",
               lg: "repeat(3,1fr)",
@@ -127,7 +131,8 @@ const WomenProducts = () => {
             >
           {
             products.data?.map((item)=>{
-              return <GridItem m="auto" p="15px 7px" minW="210px" maxWidth="260px" key={item.id} position="relative" className='product-card'>
+              return <Link to={`/products/${item.id}`} >
+              <GridItem m="auto" p="15px 7px" minW="210px" maxWidth="260px" key={item.id} position="relative" className='product-card'>
             
                  <Image
                   m="auto"
@@ -163,12 +168,8 @@ const WomenProducts = () => {
                     ({item.rating})
                   </Box>
                 </Box>
-
-                
-                
-               
-
-              </GridItem>
+                </GridItem>
+              </Link>
             })
           }
          </Grid>

@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_SUCCESS,GET_PRODUCTS_LOADING,GET_PRODUCTS_ERROR,GET_WOMEN_PRODUCTS_SUCCESS,GET_KID_PRODUCTS_SUCCESS } from "./product.types";
+import { GET_PRODUCTS_SUCCESS,GET_PRODUCTS_LOADING,GET_PRODUCTS_ERROR,GET_WOMEN_PRODUCTS_SUCCESS,GET_KID_PRODUCTS_SUCCESS,GET_SINGLE_PRODUCT_SUCCESS } from "./product.types";
 import axios from "axios"
 
 export const getMenProducts=(joggers,jeans,sweatshirt,trousers,chinos,casualshirt,search,sort,popularity,roadster,highlander,locomotive,ivoc,low,high)=>async(dispatch)=>{
@@ -320,4 +320,9 @@ export const getKidProducts=(sweatshirt,tshirt,trackpants,blazer,search,sort,pop
     } catch (error) {
      dispatch({type:GET_PRODUCTS_ERROR});
     }
+}
+
+export const getSingleProduct=(id)=>async(dispatch)=>{
+let res=await axios.get(`https://snapdeal-json-server.onrender.com/allProducts/${id}`);
+dispatch({type:GET_SINGLE_PRODUCT_SUCCESS,payload:res.data})
 }

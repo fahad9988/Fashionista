@@ -15,6 +15,7 @@ import SideBar3 from "../../components/Fahad_Components/SideBar3"
 import ProductHeader3 from "../../components/Fahad_Components/ProductHeader3"
 
 import {BsFillFilterSquareFill} from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 import "./KidProducts.css";
 
@@ -63,7 +64,7 @@ const KidProducts = () => {
 
       <Box flex={0.3} display={{sm:"none",md:"block"}} >
       <SideBar3 
-      sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} tshirt={tshirt} setTshirt={setTshirt} trackpants={trackpants} setTrackpants={setTrackpants} blazer={blazer} setBlazer={setBlazer}  hellcat={hellcat} setHellcat={setHellcat} hopscotch={hopscotch} setHopscotch={setHopscotch} plumtree={plumtree} setPlumtree={setPlumtree} max={max} setMax={setMax} slider={slider} setSlider={setSlider}
+      sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} tshirt={tshirt} setTshirt={setTshirt} trackpants={trackpants} setTrackpants={setTrackpants} blazer={blazer} setBlazer={setBlazer}  hellcat={hellcat} setHellcat={setHellcat} hopscotch={hopscotch} setHopscotch={setHopscotch} plumtree={plumtree} setPlumtree={setPlumtree} max={max} setMax={setMax} slider={slider} setSlider={setSlider} low={low} high={high}
       />
       </Box>
 
@@ -127,7 +128,8 @@ const KidProducts = () => {
             >
           {
             products.data?.map((item)=>{
-              return <GridItem m="auto" p="15px 7px" minW="210px" maxWidth="260px" key={item.id} position="relative" className='product-card'>
+              return <Link to={`/products/${item.id}`} >
+              <GridItem m="auto" p="15px 7px" minW="210px" maxWidth="260px" key={item.id} position="relative" className='product-card'>
             
                  <Image
                   m="auto"
@@ -163,12 +165,8 @@ const KidProducts = () => {
                     ({item.rating})
                   </Box>
                 </Box>
-
-                
-                
-               
-
-              </GridItem>
+                </GridItem>
+              </Link>
             })
           }
          </Grid>

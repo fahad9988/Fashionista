@@ -15,6 +15,7 @@ import ProductHeader from '../../components/Fahad_Components/ProductHeader';
 import {BsFillFilterSquareFill} from "react-icons/bs";
 
 import "./MenProducts.css";
+import { Link } from 'react-router-dom';
 
 const MenProducts = () => {
 
@@ -63,7 +64,7 @@ const MenProducts = () => {
 
       <Box flex={0.3} display={{sm:"none",md:"block"}} >
       <SideBar 
-      joggers={joggers} setJoggers={setJoggers} jeans={jeans} setJeans={setJeans} sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} trousers={trousers} setTrousers={setTrousers} chinos={chinos} setChinos={setChinos} casualshirt={casualshirt} setCasualShirt={setCasualShirt} roadster={roadster} setRoadster={setRoadster} highlander={highlander} setHighlander={setHighlander} locomotive={locomotive} setLocomotive={setLocomotive} ivoc={ivoc} setIvoc={setIvoc} slider={slider} setSlider={setSlider}
+      joggers={joggers} setJoggers={setJoggers} jeans={jeans} setJeans={setJeans} sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} trousers={trousers} setTrousers={setTrousers} chinos={chinos} setChinos={setChinos} casualshirt={casualshirt} setCasualShirt={setCasualShirt} roadster={roadster} setRoadster={setRoadster} highlander={highlander} setHighlander={setHighlander} locomotive={locomotive} setLocomotive={setLocomotive} ivoc={ivoc} setIvoc={setIvoc} slider={slider} setSlider={setSlider} low={low} high={high}
       />
       </Box>
 
@@ -127,7 +128,8 @@ const MenProducts = () => {
             >
           {
             products.data?.map((item)=>{
-              return <GridItem m="auto" p="15px 7px" minW="210px" maxWidth="260px" key={item.id} position="relative" className='product-card'>
+              return <Link to={`/products/${item.id}`} >
+              <GridItem m="auto" p="15px 7px" minW="210px" maxWidth="260px" key={item.id} position="relative" className='product-card'>
             
                  <Image
                   m="auto"
@@ -163,12 +165,8 @@ const MenProducts = () => {
                     ({item.rating})
                   </Box>
                 </Box>
-
-                
-                
-               
-
               </GridItem>
+              </Link>
             })
           }
          </Grid>

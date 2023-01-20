@@ -18,7 +18,7 @@ import {
 import { Box } from '@chakra-ui/react';
 import SideBarHeader2 from './SideBarHeader2';
 
-const SideBar2 = ({   kurta,setKurta,jeans,setJeans,saree,setSaree,trousers ,setTrousers  ,kalini,setKalini,anouk,setAnouk,khushalk,setKhushalk,fashor,setFashor,slider,setSlider}) => {
+const SideBar2 = ({   kurta,setKurta,jeans,setJeans,saree,setSaree,trousers ,setTrousers  ,kalini,setKalini,anouk,setAnouk,khushalk,setKhushalk,fashor,setFashor,slider,setSlider,low,high}) => {
   return (
     <>
     <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
@@ -185,9 +185,9 @@ const SideBar2 = ({   kurta,setKurta,jeans,setJeans,saree,setSaree,trousers ,set
                 </Box>
               
             <Flex direction="row">
-            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 0</Box>
+            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. {low?low.toFixed():0}</Box>
             <Spacer/>
-            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 7890</Box>
+            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. {high?high.toFixed():7890}</Box>
             </Flex>
 
               </Flex>

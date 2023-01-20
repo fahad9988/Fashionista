@@ -6,3 +6,5 @@ export const GET_WOMEN_PRODUCTS_SUCCESS="womenproducts/get/success";
 
 export const GET_KID_PRODUCTS_SUCCESS="kidproducts/get/success";
 
+export const GET_SINGLE_PRODUCT_SUCCESS="singleproduct/get/success"
+
