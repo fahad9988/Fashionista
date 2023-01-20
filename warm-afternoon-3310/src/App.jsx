@@ -1,3 +1,5 @@
+
+import HomePage from './pages/homepage/HomePage'
 import AllRoutes from './all-routes/AllRoutes';
 import React from "react";
 import ReactDOM from "react-dom";
@@ -23,6 +25,7 @@ function App() {
     <div >
 
       <Navbar />
+
       <AllRoutes/>
       {/* <Admin/> */}
       {/* <Usersdata/> */}
