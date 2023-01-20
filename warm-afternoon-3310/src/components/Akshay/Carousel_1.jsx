@@ -1,8 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image,Text } from "@chakra-ui/react";
 import React from 'react'
+import { useState } from "react";
 
 const ImageSlider = () => {
     const images = [{
@@ -36,6 +37,10 @@ const ImageSlider = () => {
   autoplaySpeed: 3000,
    
   };
+  const [state,setState]=useState()
+  const id=setInterval(()=>{
+
+  },1000)
   return (
     <>
 
@@ -47,7 +52,14 @@ const ImageSlider = () => {
             </div>
           ))}
         </Slider>
+        <Box display="flex" fontSize={"xs"}   mt="-2" color="gray" border={"1px solid gray"} bgColor="white">
+            <Box width="25%"  borderRight={"1px solid gray"}><Text   textAlign="center">BOB</Text></Box>
+            <Box width="25%"  borderRight={"1px solid gray"}><Text   textAlign="center">Western Wear</Text></Box>
+            <Box width="25%"  borderRight={"1px solid gray"}><Text   textAlign="center">Kitchen Needs</Text></Box>
+            <Box width="25%" ><Text  textAlign="center">Kurti Sets</Text></Box>
+        </Box>
       </div>
+      
           </>
   )
 }

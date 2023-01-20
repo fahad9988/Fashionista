@@ -5,14 +5,16 @@ import ImageSlider from '../../components/Akshay/Carousel_1'
 import {Search2Icon} from "@chakra-ui/icons"
 import ln from "../../components/Akshay/Images/ln.png"
 import { TrendingSlider } from '../../components/Akshay/Carousel_2'
-
+import Pm from "../../components/Akshay/Images/Payment.png"
+import Ps from "../../components/Akshay/Images/poster.png"
 const HomePage = () => {
     const [state, setstate] = useState(null);
-    const [value,setvalue]=useState("")
+    const [Value,setValue]=useState("")
   return (
+    <>
     <Box display={"flex"} px="3%" py="10px" gap="1%" lineHeight={"25px"} color="gray" bgColor={"rgb(247,247,247)"}>
-      <Box >
-          <Box bgColor={"white"} p="10px" px="15px" fontSize="xs">
+      <Box display={["none","none","none","none","flex","flex"]}flexDirection={"column"} >
+          <Box bgColor={"white"} p="10px" px="15px" fontSize="11px">
               <Text>TOP CATEGORIES</Text>
               <Text cursor={"pointer"}>  
                 <Avatar name='Dan Abrahmov' size="xs" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCj6ELfAzyzeBFLx5WzsB5OgaSff7BdrHcfg&usqp=CAU' mb="10px"/>
@@ -47,35 +49,30 @@ const HomePage = () => {
               <Text cursor={"pointer"}><Search2Icon fontSize="8px"/>  Sport Shoe Men</Text>
           </Box>
           <Box>
-
+            <Image src={Pm}></Image>
           </Box>
       </Box>
       
-      <Box display={"flex"} w="86%" flexDirection={"column"} >
+      <Box display={"flex"} w={["100%","100%","100%","100%","86%","86%"]}flexDirection={"column"} >
         <Box display={"flex"}gap={"10px"}>
             <ImageSlider ></ImageSlider>    
-            <Box bgColor={"white"} w="100%" justifyContent={"center"} gap="8px" p="5px" fontSize={"12px"} textalign="center" display="flex" flexDirection="column"alignItems="center">
+            <Box bgColor={"white"} w="100%" justifyContent={"center"} gap="8px" p="8px" fontSize={"12px"} textalign="center" display="flex" flexDirection="column"alignItems="center">
               <Image src={ln} width="60%"></Image> 
               <Text>Your Delivery Pincode</Text>   
-              <Text textAlign={"center"}>Enter your pincode to check availability and faster delivery options</Text>
-              {state?<Text>Pincode:{state}</Text>:<Input size="xs" type="number" width="80%" placeholder='Enter Pincode' value={value} onChange={(e)=>setvalue(e.target.value)}></Input>}
-              {state?<Button size={"xs"} onClick={()=>setstate(null)} bgColor="black" color="white" >Change Pincode</Button>:<Button size="xs" bgColor="black" color="white" onClick={()=>setstate(value)}>Submit</Button>}   
+              <Text textAlign={"center"} lineHeight="1.3">Enter your pincode to check availability and faster delivery options</Text>
+              {state?<Text>Pincode:{state}</Text>:<Input size="xs" type="number" width="80%" placeholder='Enter Pincode' value={Value} onChange={(e)=>setValue(e.target.value)}></Input>}
+              {state?<Button size={"xs"} onClick={()=>setstate(null)} bgColor="black" color="white" >Change Pincode</Button>:<Button size="xs" bgColor="black" color="white" onClick={()=>setstate(Value)}>Submit</Button>}   
             </Box>
         </Box>
         <Box >
-        <Box>
-            <Text color="blackAlpha.800">
-              TRENDING PRODUCTS
-            </Text>
             <Box>
-              {/* <TrendingSlider/> */}
+              <TrendingSlider/>
             </Box>
         </Box>
-        </Box>
       </Box>
-
-        
     </Box>
+        <Image src={Ps}></Image>
+        </> 
   )
 }
 

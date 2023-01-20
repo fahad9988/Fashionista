@@ -1,10 +1,10 @@
 .card{
     color:black;
-    height: 400px;
     overflow: hidden;
-    padding: 0px;
+    padding: 10px;
     margin: 10px;
     background-color: white;
+    min-width: 400px;
 }
 .card2{
     color:black;
@@ -14,35 +14,31 @@
     margin: 10px;
     background-color: white;
 }
-.Button_container{
-    padding: 0px;
-    display: flex;
-    gap:10px;
-    flex-direction: row-reverse;
-}
+
 .product_container{
     display: flex;
     gap:20px;
-    padding:0px 0px;
     /* width: 80%; */
     overflow: hidden;;
     scroll-behavior: smooth;;
-    /* position:relative; */
     /* right:0; */
     /* margin-left:25% */
 
 }
 .carousel{
-    position:relative;
     overflow: hidden;
     padding: 26px;
     background-color: #f5f7fa;
+    display: "flex";
+    flex-direction: "column";
 }
-.line{
-    color:red;
-    background-color:red;
-    width:5%;
-    padding:1px;
-    margin-top: 10px;
-    margin-left: 2%;
+.card{
+    transition: all 0.3s ease-in;
+    z-index: 3;
+    min-width: "400px";
+
+   }
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   scale: 1.02;
 }
