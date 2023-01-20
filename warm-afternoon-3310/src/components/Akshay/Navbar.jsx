@@ -4,10 +4,15 @@ import Fs from "./Images/Fashionista.png"
 import { BiLogIn } from "react-icons/bi";
 import { AiOutlineShoppingCart} from "react-icons/ai";
 import Auth from "../../pages/authentication/Auth";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate()
+  const handleClick = ()=>{
+     navigate("/productCart")
+  }
   return (
-    <Box w="100%" m="auto" color="white">
+    <Box w="100%" m="auto" color="white" position="fixed">
       <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
         <Flex gap={"20px"}>
@@ -29,7 +34,7 @@ const Navbar = () => {
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
-          <Box alignItems="center"  display="flex" px="20px">
+          <Box alignItems="center"  display="flex" px="20px" onClick={handleClick}>
             Cart
             <Icon   as={AiOutlineShoppingCart} />
           </Box>
