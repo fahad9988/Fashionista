@@ -16,17 +16,14 @@ import {
 } from "@chakra-ui/react";
 
 import { Box } from '@chakra-ui/react';
-import SideBarHeader from './SideBarHeader';
+import SideBarHeader2 from './SideBarHeader2';
 
-const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,trousers ,setTrousers ,chinos ,setChinos ,casualshirt ,setCasualShirt ,roadster,setRoadster,highlander,setHighlander,locomotive,setLocomotive,ivoc,setIvoc,slider,setSlider}) => {
-
-
-
+const SideBar2 = ({   kurta,setKurta,jeans,setJeans,saree,setSaree,trousers ,setTrousers  ,kalini,setKalini,anouk,setAnouk,khushalk,setKhushalk,fashor,setFashor,slider,setSlider}) => {
   return (
     <>
     <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
       <Flex flexDirection="column"  p="15px 15px">
-        <SideBarHeader/>
+        <SideBarHeader2/>
 
         <Accordion  defaultIndex={[0]} allowMultiple mt="17.6px">
           <AccordionItem>
@@ -40,17 +37,17 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox value="Sweatshirt" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
+                <Checkbox value="Saree" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setSweatshirt(value)
+                     setSaree(value)
                    }else{
-                     let new_str=sweatshirt.replace(value,"")
-                     setSweatshirt(new_str)
+                     let new_str=saree.replace(value,"")
+                     setSaree(new_str)
                    }
                 }} >
                   <Text color="grey">
-                    Sweatshirt
+                    Saree
                   </Text>
                 </Checkbox>
                 <Checkbox value="Jeans" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
@@ -79,45 +76,20 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Trousers
                   </Text>
                 </Checkbox>
-                <Checkbox value="Joggers" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
+                <Checkbox value="Kurta" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setJoggers(value)
+                     setKurta(value)
                    }else{
-                     let new_str=joggers.replace(value,"")
-                     setJoggers(new_str)
+                     let new_str=kurta.replace(value,"")
+                     setKurta(new_str)
                    }
                 }} >
                   <Text color="grey">
-                   Joggers
+                   Kurta
                   </Text>
                 </Checkbox>
-                <Checkbox value="Chinos" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setChinos(value)
-                   }else{
-                     let new_str=chinos.replace(value,"")
-                     setChinos(new_str)
-                   }
-                }} >
-                  <Text color="grey">
-                   Chinos
-                  </Text>
-                </Checkbox>
-                <Checkbox value="Casual Shirt" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setCasualShirt(value)
-                   }else{
-                     let new_str=casualshirt.replace(value,"")
-                     setCasualShirt(new_str)
-                   }
-                }} >
-                  <Text color="grey">
-                   Casual Shirt
-                  </Text>
-                </Checkbox>
+                
               </Flex>
             </AccordionPanel>
           </AccordionItem>
@@ -133,56 +105,56 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox  value="Roadster" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox  value="KALINI" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setRoadster(value)
+                     setKalini(value)
                    }else{
-                     let new_str=roadster.replace(value,"")
-                     setRoadster(new_str)
+                     let new_str=kalini.replace(value,"")
+                     setKalini(new_str)
                    }
                 }}>
                   <Text color="grey">
-                    Roadster
+                    Kalini
                   </Text>
                 </Checkbox>
-                <Checkbox  value="HIGHLANDER" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox  value="Anouk" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setHighlander(value)
+                     setAnouk(value)
                    }else{
-                     let new_str=highlander.replace(value,"")
-                     setHighlander(new_str)
+                     let new_str=anouk.replace(value,"")
+                     setAnouk(new_str)
                    }
                 }}>
                   <Text  color="grey">
-                    Highlander
+                    Anouk
                   </Text>
                 </Checkbox>
-                <Checkbox value="LOCOMOTIVE" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox value="Khushal K" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setLocomotive(value)
+                     setKhushalk(value)
                    }else{
-                     let new_str=locomotive.replace(value,"")
-                     setLocomotive(new_str)
+                     let new_str=khushalk.replace(value,"")
+                     setKhushalk(new_str)
                    }
                 }} >
                   <Text  color="grey">
-                    Locomotive
+                    Khushal K
                   </Text>
                 </Checkbox>
-                <Checkbox value="IVOC" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox value="FASHOR" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setIvoc(value)
+                     setFashor(value)
                    }else{
-                     let new_str=ivoc.replace(value,"")
-                     setIvoc(new_str)
+                     let new_str=fashor.replace(value,"")
+                     setFashor(new_str)
                    }
                 }} >
                   <Text  color="grey">
-                    IVOC
+                    Fashor
                   </Text>
                 </Checkbox>
               </Flex>
@@ -215,7 +187,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             <Flex direction="row">
             <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 0</Box>
             <Spacer/>
-            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 3199</Box>
+            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 7890</Box>
             </Flex>
 
               </Flex>
@@ -273,4 +245,4 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
   )
 }
 
-export default SideBar
+export default SideBar2

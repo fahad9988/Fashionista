@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_SUCCESS,GET_PRODUCTS_LOADING,GET_PRODUCTS_ERROR } from "./product.types";
+import { GET_PRODUCTS_SUCCESS,GET_PRODUCTS_LOADING,GET_PRODUCTS_ERROR,GET_WOMEN_PRODUCTS_SUCCESS,GET_KID_PRODUCTS_SUCCESS } from "./product.types";
 
 const initialState={
  loading:false,
@@ -19,6 +19,18 @@ switch(type){
   error:true
  };
  case GET_PRODUCTS_SUCCESS:return {
+  ...state,
+  loading:false,
+  error:false,
+  data:payload
+ };
+ case GET_WOMEN_PRODUCTS_SUCCESS:return {
+  ...state,
+  loading:false,
+  error:false,
+  data:payload
+ };
+ case GET_KID_PRODUCTS_SUCCESS:return {
   ...state,
   loading:false,
   error:false,

@@ -16,17 +16,14 @@ import {
 } from "@chakra-ui/react";
 
 import { Box } from '@chakra-ui/react';
-import SideBarHeader from './SideBarHeader';
+import SideBarHeader3 from './SideBarHeader3';
 
-const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,trousers ,setTrousers ,chinos ,setChinos ,casualshirt ,setCasualShirt ,roadster,setRoadster,highlander,setHighlander,locomotive,setLocomotive,ivoc,setIvoc,slider,setSlider}) => {
-
-
-
+const SideBar3 = ({   sweatshirt,setSweatshirt,tshirt,setTshirt,trackpants,setTrackpants,blazer ,setBlazer  ,hellcat,setHellcat,hopscotch,setHopscotch,plumtree,setPlumtree,max,setMax,slider,setSlider}) => {
   return (
     <>
     <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
       <Flex flexDirection="column"  p="15px 15px">
-        <SideBarHeader/>
+        <SideBarHeader3/>
 
         <Accordion  defaultIndex={[0]} allowMultiple mt="17.6px">
           <AccordionItem>
@@ -40,6 +37,45 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
+                <Checkbox value="Track Pants" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setTrackpants(value)
+                   }else{
+                     let new_str=trackpants.replace(value,"")
+                     setTrackpants(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                    Track Pants
+                  </Text>
+                </Checkbox>
+                <Checkbox value="T-shirt" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setTshirt(value)
+                   }else{
+                     let new_str=tshirt.replace(value,"")
+                     setTshirt(new_str)
+                   }
+                }} >
+                  <Text  color="grey">
+                    T-Shirt
+                  </Text>
+                </Checkbox>
+                <Checkbox value="Blazer" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
+                   let {value,checked} =e.target;
+                   if(checked){
+                     setBlazer(value)
+                   }else{
+                     let new_str=blazer.replace(value,"")
+                     setBlazer(new_str)
+                   }
+                }} >
+                  <Text color="grey">
+                    Blazer
+                  </Text>
+                </Checkbox>
                 <Checkbox value="Sweatshirt" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
@@ -50,74 +86,10 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                    }
                 }} >
                   <Text color="grey">
-                    Sweatshirt
+                   Sweatshirt
                   </Text>
                 </Checkbox>
-                <Checkbox value="Jeans" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setJeans(value)
-                   }else{
-                     let new_str=jeans.replace(value,"")
-                     setJeans(new_str)
-                   }
-                }} >
-                  <Text  color="grey">
-                    Jeans
-                  </Text>
-                </Checkbox>
-                <Checkbox value="Trousers" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setTrousers(value)
-                   }else{
-                     let new_str=trousers.replace(value,"")
-                     setTrousers(new_str)
-                   }
-                }} >
-                  <Text color="grey">
-                    Trousers
-                  </Text>
-                </Checkbox>
-                <Checkbox value="Joggers" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setJoggers(value)
-                   }else{
-                     let new_str=joggers.replace(value,"")
-                     setJoggers(new_str)
-                   }
-                }} >
-                  <Text color="grey">
-                   Joggers
-                  </Text>
-                </Checkbox>
-                <Checkbox value="Chinos" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setChinos(value)
-                   }else{
-                     let new_str=chinos.replace(value,"")
-                     setChinos(new_str)
-                   }
-                }} >
-                  <Text color="grey">
-                   Chinos
-                  </Text>
-                </Checkbox>
-                <Checkbox value="Casual Shirt" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
-                   let {value,checked} =e.target;
-                   if(checked){
-                     setCasualShirt(value)
-                   }else{
-                     let new_str=casualshirt.replace(value,"")
-                     setCasualShirt(new_str)
-                   }
-                }} >
-                  <Text color="grey">
-                   Casual Shirt
-                  </Text>
-                </Checkbox>
+                
               </Flex>
             </AccordionPanel>
           </AccordionItem>
@@ -133,56 +105,56 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox  value="Roadster" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox  value="HELLCAT" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setRoadster(value)
+                     setHellcat(value)
                    }else{
-                     let new_str=roadster.replace(value,"")
-                     setRoadster(new_str)
+                     let new_str=hellcat.replace(value,"")
+                     setHellcat(new_str)
                    }
                 }}>
                   <Text color="grey">
-                    Roadster
+                    Hellcat
                   </Text>
                 </Checkbox>
-                <Checkbox  value="HIGHLANDER" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox  value="Hopscotch" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setHighlander(value)
+                     setHopscotch(value)
                    }else{
-                     let new_str=highlander.replace(value,"")
-                     setHighlander(new_str)
+                     let new_str=hopscotch.replace(value,"")
+                     setHopscotch(new_str)
                    }
                 }}>
                   <Text  color="grey">
-                    Highlander
+                    Hopscotch
                   </Text>
                 </Checkbox>
-                <Checkbox value="LOCOMOTIVE" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox value="PLUM TREE" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setLocomotive(value)
+                     setPlumtree(value)
                    }else{
-                     let new_str=locomotive.replace(value,"")
-                     setLocomotive(new_str)
+                     let new_str=plumtree.replace(value,"")
+                     setPlumtree(new_str)
                    }
                 }} >
                   <Text  color="grey">
-                    Locomotive
+                    Plum Tree
                   </Text>
                 </Checkbox>
-                <Checkbox value="IVOC" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
+                <Checkbox value="max" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
-                     setIvoc(value)
+                     setMax(value)
                    }else{
-                     let new_str=ivoc.replace(value,"")
-                     setIvoc(new_str)
+                     let new_str=max.replace(value,"")
+                     setMax(new_str)
                    }
                 }} >
                   <Text  color="grey">
-                    IVOC
+                    MAX
                   </Text>
                 </Checkbox>
               </Flex>
@@ -215,7 +187,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             <Flex direction="row">
             <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 0</Box>
             <Spacer/>
-            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 3199</Box>
+            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. 1499</Box>
             </Flex>
 
               </Flex>
@@ -273,4 +245,4 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
   )
 }
 
-export default SideBar
+export default SideBar3

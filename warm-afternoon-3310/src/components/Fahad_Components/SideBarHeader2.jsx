@@ -8,7 +8,8 @@ import {
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
-const SideBarHeader = () => {
+
+const SideBarHeader2 = () => {
   return (
     <Box  display="flex" justifyContent="center" h="33px" alignItems="center" >
       <Breadcrumb color="red.600" fontSize={15} spacing={1} separator={<ChevronRightIcon color='red.600' />}>
@@ -17,7 +18,7 @@ const SideBarHeader = () => {
   </BreadcrumbItem>
 
   <BreadcrumbItem isCurrentPage>
-    <BreadcrumbLink href='/menproducts'>Mens</BreadcrumbLink>
+    <BreadcrumbLink href='/womenproducts'>Women</BreadcrumbLink>
   </BreadcrumbItem>
 
 </Breadcrumb>
@@ -26,4 +27,4 @@ const SideBarHeader = () => {
   )
 }
 
-export default SideBarHeader
+export default SideBarHeader2
