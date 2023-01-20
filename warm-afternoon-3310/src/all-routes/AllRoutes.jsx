@@ -13,7 +13,6 @@ import ProductCart from '../pages/cart/productCart';
 import MenProducts from '../pages/men-products/MenProducts';
 import { Auth0Provider } from '@auth0/auth0-react';
 import HomePage from '../pages/homepage/HomePage';
-
 const AllRoutes = () => {
   return (
     <div>
