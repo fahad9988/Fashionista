@@ -4,16 +4,24 @@ import Fs from "./Images/Fashionista.png"
 import { BiLogIn } from "react-icons/bi";
 import { useState } from 'react';
 import { AiOutlineShoppingCart} from "react-icons/ai";
+import Auth from "../../pages/authentication/Auth";
+import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
-  const [display, setdisplay] = useState("flex");
-  console.log(display)
-  window.addEventListener("scroll",()=>{
-    window.scrollY>50?setdisplay("none"):setdisplay("flex")
-    // window.screenX<500?setdisplay("none"):setdisplay("flex")
-  })
+
+
   return (
     <Box w="100%" m="auto" color="white" position={"sticky"} top={0} zIndex="20">
       <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" transition="ease-out" justifyContent="space-between" display={["none","none","flex"] || display}  fontSize={["8px","12px"]}>
+
+  const navigate = useNavigate()
+  const handleClick = ()=>{
+     navigate("/productCart")
+  }
+  return (
+    <Box w="100%" m="auto" color="white" position="fixed">
+      <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
+
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
         <Flex gap={"20px"}>
           <Text>Impact@Snapdeal</Text>
@@ -34,16 +42,15 @@ const Navbar = () => {
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
-          <Box alignItems="center"  display="flex" px="20px">
+          <Box alignItems="center"  display="flex" px="20px" onClick={handleClick}>
             Cart
             <Icon   as={AiOutlineShoppingCart} />
           </Box>
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
-          <Box alignItems="center"  display="flex" px="20px" >
-            Sign In
-            <Icon as={BiLogIn} />
+          <Box alignItems="center"  display="flex" px="20px">
+            <Auth />
           </Box>
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
