@@ -3,8 +3,6 @@ import HomePage from './pages/homepage/HomePage'
 import AllRoutes from './all-routes/AllRoutes';
 import React from "react";
 import ReactDOM from "react-dom";
-import Footer from './components/Akshay/Footer';
-import Navbar from './components/Akshay/Navbar';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,13 +21,6 @@ function App() {
 
   return (
     <div >
-
-      <Navbar />
-
-      <AllRoutes/>
-      {/* <Admin/> */}
-      {/* <Usersdata/> */}
-      <Footer/>
       <ToastContainer theme='colored' position='top-center'></ToastContainer>
       <Auth0Provider
         domain="dev-qe8rba52yh4bo8bp.us.auth0.com"

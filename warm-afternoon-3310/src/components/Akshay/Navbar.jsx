@@ -9,17 +9,13 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
-
-  return (
-    <Box w="100%" m="auto" color="white" position={"sticky"} top={0} zIndex="20">
-      <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" transition="ease-out" justifyContent="space-between" display={["none","none","flex"] || display}  fontSize={["8px","12px"]}>
-
   const navigate = useNavigate()
   const handleClick = ()=>{
      navigate("/productCart")
   }
+
   return (
-    <Box w="100%" m="auto" color="white" position="fixed">
+    <Box w="100%" m="auto" color="white" position="sticky" zIndex={30} top={0}>
       <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
 
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>

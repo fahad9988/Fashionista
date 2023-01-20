@@ -1,7 +1,6 @@
 import React from 'react';
 import {Routes,Route} from "react-router-dom";
 import KidProducts from '../pages/kid-products/KidProducts';
-import MenProducts from '../pages/men-products/MenProducts';
 import WomenProducts from '../pages/women-products/WomenProducts';
 
 import SingleProduct from "../pages/single-product/SingleProduct"
@@ -12,16 +11,14 @@ import Admin from '../pages/admin/Admin';
 import ProductCart from '../pages/cart/productCart';
 
 import MenProducts from '../pages/men-products/MenProducts';
-// import { Auth0Provider } from '@auth0/auth0-react';
-
-
-
+import { Auth0Provider } from '@auth0/auth0-react';
+import HomePage from '../pages/homepage/HomePage';
 
 const AllRoutes = () => {
   return (
     <div>
       <Routes>
-
+        <Route  path='/' element={<HomePage/>}></Route>
         <Route path='/menproducts' element={<MenProducts/>} ></Route>
         <Route path='/womenproducts' element={<WomenProducts/>} ></Route>
         <Route path='/kidproducts' element={<KidProducts/>} ></Route>
