@@ -1,11 +1,5 @@
 import React from 'react';
 import {
-  Drawer,
-  DrawerOverlay,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
-  DrawerContent,
   Text,
   Flex,
   Accordion,
@@ -24,7 +18,7 @@ import {
 import { Box } from '@chakra-ui/react';
 import SideBarHeader from './SideBarHeader';
 
-const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,trousers ,setTrousers ,chinos ,setChinos ,casualshirt ,setCasualShirt ,roadster,setRoadster,highlander,setHighlander,locomotive,setLocomotive,ivoc,setIvoc,slider,setSlider}) => {
+const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,trousers ,setTrousers ,chinos ,setChinos ,casualshirt ,setCasualShirt ,roadster,setRoadster,highlander,setHighlander,locomotive,setLocomotive,ivoc,setIvoc,slider,setSlider,low,high}) => {
 
 
 
@@ -32,8 +26,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
     <>
     <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={0} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
       <Flex flexDirection="column"  p="15px 15px">
-         
-          <SideBarHeader/>
+        <SideBarHeader/>
 
         <Accordion  defaultIndex={[0]} allowMultiple mt="17.6px">
           <AccordionItem>
@@ -47,7 +40,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox value="Sweatshirt"  onChange={(e)=>{
+                <Checkbox value="Sweatshirt" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setSweatshirt(value)
@@ -60,7 +53,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Sweatshirt
                   </Text>
                 </Checkbox>
-                <Checkbox value="Jeans"  onChange={(e)=>{
+                <Checkbox value="Jeans" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setJeans(value)
@@ -73,7 +66,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Jeans
                   </Text>
                 </Checkbox>
-                <Checkbox value="Trousers"  onChange={(e)=>{
+                <Checkbox value="Trousers" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setTrousers(value)
@@ -86,7 +79,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Trousers
                   </Text>
                 </Checkbox>
-                <Checkbox value="Joggers"  onChange={(e)=>{
+                <Checkbox value="Joggers" size={{sm:"sm",md:"sm",lg:"md"}}  onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setJoggers(value)
@@ -99,7 +92,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                    Joggers
                   </Text>
                 </Checkbox>
-                <Checkbox value="Chinos"  onChange={(e)=>{
+                <Checkbox value="Chinos" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setChinos(value)
@@ -112,7 +105,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                    Chinos
                   </Text>
                 </Checkbox>
-                <Checkbox value="Casual Shirt"  onChange={(e)=>{
+                <Checkbox value="Casual Shirt" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setCasualShirt(value)
@@ -140,7 +133,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox  value="Roadster"  onChange={(e)=>{
+                <Checkbox  value="Roadster" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setRoadster(value)
@@ -153,7 +146,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Roadster
                   </Text>
                 </Checkbox>
-                <Checkbox  value="HIGHLANDER"  onChange={(e)=>{
+                <Checkbox  value="HIGHLANDER" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setHighlander(value)
@@ -166,7 +159,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Highlander
                   </Text>
                 </Checkbox>
-                <Checkbox value="LOCOMOTIVE"  onChange={(e)=>{
+                <Checkbox value="LOCOMOTIVE" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setLocomotive(value)
@@ -179,7 +172,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                     Locomotive
                   </Text>
                 </Checkbox>
-                <Checkbox value="IVOC"  onChange={(e)=>{
+                <Checkbox value="IVOC" size={{sm:"sm",md:"sm",lg:"md"}} onChange={(e)=>{
                    let {value,checked} =e.target;
                    if(checked){
                      setIvoc(value)
@@ -220,9 +213,9 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
                 </Box>
               
             <Flex direction="row">
-            <Box>Rs. 0</Box>
+            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. {low?low.toFixed():0}</Box>
             <Spacer/>
-            <Box>Rs. 3199</Box>
+            <Box fontSize={{md:"13px",lg:"15px"}} >Rs. {high?high.toFixed():3199}</Box>
             </Flex>
 
               </Flex>
@@ -240,32 +233,32 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
             </h2>
             <AccordionPanel pb={4}>
               <Flex flexDirection="column">
-                <Checkbox>
+                <Checkbox size={{sm:"sm",md:"sm",lg:"md"}} >
                   <Text  color="grey">
                     XS
                   </Text>
                 </Checkbox>
-                <Checkbox>
+                <Checkbox size={{sm:"sm",md:"sm",lg:"md"}} >
                   <Text  color="grey">
                     S
                   </Text>
                 </Checkbox>
-                <Checkbox>
+                <Checkbox size={{sm:"sm",md:"sm",lg:"md"}} >
                   <Text  color="grey">
                     M
                   </Text>
                 </Checkbox>
-                <Checkbox>
+                <Checkbox size={{sm:"sm",md:"sm",lg:"md"}} >
                   <Text  color="grey">
                     L
                   </Text>
                 </Checkbox>
-                <Checkbox>
+                <Checkbox size={{sm:"sm",md:"sm",lg:"md"}} >
                   <Text  color="grey">
                     XL
                   </Text>
                 </Checkbox>
-                <Checkbox>
+                <Checkbox size={{sm:"sm",md:"sm",lg:"md"}} >
                   <Text  color="grey">
                     XXL
                   </Text>

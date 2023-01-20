@@ -30,7 +30,7 @@ function Auth() {
               <Link href="#">Shortlist</Link>
               <Divider orientation='horizontal' />
               <Text align={'center'} color='black' marginTop={'20px'}>If you are a new user</Text>
-              <Link align={'center'} fontWeight={'600'} color='black'>Register</Link>
+              <Link align={'center'} fontWeight={'600'} color='black' href='/register'>Admin Register</Link>
               {
                 !isAuthenticated ?(
                   <Button onClick={() => loginWithRedirect()} bg='#e40046' color={'white'} width={'100%'} marginTop={'20px'}>Login</Button> 
