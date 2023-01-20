@@ -17,16 +17,16 @@ const ProductHeader = ({products,search,setSearch,sort,setSort,popularity,setPop
      </Box>
 
      <Box flex={{base:"0.9",sm:"0.8",md:"0.7",lg:"0.7"}}  >
-      <InputGroup size="sm" w={{sm:"100%",md:"100%",lg:"90%"}} >
+      <InputGroup size="sm" w={{base:"100%",md:"100%",lg:"90%"}} >
       <InputLeftElement pointerEvents="none"
-      children={<SearchIcon color="#999999" boxSize={{sm:"11px",md:"13px",lg:"16px"}} />}
+      children={<SearchIcon color="#999999" boxSize={{base:"11px",md:"13px",lg:"16px"}} />}
       />
-      <Input variant="flushed" size="sm" _placeholder={{fontSize:{sm:"10px",md:"12px",lg:"14px"}}} focusBorderColor='red.500'  placeholder="Search within Category"  type="text" value={search} onChange={handleSearch} />
+      <Input variant="flushed" size="sm" _placeholder={{fontSize:{base:"10px",md:"12px",lg:"14px"}}} focusBorderColor='red.500'  placeholder="Search within Category"  type="text" value={search} onChange={handleSearch} />
       </InputGroup>
      </Box>
 
-     <Box flex={{sm:"0.7",md:"0.8",lg:"0.8"}}  display="flex" justifyContent="flex-end" alignItems="center" >
-     <Select  size={{sm:"xs",md:"sm",lg:"sm"}} placeholder='Sort by:' width={{sm:"115px",md:"150px",lg:"175px"}}   focusBorderColor="red.500" value={sort} onChange={(e)=>{
+     <Box flex={{base:"0.7",md:"0.8",lg:"0.8"}}  display="flex" justifyContent="flex-end" alignItems="center" >
+     <Select  size={{base:"xs",md:"sm",lg:"sm"}} placeholder='Sort by:' width={{base:"100px",sm:"115px",md:"150px",lg:"175px"}}   focusBorderColor="red.500" value={sort} onChange={(e)=>{
       if(popularity=="desc"){
         setPopularity("")
       }

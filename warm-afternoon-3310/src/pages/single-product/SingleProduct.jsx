@@ -89,12 +89,12 @@ dispatch(getSingleProduct(id))
           <Text fontSize={{md:"16px",base:"13px"}}>Size</Text>
         </Box>
         <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between" >
-          <Tag size={{md:"lg",base:"sm"}} mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XS"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XS")}} >XS</Tag>
-          <Tag size={{md:"lg",base:"sm"}} mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="S"?"red.200":"#EDF2F7"} onClick={()=>{setSize("S")}}>S</Tag>
-          <Tag size={{md:"lg",base:"sm"}} mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="M"?"red.200":"#EDF2F7"} onClick={()=>{setSize("M")}}>M</Tag>
-          <Tag size={{md:"lg",base:"sm"}} mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="L"?"red.200":"#EDF2F7"} onClick={()=>{setSize("L")}}>L</Tag>
-          <Tag size={{md:"lg",base:"sm"}} mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XL")}}>XL</Tag>
-          <Tag size={{md:"lg",base:"sm"}} mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XXL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XXL")}}>XXL</Tag>
+          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XS"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XS")}} >XS</Tag>
+          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="S"?"red.200":"#EDF2F7"} onClick={()=>{setSize("S")}}>S</Tag>
+          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="M"?"red.200":"#EDF2F7"} onClick={()=>{setSize("M")}}>M</Tag>
+          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="L"?"red.200":"#EDF2F7"} onClick={()=>{setSize("L")}}>L</Tag>
+          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XL")}}>XL</Tag>
+          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XXL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XXL")}}>XXL</Tag>
         </Box>
         <Box flex={{md:"0.2",base:"0.3"}}    display={{md:"flex",base:"none"}} alignItems="center" >
           <Text fontSize={{md:"16px",base:"13px"}} color="#63ADEF" >Size Chart</Text>
