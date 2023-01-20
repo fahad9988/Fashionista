@@ -11,12 +11,12 @@ const ProductHeader = ({products,search,setSearch,sort,setSort,popularity,setPop
   return (
     <Box display="flex" mb="17px"  >
 
-     <Box display="flex" flex={{sm:"0.8",md:"0.8",lg:"0.6"}}  alignItems="center"  >
-      <Text fontSize={{sm:14,md:18,lg:20}} mr={{sm:"5px",md:"7px",lg:"10px"}}>Men Products</Text>
+     <Box display={{sm:"flex",base:"none"}} flex={{sm:"0.8",md:"0.8",lg:"0.6"}}  alignItems="center"  >
+      <Text fontSize={{sm:12,md:16,lg:19}} mr={{sm:"5px",md:"7px",lg:"10px"}}>Men Products</Text>
       <Text fontSize={{sm:9,md:12,lg:14}}>({products.data.length} items)</Text>
      </Box>
 
-     <Box flex={{sm:"0.8",md:"0.7",lg:"0.7"}}  >
+     <Box flex={{base:"0.9",sm:"0.8",md:"0.7",lg:"0.7"}}  >
       <InputGroup size="sm" w={{sm:"100%",md:"100%",lg:"90%"}} >
       <InputLeftElement pointerEvents="none"
       children={<SearchIcon color="#999999" boxSize={{sm:"11px",md:"13px",lg:"16px"}} />}
