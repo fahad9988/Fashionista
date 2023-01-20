@@ -46,15 +46,16 @@ const ProductCart = () => {
 
     let res = await fetch(`${api}/${id}`, {
       method: "PATCH",
-      body: JSON.stringify(data),
+      body: JSON.stringify({quantity:quantity+1}),
       headers: {
         "Content-Type": "application/json",
       },
+    }).then((res)=>{
+      return res.json()
+    }).then((res)=>{
+      console.log(res)
     })
-    setCount(quantity+1)
-    let amt = price * quantity
-
-    console.log(amt)
+    setRefresh(!refresh)
   }
 
 
@@ -79,7 +80,7 @@ const ProductCart = () => {
                          <tr key={ele.id} style={{border:"0px solid black",marginBottom:"70px"}}>
                           <td style={{border:"0px solid black"}}><img src={ele.images} style={{width:"70px",padding:"10px"}}/></td>
                           <td style={{border:"0px solid black",padding:"20px"}}>{ele.title}-{ele.subtitle}</td>
-                          <td style={{border:"0px solid black",padding:"20px",paddingLeft:"40px",paddingRight:"40px"}}>{ele.price}</td>
+                          <td style={{border:"0px solid black",padding:"20px",paddingLeft:"40px",paddingRight:"40px"}}>{ele.price*ele.quantity}</td>
                           <td style={{border:"0px solid black",padding:"20px",paddingLeft:"40px",paddingRight:"40px"}}>
                             <button onClick={()=>handleDec(ele.id,ele.price,ele.quantity)}>-</button>
                             {ele.quantity}
