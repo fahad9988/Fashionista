@@ -1,9 +1,9 @@
-import {GET_CART , CART_ERROR , CART_LOADING } from "./cart.types"
+import {ADD_TO_CART , CART_ERROR , CART_LOADING, GET_CART } from "./cart.types";
 
 const initialState ={
   loading : false,
   error : false,
-  data : []
+  cart : []
 }
 
 const cartReducer = (state=initialState , {type,payload}) =>{
@@ -11,7 +11,8 @@ const cartReducer = (state=initialState , {type,payload}) =>{
     case CART_LOADING : {
       return {
         ...state,
-        loading : true
+        loading : true,
+        error:false
       }
     }
     case CART_ERROR : {
@@ -21,12 +22,16 @@ const cartReducer = (state=initialState , {type,payload}) =>{
         error : true
       }
     }
-    case GET_CART : {
+    case ADD_TO_CART : {
       return{
         ...state,
         loading : false ,
-        data : payload
+        cart : [...state.cart,payload]
       }
+    };
+    case GET_CART: return {
+      ...state,
+      cart:payload
     }
     default:{
       return state
