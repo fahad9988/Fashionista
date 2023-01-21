@@ -5,9 +5,6 @@ let api = "http://localhost:8080/cart"
 const ProductCart = () => {
     const [refresh, setRefresh] = useState(false);
     const [data, setData] = useState([]);
-    const [count,setCount] = useState(1)
-    const [total,setTotal] = useState(0)
-    const [amount,setAmount] = useState(0)
 
   useEffect(() => {
     fetch(api)
@@ -27,43 +24,35 @@ const ProductCart = () => {
     setRefresh(!refresh);
   };
 
-  // let handleInc = (id,price,quantity)=>{
-  //   let updatedCart = data.map((curElem)=>{
-  //     if(curElem.id === id){
-  //       return{
-  //         quantity :curElem.quantity + 1
-          
-  //       }
-  //     }
-  //     return curElem
-  //   })
-  //   console.log(updatedCart) 
-  // console.log(price*quantity)
-  // }
 
 
   let handleInc = async (id,price,quantity)=>{
-
+    
     let res = await fetch(`${api}/${id}`, {
       method: "PATCH",
-      body: JSON.stringify(data),
+      body: JSON.stringify({quantity:quantity+1}),
       headers: {
         "Content-Type": "application/json",
       },
-    })
-    setCount(quantity+1)
-    let amt = price * quantity
-
-    console.log(amt)
+    }).then(res=>res.json()).then(res=>{console.log(res)})
+    console.log(id,api)
+    setRefresh(!refresh)
   }
 
 
 
-  let handleDec = (id)=>{
-    console.log(id)
-    data.map((el)=> (
-        el.id === id
-    ) )
+  let handleDec = async (id,price,quantity)=>{
+    if(quantity==1){
+      removeProduct(id)
+    }else{
+    let res = await fetch(`${api}/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({quantity:quantity-1}),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(res=>res.json()).then((res)=>{console.log(res);setRefresh(!refresh)})
+    }
   }
 
 
@@ -71,7 +60,16 @@ const ProductCart = () => {
   return (
     <div>
        <div style={{display:"flex"}}>
-         <div>
+        <Box>
+          {data.map((el,i)=>(
+            <Box>
+                <Box>
+                  
+                </Box>
+            </Box>
+          ))}
+        </Box>
+         {/* <div>
             <table style={{marginLeft:"100px",marginTop:"140px"}}>
                 <tbody>
                     {
@@ -79,7 +77,7 @@ const ProductCart = () => {
                          <tr key={ele.id} style={{border:"0px solid black",marginBottom:"70px"}}>
                           <td style={{border:"0px solid black"}}><img src={ele.images} style={{width:"70px",padding:"10px"}}/></td>
                           <td style={{border:"0px solid black",padding:"20px"}}>{ele.title}-{ele.subtitle}</td>
-                          <td style={{border:"0px solid black",padding:"20px",paddingLeft:"40px",paddingRight:"40px"}}>{ele.price}</td>
+                          <td style={{border:"0px solid black",padding:"20px",paddingLeft:"40px",paddingRight:"40px"}}>{ele.price*ele.quantity}</td>
                           <td style={{border:"0px solid black",padding:"20px",paddingLeft:"40px",paddingRight:"40px"}}>
                             <button onClick={()=>handleDec(ele.id,ele.price,ele.quantity)}>-</button>
                             {ele.quantity}
@@ -92,7 +90,7 @@ const ProductCart = () => {
                     
                 </tbody>
             </table>
-         </div>
+         </div> */}
 
 
 
