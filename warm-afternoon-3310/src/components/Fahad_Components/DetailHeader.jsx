@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Heading ,Tag,Flex} from '@chakra-ui/react';
-import {AiOutlineHeart} from "react-icons/ai";
+import { Box, Heading } from '@chakra-ui/react';
+import {AiFillHeart} from "react-icons/ai";
 import { StarIcon } from "@chakra-ui/icons";
 
 
-const DetailHeader = ({product}) => {
+const DetailHeader = ({product,wishExist,AddToWishlist,removeItem}) => {
   return (
     <Box>
      <Box display="flex"  >
@@ -13,7 +13,9 @@ const DetailHeader = ({product}) => {
 </Box>
 <Box flex={{xl:"0.3",lg:"0",md:"0.2",base:"0"}} ></Box>
 <Box flex="0.2"  display="flex" justifyContent="center" alignItems="center" >
- <AiOutlineHeart fontSize={20} />
+ <AiFillHeart color={wishExist?"red":"lightgray"} fontSize={20} onClick={()=>{
+  wishExist?removeItem(product.id):AddToWishlist()
+ }} />
 </Box>
      </Box>
 
