@@ -9,7 +9,7 @@ import "./SingleProduct.css";
 import {addCart} from "../../redux/cart/cart.action";
 import { getCartItems } from '../../redux/cart/cart.action';
 import { useNavigate } from 'react-router-dom';
-import { addWishlist, getWishlistItems } from '../../redux/wishlist/wishlist.action';
+import { addWishlist, getWishlistItems, removeWishlist } from '../../redux/wishlist/wishlist.action';
 import {TrendingSlider} from "../../components/Akshay/Carousel_2"
 
 
@@ -106,6 +106,9 @@ const goToWishlist=()=>{
   navigate("/wishlist")
 }
 
+const removeItem=(id)=>{
+dispatch(removeWishlist(id))
+}
 
   return (
     <>
@@ -115,7 +118,7 @@ const goToWishlist=()=>{
     </Box>
 
     <Box flex="1"  p="30px"  >
-     <DetailHeader product={product} />
+     <DetailHeader product={product} wishExist={wishExist} AddToWishlist={AddToWishlist} removeItem={removeItem} />
 
       <hr style={{marginTop:"10px"}} />
 
