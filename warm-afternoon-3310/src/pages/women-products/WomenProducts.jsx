@@ -136,10 +136,11 @@ const WomenProducts = () => {
             
                  <Image
                   m="auto"
-                  src={item.images[0]}
+                  src={item.images}
                   width="200px"
                   height="230px"
                   alt="image"
+                  fallbackSrc='https://t4.ftcdn.net/jpg/02/49/21/53/360_F_249215319_qMcKnElEzzo2xSVZI584GfVtvJTpSAL8.jpg'
                 />
                 <Text color="#748A9C" fontSize="14px" mt={2}>{item.subtitle}</Text>
                 <Text color="#748A9C" fontSize="14px" >{item.title}</Text>

@@ -3,6 +3,7 @@ import { Box, Heading ,Tag,Flex} from '@chakra-ui/react';
 import {AiOutlineHeart} from "react-icons/ai";
 import { StarIcon } from "@chakra-ui/icons";
 
+
 const DetailHeader = ({product}) => {
   return (
     <Box>
