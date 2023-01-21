@@ -60,9 +60,9 @@ const MenProducts = () => {
   
   return (
     <>
-    <Box display={{base:"block",md:"flex"}} position="relative" p="10px">
+    <Box display={{base:"block",md:"flex"}}  p="10px" position="relative">
 
-      <Box flex={0.3} display={{base:"none",md:"block"}} >
+      <Box flex={0.3} display={{base:"none",md:"block"}}  >
       <SideBar 
       joggers={joggers} setJoggers={setJoggers} jeans={jeans} setJeans={setJeans} sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} trousers={trousers} setTrousers={setTrousers} chinos={chinos} setChinos={setChinos} casualshirt={casualshirt} setCasualShirt={setCasualShirt} roadster={roadster} setRoadster={setRoadster} highlander={highlander} setHighlander={setHighlander} locomotive={locomotive} setLocomotive={setLocomotive} ivoc={ivoc} setIvoc={setIvoc} slider={slider} setSlider={setSlider} low={low} high={high}
       />
@@ -154,7 +154,7 @@ const MenProducts = () => {
                 <Box display="flex"  alignItems="center" >
                   {Array(5)
                     .fill("")
-                    .map((_, i) => (
+                    .map((e, i) => (
                       <StarIcon
                         boxSize={3}
                         key={i}

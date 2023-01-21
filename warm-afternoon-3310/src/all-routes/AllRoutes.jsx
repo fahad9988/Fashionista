@@ -13,6 +13,7 @@ import ProductCart from '../pages/cart/productCart';
 import MenProducts from '../pages/men-products/MenProducts';
 import { Auth0Provider } from '@auth0/auth0-react';
 import HomePage from '../pages/homepage/HomePage';
+import Wishlist from '../pages/wishlist/Wishlist';
 const AllRoutes = () => {
   return (
     <div>
@@ -26,6 +27,7 @@ const AllRoutes = () => {
         <Route path='/admin' element={<Admin/>} ></Route>
         <Route path='/productCart' element={<ProductCart/>} ></Route>
         <Route path='/menproducts' element={<MenProducts/>}></Route>
+        <Route path='/wishlist' element={<Wishlist/>}></Route>
       </Routes>
       
     </div>

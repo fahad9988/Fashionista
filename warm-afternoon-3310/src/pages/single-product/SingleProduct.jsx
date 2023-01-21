@@ -10,6 +10,7 @@ import {addCart} from "../../redux/cart/cart.action";
 import { getCartItems } from '../../redux/cart/cart.action';
 import { useNavigate } from 'react-router-dom';
 import { addWishlist, getWishlistItems } from '../../redux/wishlist/wishlist.action';
+import {TrendingSlider} from "../../components/Akshay/Carousel_2"
 
 
 
@@ -69,7 +70,7 @@ const handleClick=()=>{
 }
 
 const goToCart=()=>{
-  navigate("/")
+  navigate("/productCart")
 }
 
 let exist=false;
@@ -102,17 +103,18 @@ wishlistItems.forEach((e)=>{
 });
 
 const goToWishlist=()=>{
-  navigate("/")
+  navigate("/wishlist")
 }
 
 
   return (
+    <>
    <Box display={{lg:"flex",base:"block"}}  w="90%" m="auto" mt="40px"  boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px">
-    <Box flex={{xl:"0.5",lg:"0.6"}} p={{xl:"25px",lg:"25px 10px",md:"25px",base:"25px"}}  >
+    <Box flex={{xl:"0.5",lg:"0.6"}}  p={{xl:"25px",lg:"25px 10px",md:"25px",base:"25px"}}  >
      <Image fallbackSrc='https://t4.ftcdn.net/jpg/02/49/21/53/360_F_249215319_qMcKnElEzzo2xSVZI584GfVtvJTpSAL8.jpg' m={{lg:"0px",base:"auto"}} w="100%" maxW={{lg:"100%",base:"350px"}} src={product.images} />
     </Box>
 
-    <Box flex="1" p="30px"  >
+    <Box flex="1"  p="30px"  >
      <DetailHeader product={product} />
 
       <hr style={{marginTop:"10px"}} />
@@ -168,7 +170,7 @@ const goToWishlist=()=>{
 
       <Box p="20px 0px"  >
        <Flex>
-        <Box flex={{xl:"0.15",lg:"0.2",md:"0.2",base:"0.25"}}  display="flex" alignItems="center"  >
+        <Box  flex={{xl:"0.15",lg:"0.2",md:"0.2",base:"0.25"}}  display="flex" alignItems="center"  >
           <Text fontSize={{md:"16px",base:"13px"}}>Size</Text>
         </Box>
         {mySize?
@@ -196,7 +198,7 @@ const goToWishlist=()=>{
        </Flex>
 
        <Box display="flex" h={{xl:"125px",lg:"105px",md:"105px",base:"75px"}}   alignItems="center" >
-        <Box flex={{md:"0.15",sm:"0.25",base:"0"}} display={{md:"block",base:"block"}} ></Box>
+        <Box flex={{md:"0.15",sm:"0.25",base:"0"}}  display={{md:"block",base:"block"}} ></Box>
         <Box flex="1" >
          {
          exist?<Button mr={{md:"20px",base:"5px"}} size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#333333" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#333333",border:"2px solid #333333"}} onClick={goToCart} >
@@ -253,6 +255,11 @@ const goToWishlist=()=>{
       </Box>
     </Box>
    </Box>
+   <Box w="90%" m="auto" mt="50px" >
+   <TrendingSlider/>
+   </Box>
+
+   </>
   )
 }
 

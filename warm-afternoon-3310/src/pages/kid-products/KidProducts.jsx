@@ -62,7 +62,7 @@ const KidProducts = () => {
     <>
     <Box display={{base:"block",md:"flex"}} position="relative" p="10px">
 
-      <Box flex={0.3} display={{base:"none",md:"block"}} >
+      <Box flex={0.3} display={{base:"none",md:"block"}}  >
       <SideBar3 
       sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} tshirt={tshirt} setTshirt={setTshirt} trackpants={trackpants} setTrackpants={setTrackpants} blazer={blazer} setBlazer={setBlazer}  hellcat={hellcat} setHellcat={setHellcat} hopscotch={hopscotch} setHopscotch={setHopscotch} plumtree={plumtree} setPlumtree={setPlumtree} max={max} setMax={setMax} slider={slider} setSlider={setSlider} low={low} high={high}
       />
@@ -155,7 +155,7 @@ const KidProducts = () => {
                 <Box display="flex"  alignItems="center" >
                   {Array(5)
                     .fill("")
-                    .map((_, i) => (
+                    .map((e, i) => (
                       <StarIcon
                         boxSize={3}
                         key={i}
