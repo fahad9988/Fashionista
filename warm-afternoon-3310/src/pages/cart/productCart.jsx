@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import {Box,Image} from "@chakra-ui/react"
 let api = "http://localhost:8080/cart"
 
 const ProductCart = () => {
@@ -36,6 +36,7 @@ const ProductCart = () => {
       },
     }).then(res=>res.json()).then(res=>{console.log(res)})
     console.log(id,api)
+
     setRefresh(!refresh)
   }
 
@@ -60,11 +61,11 @@ const ProductCart = () => {
   return (
     <div>
        <div style={{display:"flex"}}>
-        <Box>
+        <Box w="80%" border="1px solid red">
           {data.map((el,i)=>(
-            <Box>
+            <Box display={"flex"} flexDirection="column">
                 <Box>
-                  
+                      <Image src={el.images}></Image>
                 </Box>
             </Box>
           ))}
