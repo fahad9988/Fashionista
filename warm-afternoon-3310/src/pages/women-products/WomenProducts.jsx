@@ -156,7 +156,7 @@ const WomenProducts = () => {
                 <Box display="flex"  alignItems="center" >
                   {Array(5)
                     .fill("")
-                    .map((_, i) => (
+                    .map((e, i) => (
                       <StarIcon
                         boxSize={3}
                         key={i}
