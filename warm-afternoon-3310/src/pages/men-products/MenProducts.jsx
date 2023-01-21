@@ -135,7 +135,7 @@ const MenProducts = () => {
             
                  <Image
                   m="auto"
-                  src={item.images[0]}
+                  src={item.images}
                   width="200px"
                   height="230px"
                   alt="image"

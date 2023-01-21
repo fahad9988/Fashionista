@@ -1,11 +1,16 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
-import {Box,Image,Flex,Text,Tag, Button, Input ,UnorderedList,ListItem} from "@chakra-ui/react"
+import {Box,Image,Flex,Text,Tag, Button, Input ,UnorderedList,ListItem,useToast } from "@chakra-ui/react"
 import {useSelector,useDispatch} from "react-redux";
 import { getSingleProduct } from '../../redux/product/product.action';
 import DetailHeader from '../../components/Fahad_Components/DetailHeader';
 import {AiFillTag} from "react-icons/ai";
-import "./SingleProduct.css"
+import "./SingleProduct.css";
+import {addCart} from "../../redux/cart/cart.action";
+import { getCartItems } from '../../redux/cart/cart.action';
+import { useNavigate } from 'react-router-dom';
+import { addWishlist, getWishlistItems } from '../../redux/wishlist/wishlist.action';
+
 
 
 const SingleProduct = () => {
@@ -16,17 +21,95 @@ const {id}=useParams();
 const product=useSelector((Store)=>{
   return Store.productManager.product
 });
-const dispatch=useDispatch()
+const cartItems=useSelector((store)=>{
+  return store.cart.cart;
+});
+const wishlistItems=useSelector((store)=>{
+  return store.wishlist.wishlist;
+});
+
+
+
+const dispatch=useDispatch();
+const toast=useToast();
 
 React.useEffect(()=>{
-dispatch(getSingleProduct(id))
+dispatch(getSingleProduct(id));
+dispatch(getCartItems());
+dispatch(getWishlistItems())
 },[]);
+
+
+
+const navigate=useNavigate()
+
+const handleClick=()=>{
+  if(size==""){
+    toast({
+      title: 'Select Size.',
+      description: "Please select one of the sizes.",
+      status: 'warning',
+      duration: 3000,
+      isClosable: true,
+      position:"top"
+    })
+  }else{
+    dispatch(addCart({...product,size:size}));
+    toast({
+      title: 'Add to Cart.',
+      description: "Item added to Cart Successfully.",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position:"top"
+    })
+    
+  }
+
+}
+
+const goToCart=()=>{
+  navigate("/")
+}
+
+let exist=false;
+let mySize;
+cartItems.forEach((e)=>{
+  if(e.id==id){
+ exist=true;
+ mySize=e.size;
+  }
+})
+
+const AddToWishlist=()=>{
+  dispatch(addWishlist({...product}));
+    toast({
+      title: 'Add to Wishlist.',
+      description: "Item added to Wishlist Successfully.",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position:"top"
+    })
+
+}
+
+let wishExist=false;
+wishlistItems.forEach((e)=>{
+  if(e.id==id){
+ wishExist=true;
+  }
+});
+
+const goToWishlist=()=>{
+  navigate("/")
+}
 
 
   return (
    <Box display={{lg:"flex",base:"block"}}  w="90%" m="auto" mt="40px"  boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px">
     <Box flex={{xl:"0.5",lg:"0.6"}} p={{xl:"25px",lg:"25px 10px",md:"25px",base:"25px"}}  >
-     <Image w="100%"  src={product.images} />
+     <Image fallbackSrc='https://t4.ftcdn.net/jpg/02/49/21/53/360_F_249215319_qMcKnElEzzo2xSVZI584GfVtvJTpSAL8.jpg' m={{lg:"0px",base:"auto"}} w="100%" maxW={{lg:"100%",base:"350px"}} src={product.images} />
     </Box>
 
     <Box flex="1" p="30px"  >
@@ -88,7 +171,17 @@ dispatch(getSingleProduct(id))
         <Box flex={{xl:"0.15",lg:"0.2",md:"0.2",base:"0.25"}}  display="flex" alignItems="center"  >
           <Text fontSize={{md:"16px",base:"13px"}}>Size</Text>
         </Box>
-        <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between" >
+        {mySize?
+         <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between" >
+         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="XS"?"red.200":"#EDF2F7"} >XS</Tag>
+         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="S"?"red.200":"#EDF2F7"} >S</Tag>
+         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="M"?"red.200":"#EDF2F7"} >M</Tag>
+         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="L"?"red.200":"#EDF2F7"} >L</Tag>
+         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="XL"?"red.200":"#EDF2F7"} >XL</Tag>
+         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="XXL"?"red.200":"#EDF2F7"} >XXL</Tag>
+       </Box>
+        :
+          <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between" >
           <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XS"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XS")}} >XS</Tag>
           <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="S"?"red.200":"#EDF2F7"} onClick={()=>{setSize("S")}}>S</Tag>
           <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="M"?"red.200":"#EDF2F7"} onClick={()=>{setSize("M")}}>M</Tag>
@@ -96,6 +189,7 @@ dispatch(getSingleProduct(id))
           <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XL")}}>XL</Tag>
           <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XXL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XXL")}}>XXL</Tag>
         </Box>
+          }
         <Box flex={{md:"0.2",base:"0.3"}}    display={{md:"flex",base:"none"}} alignItems="center" >
           <Text fontSize={{md:"16px",base:"13px"}} color="#63ADEF" >Size Chart</Text>
         </Box>
@@ -104,8 +198,21 @@ dispatch(getSingleProduct(id))
        <Box display="flex" h={{xl:"125px",lg:"105px",md:"105px",base:"75px"}}   alignItems="center" >
         <Box flex={{md:"0.15",sm:"0.25",base:"0"}} display={{md:"block",base:"block"}} ></Box>
         <Box flex="1" >
-        <Button mr={{md:"20px",base:"5px"}} size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#333333" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#333333",border:"2px solid #333333"}} >ADD TO CART</Button>
-         <Button size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#E40046" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#E40046",border:"2px solid #E40046"}}>ADD TO WISHLIST</Button>
+         {
+         exist?<Button mr={{md:"20px",base:"5px"}} size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#333333" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#333333",border:"2px solid #333333"}} onClick={goToCart} >
+          GO TO CART
+          </Button>
+          :
+          <Button mr={{md:"20px",base:"5px"}} size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#333333" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#333333",border:"2px solid #333333"}} onClick={handleClick} >
+          ADD TO CART
+          </Button>
+          }
+
+          {wishExist?<Button size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#E40046" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#E40046",border:"2px solid #E40046"}} onClick={goToWishlist} >GO TO WISHLIST</Button>
+          :
+          <Button size={{xl:"lg",lg:"md",md:"md",base:"xs"}} bgColor="#E40046" color="white" borderRadius="3px" _hover={{bgColor:"white",color:"#E40046",border:"2px solid #E40046"}} onClick={AddToWishlist} >ADD TO WISHLIST</Button>
+        }
+         
         </Box>
         <Box flex="0.2" display={{md:"block",base:"none"}} ></Box>
        </Box>
