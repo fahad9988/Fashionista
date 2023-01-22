@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
 
     <Box w="100%" m="auto" color="white" position="sticky" zIndex={30} top={0}>
-      <Flex display={["none","none","flex"]} bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
+      <Flex display={["none","none","none","flex"]} bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
         <Flex gap={"20px"}>
           <Text>Impact@Snapdeal</Text>
@@ -53,9 +53,9 @@ const Navbar = () => {
           <Text>Download App</Text>
         </Flex>
       </Flex>
-      <Flex px={{md:"0px",lg:"40px"}} h="65px" bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
-          <Image src={Fs} height="50px"></Image>
-          <Flex w="50%">  
+      <Flex  px={{base:"20px",lg:"40px"}} h="65px" bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
+          <Link to="/" ><Image src={Fs} border="1px solid white" height="50px"></Image></Link>
+          <Flex display={{base:"none",md:"flex"}} w="50%">  
           <Input bgColor={"white "} color="black" w="100%" h="10" fontWeight="300" fontSize={"13px"} borderRightRadius="0px" placeholder='Search products and brands'/>
           <Button bgColor="black" h={"10"} fontSize={"13px"} borderLeftRadius="0px">Search</Button>
           </Flex>
@@ -65,14 +65,11 @@ const Navbar = () => {
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
 
-          <Box alignItems="center"  display="flex" px="20px" onClick={handleClick}>
-            Cart-{cartItems.length}
-
           <Box alignItems="center" cursor="pointer" display="flex" px="20px" onClick={handleClick}>
             <Box display={{lg:"block",base:"none"}}>Cart</Box>
 
             <Icon   as={AiOutlineShoppingCart} />
-            - {data.length}
+            - {cartItems.length}
           </Box>
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
@@ -85,7 +82,8 @@ const Navbar = () => {
           </Center>
           </Flex>
       </Flex>
-      <Flex  bgColor={"rgb(228,0,70)"} px="60px"  py="0px" borderTop="1px solid darkred" justifyContent="center"  gap="10%" fontSize={["8px","12px"]}>      
+    
+      <Flex  bgColor={"rgb(228,0,70)"} px="60px"  py="5px"  border="1px solid darkred" justifyContent="center"  gap="10%" fontSize={["8px","12px"]}>      
          <Link to="/menproducts" ><Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{color:"black"}}>MEN</Text></Link> 
           <Link to="/womenproducts" > <Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{color:"black"}}>WOMEN</Text></Link>
           <Link to="/kidproducts" ><Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{color:"black"}}>KIDS</Text></Link>
@@ -93,6 +91,7 @@ const Navbar = () => {
     </Box>
     
   )
+  
 }
 
 export default Navbar

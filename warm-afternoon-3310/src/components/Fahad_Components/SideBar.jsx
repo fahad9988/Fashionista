@@ -28,7 +28,7 @@ const SideBar = ({   joggers,setJoggers,jeans,setJeans,sweatshirt,setSweatshirt,
       <Flex flexDirection="column"  p="15px 15px">
         <SideBarHeader/>
 
-        <Accordion  defaultIndex={[0]} allowMultiple mt="17.6px">
+        <Accordion  defaultIndex={[0]}  allowMultiple mt="17.6px">
           <AccordionItem>
             <h2>
               <AccordionButton>

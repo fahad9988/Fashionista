@@ -36,13 +36,13 @@ function Footer() {
                 </Box>
             ))}
         </SimpleGrid>
-        <Flex>
+        <Flex  borderBottom={"1px solid lightgray"}>
         <Grid flex={1} templateColumns={{
             base:"repeat(1,1fr)",
             sm:"repeat(2,1fr)",
             md:"repeat(3,1fr)",
             lg:"repeat(4,1fr)"
-        }} textAlign="left" border="1px solid red" py="30px" borderBottom={"1px solid red"}>
+        }} textAlign="left"  py="30px" >
             <Box display="flex" flexDirection="column"   alignItems={"center"} fontSize="12px" p="10px" color="gray"  >
                 <Heading fontSize={"16px"} color="black">POLICY INFO</Heading>
                 <Text>Privacy Policy</Text>

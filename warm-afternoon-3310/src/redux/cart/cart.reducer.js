@@ -1,4 +1,4 @@
-import {ADD_TO_CART , CART_ERROR , CART_LOADING, GET_CART ,REMOVE_FROM_CART} from "./cart.types";
+import {ADD_TO_CART , CART_ERROR , CART_LOADING, GET_CART ,REMOVE_FROM_CART,UPDATE_TO_CART} from "./cart.types";
 
 const initialState ={
   loading : false,
@@ -40,7 +40,15 @@ const cartReducer = (state=initialState , {type,payload}) =>{
       return {
         ...state,
         cart:deleted
-      }
+      };
+      case UPDATE_TO_CART:
+        let updated=state.cart.map((e)=>{
+          return e.id==payload.id?{...e,...payload}:e
+        });
+        return {
+          ...state,
+          cart:updated
+        };
     default:{
       return state
     }

@@ -57,6 +57,7 @@ dispatch(getWishlistItems())
     
   let removeProduct =  (id) => {
    dispatch(deleteCart(id))
+   setRefresh(!refresh)
   };
 
 

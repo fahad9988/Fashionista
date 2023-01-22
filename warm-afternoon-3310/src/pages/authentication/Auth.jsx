@@ -15,7 +15,7 @@ function Auth() {
   
     return (
       <>
-        <Box border="1px solid blue">
+        <Box >
             <Box display={'flex'}>
 
           <HStack class="dropdown" >
