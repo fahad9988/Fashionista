@@ -19,22 +19,22 @@ function Auth() {
             <Box display={'flex'}>
 
           <HStack class="dropdown">
-          {/* <Button className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm'/>} border='none'>Sign In</Button> */}
           {
-            !isAuthenticated ? (<Button className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm'/>} border='none'>Sign In</Button>) : (<Button color='white' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm' src={user.picture}/>}>{user.name}</Button>)
+            !isAuthenticated ? (<Button className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm'/>} border='none'>Sign In</Button>) : (<Button _hover={{bgColor:'#e40046'}} color='white' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm' src={user.picture}/>}>{user.name}</Button>)
           }
           
             <Stack class="dropdown-content">
               <Link href="#">Your Account</Link>
               <Link href="#">Your Orders</Link>
-              <Link href="#">Shortlist</Link>
+              <Link href="/wishlist">Wishlist</Link>
               <Divider orientation='horizontal' />
+              
+              <Link align={'center'} fontWeight={'600'} color='white' href='/adminregister' bgColor={'red.300'}>Admin Register</Link>
               <Text align={'center'} color='black' marginTop={'20px'}>If you are a new user</Text>
-              <Link align={'center'} fontWeight={'600'} color='black' href='/register'>Admin Register</Link>
               {
                 !isAuthenticated ?(
-                  <Button onClick={() => loginWithRedirect()} bg='#e40046' color={'white'} width={'100%'} marginTop={'20px'}>Login</Button> 
-                ): (<Button onClick={() => logout({ returnTo: window.location.origin })} bg='#e40046' color={'white'} width={'100%'} marginTop={'20px'}>
+                  <Button display={'block'} margin="auto" mb={'15px'} onClick={() => loginWithRedirect()} bg='#333333' _hover={{bgColor:'white', color:'#333333', border:'2px solid #333333'}} color={'white'} width={'80%'} marginTop={'20px'}>Login / Sign Up</Button> 
+                ): (<Button display={'block'} margin="auto" mb={'15px'} onClick={() => logout({ returnTo: window.location.origin })} bg='#333333' _hover={{bgColor:'white', color:'#333333', border:'2px solid #333333'}} color={'white'} width={'80%'} marginTop={'20px'}>
                 Logout
               </Button>)
               }
