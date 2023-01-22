@@ -44,12 +44,12 @@ const ImageSlider = () => {
   return (
     <>
 
-      <div style={{width:"80%" }}>
+      <Box w={["100%","100%","100%","80%"]}>
         <Slider {...settings}>
           {images.map((item) => (
-            <div key={item.id}>
+            <Box key={item.id}>
               <Image src={item.src}  alt={item.alt} />
-            </div>
+            </Box>
           ))}
         </Slider>
         <Box display="flex" fontSize={"xs"}   mt="-2" color="gray" border={"1px solid gray"} bgColor="white">
@@ -58,7 +58,7 @@ const ImageSlider = () => {
             <Box width="25%"  borderRight={"1px solid gray"}><Text   textAlign="center">Kitchen Needs</Text></Box>
             <Box width="25%" ><Text  textAlign="center">Kurti Sets</Text></Box>
         </Box>
-      </div>
+      </Box>
       
           </>
   )
