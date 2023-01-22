@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+
+
+import {Box,Image,Text,Button,Table,Td,Tr,Thead,Flex,Tbody,Input,useToast} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import {Box,Image,Text,Button,Table,Td,Tr,Thead,Flex,Tbody,Input,useToast} from "@chakra-ui/react"
+import { useSelector,useDispatch } from "react-redux";
+import { deleteCart,getCartItems } from "../../redux/cart/cart.action";
+import {addWishlist, getWishlistItems} from "../../redux/wishlist/wishlist.action"
 let api = "https://snapdeal-json-server.onrender.com/cart"
 
 const ProductCart = () => {
@@ -13,9 +18,21 @@ const ProductCart = () => {
     const [value,setValue]=useState("")
     const [applied,setApplied]=useState(false)
     const toast=useToast();
-    const navigate = useNavigate();
+
+    const navigate=useNavigate();
+
+    const cartItems=useSelector((store)=>{
+      return store.cart.cart;
+    });
+
+    const wishlistItems=useSelector((store)=>{
+      return store.wishlist.wishlist;
+    });
+
 
   useEffect(() => {
+dispatch(getCartItems())
+dispatch(getWishlistItems())
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
@@ -36,12 +53,10 @@ const ProductCart = () => {
   }, [refresh]);
   //console.log(data)
 
+  const dispatch=useDispatch();
     
-  let removeProduct = async (id) => {
-    let res = await fetch(`${api}/${id}`, {
-      method: "DELETE",
-    });
-    setRefresh(!refresh);
+  let removeProduct =  (id) => {
+   dispatch(deleteCart(id))
   };
 
 
@@ -109,6 +124,28 @@ const ProductCart = () => {
       isClosable: true,
     })
   }
+
+  const AddToWishlist=(product)=>{
+    dispatch(addWishlist({...product}));
+      toast({
+        title: 'Add to Wishlist.',
+        description: "Item added to Wishlist Successfully.",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+        position:"top"
+      })
+  
+  };
+
+  const goToWishlist=()=>{
+    navigate("/wishlist")
+  }
+
+
+
+
+
   return (
     <Box p="40px" mt="20px">
        <Box display="flex" flexDirection={["column","column","row"]} gap="40px" justifyContent="center" alignItems="flex-start">
@@ -127,11 +164,24 @@ const ProductCart = () => {
                 <Tbody>
                   
                     {
-                        data && data.map((ele)=>(
-                         <Tr   boxShadow= "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  key={ele.id}>
+                        cartItems && cartItems.map((ele)=>{
+                          let wishExist=false;
+wishlistItems.forEach((e)=>{
+  if(e.id==ele.id){
+ wishExist=true;
+  }
+});
+                      return <Tr   boxShadow= "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  key={ele.id}>
                           <Td fontSize={"xs"} fontWeight="bold" w="15%" p="5px"><Image src={ele.images} w="100%"/></Td>
                           <Td fontSize={"xs"} fontWeight="bold"  w="40%"style={{border:"0px solid black",padding:"20px"}}><Box display={"flex"} flexDirection="column" justifyContent={"space-between"}> <Box mb="20px"><Text>{ele.subtitle}</Text><Text>{ele.title}</Text><Text>Size: {ele.size}</Text></Box><Flex gap="2px" p="2px"><Button color={"white"} bgColor="#333333" onClick={()=>removeProduct(ele.id)} w="30%"size="xs">Delete</Button>
-                          <Button ml="10px" color={"white"} size="xs" bgColor="#333333">Add to wishlist</Button></Flex></Box></Td>
+                          {wishExist? <Button ml="10px" color={"white"} size="xs" bgColor="#333333" onClick={goToWishlist} >Go to wishlist</Button>:
+                          <Button ml="10px" color={"white"} size="xs" bgColor="#333333" onClick={()=>{
+                            AddToWishlist(ele)
+                          }} >Add to wishlist</Button>
+                          }
+                          
+                          
+                          </Flex></Box></Td>
                           <Td pt="22px" valign="top" fontSize={"xs"} fontWeight="bold" ><Box display={"flex"} flexDirection="column" justifyContent={"flex-start"}><Text>₹{ele.price*ele.quantity}.00</Text><Text color={"gray"} textDecoration={"line-through"}>₹{ele.strike_price*ele.quantity}.00</Text></Box></Td>
                           <Td pt="22px" valign="top" fontSize={"xs"} fontWeight="bold">
                             <Box display="flex" justifyContent={"space-evenly"} border="1px solid black">
@@ -142,7 +192,7 @@ const ProductCart = () => {
                           </Td>
                           
                          </Tr>
-                        ))
+})
                     }
                     
                 </Tbody>
@@ -171,7 +221,9 @@ const ProductCart = () => {
                 <Text fontWeight={"bold"}>₹{applied===true?(amt*0.7).toFixed(2):(amt.toFixed(2))}</Text>
               </Box>
             </Box>
-            <Button bgColor={"#333333"} color="white" onClick={() => navigate('/payment')}>
+
+            <Button bgColor={"#333333"} color="white" onClick={()=>{navigate("/payment")}} >
+
                 Checkout
             </Button>
             <Button bgColor={"rgb(255,255,255)"}>

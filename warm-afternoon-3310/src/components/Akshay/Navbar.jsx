@@ -6,6 +6,8 @@ import { useState ,useEffect} from 'react';
 import { AiOutlineShoppingCart} from "react-icons/ai";
 import Auth from "../../pages/authentication/Auth";
 import { useNavigate } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+import { getCartItems } from '../../redux/cart/cart.action';
 
 let api = "https://snapdeal-json-server.onrender.com/cart"
 
@@ -20,13 +22,22 @@ const Navbar = () => {
      navigate("/productCart")
   }
 
+  const cartItems=useSelector((store)=>{
+    return store.cart.cart;
+  })
+  const dispatch=useDispatch()
+
   useEffect(() => {
+
+    dispatch(getCartItems())
+
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setData(data);
       });
+
   }, [ ]);
   
   return (
@@ -53,8 +64,13 @@ const Navbar = () => {
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
+
+          <Box alignItems="center"  display="flex" px="20px" onClick={handleClick}>
+            Cart-{cartItems.length}
+
           <Box alignItems="center" cursor="pointer" display="flex" px="20px" onClick={handleClick}>
             <Box display={{lg:"block",base:"none"}}>Cart</Box>
+
             <Icon   as={AiOutlineShoppingCart} />
             - {data.length}
           </Box>

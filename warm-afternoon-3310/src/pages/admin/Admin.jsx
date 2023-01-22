@@ -9,7 +9,7 @@ import { Alert, AlertDescription, AlertIcon, AlertTitle } from '@chakra-ui/react
 
 let api = "https://snapdeal-json-server.onrender.com/kids";
 
-const Admin = () => {
+ const Admin = () => {
   const [formData, setFormData] = useState({});
   const [refresh, setRefresh] = useState(false);
   const [data, setData] = useState([]);
@@ -598,4 +598,6 @@ const Admin = () => {
   );
 };
 }
+
 export default Admin;
+
