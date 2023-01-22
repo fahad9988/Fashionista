@@ -15,20 +15,36 @@
   align-items: center;
   padding:25px;
   min-height: 100vh;
-  background: linear-gradient(90deg, #ff7f7f 60%, #ff7f7f 40.1%);
 }
 
 .container form{
-  padding:20px;
-  width:700px;
+  padding:30px;
+  width: 1000px;
   background: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.container form .row{
+.container .row{
   display: flex;
   flex-wrap: wrap;
-  gap:15px;
+  gap: 35px;
+  padding: 20px;
+}
+
+.container .col{
+    padding: 20px;
+    width: 100%;
+}
+
+.container .col1{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container .col2{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .container form .row .col{
@@ -72,6 +88,7 @@
   margin-top: 5px;
 }
 
+
 .container form .row .col .inputBox img{
   height: 34px;
   margin-top: 5px;
@@ -79,13 +96,14 @@
 }
 
 .container form .submit-btn{
-  width: 100%;
+  width: 40%;
   padding:12px;
   font-size: 17px;
   background: #e40046;
   color:#fff;
   margin-top: 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .container form .submit-btn:hover{

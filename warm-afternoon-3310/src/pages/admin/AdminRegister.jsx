@@ -11,7 +11,7 @@ import {
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 const AdminRegister = () => {
   const [username, setUsername] = useState("");
@@ -26,26 +26,26 @@ const AdminRegister = () => {
 
   const IsValidate = () => {
     let isProceed = true;
-    let errormessage = 'Please enter the value in';
+    let errormessage = 'Please enter all the required feilds';
     if(username === null || username === '') {
       isProceed = false;
-      errormessage += 'Username';
+      errormessage;
     }
     if(name === null || name === '') {
       isProceed = false;
-      errormessage += 'Name';
+      errormessage;
     }
     if(email === null || email === '') {
       isProceed = false;
-      errormessage += 'Email';
+      errormessage;
     }
     if(mobile === null || mobile === '') {
       isProceed = false;
-      errormessage += 'Mobile';
+      errormessage;
     }
     if(password === null || password === '') {
       isProceed = false;
-      errormessage += 'Password';
+      errormessage;
     }
     if(!isProceed) {
       toast.warning(errormessage);
@@ -63,9 +63,10 @@ const AdminRegister = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    let id = uuidv4();
-    const userObj = {id, username, name, email, mobile, password};
+    // let id = uuidv4();
+    const userObj = { username, name, email, mobile, password };
     console.log(userObj);
+
     if(IsValidate()){
     fetch("https://snapdeal-json-server.onrender.com/users",{
       method:"POST",
@@ -73,19 +74,21 @@ const AdminRegister = () => {
       body:JSON.stringify(userObj)
     }).then((res) => {
       toast.success("Registered Successfully");
-      navigate("/login")
+      navigate("/adminlogin")
     }).catch((err) => {
       toast.error("Failed : " +err.message);
     });
   };
+
+  
 }
 
 
   return (
     <Container>
-    <Box>
+    <Box mt={'35px'}>
     <Flex
-      minH={'100vh'}
+      minH={'80vh'}
       align={'center'}
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}>
@@ -152,7 +155,7 @@ const AdminRegister = () => {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'blue.400'} href='/login'>Login</Link>
+                Already a user? <Link color={'blue.400'} href='/adminlogin'>Login</Link>
               </Text>
             </Stack>
           </Stack>

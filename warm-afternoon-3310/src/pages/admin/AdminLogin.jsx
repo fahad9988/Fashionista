@@ -28,7 +28,7 @@ const AdminLogin = () => {
           if(res.password === password) {
               toast.success("Successfully Login");
               sessionStorage.setItem('id', id);
-              navigate('/');
+              navigate('/admin');
           } else {
               toast.error('Please Enter valid credentials');
           }
@@ -54,13 +54,13 @@ const AdminLogin = () => {
 
   return (
     <Container>
-      <Box>
+      <Box mt={"30px"}>
       <Flex
-      minH={'100vh'}
+      minH={'80vh'}
       align={'center'}
       justify={'center'}
       bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+      <Stack spacing={8} mx={'auto'} maxW={'xl'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'}>Admin Login</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
@@ -101,6 +101,10 @@ const AdminLogin = () => {
       </Stack>
     </Flex>
       </Box>
+
+
+    
+
 
     </Container>
   )

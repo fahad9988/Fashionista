@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import './Payment.css';
-import img1 from '../../Images/card_img.png';
-import Loading from '../Loading'
-import Otp from './Otp'
+import img1 from '../../assets/card_img.png';
+import Loading from "./Loading"
+import Otp from "./Otp";
 import { Navigate } from 'react-router-dom';
-import PaymentSuccess from './PaymentSuccess'
+import PaymentSuccess from "./PaymentSuccess";
 
 function Payment(){
 
@@ -35,11 +35,11 @@ if(pay){
         <div class="container">
         
 
-        <form action="" >
+    <form action="" >
 
         <div class="row">
 
-            <div class="col">
+            <div class="col col1">
 
                 <h3 class="title">Billing Address</h3>
 
@@ -73,7 +73,7 @@ if(pay){
 
             </div>
 
-            <div class="col">
+            <div class="col col2">
 
                 <h3 class="title">Payment</h3>
 
@@ -109,7 +109,7 @@ if(pay){
     
         </div>
 
-        <input type="submit" value="Pay" class="submit-btn" onClick={handleClick}/>
+        <input type="submit" value="Proceed to Payment" class="submit-btn" onClick={handleClick}/>
 
     </form>
 

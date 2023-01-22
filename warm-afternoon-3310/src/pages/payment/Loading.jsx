@@ -5,9 +5,9 @@ function Loading({lod}){
     return(
         <Center>
         <Box mt='80'>
-<HashLoader size={60} color={'#36d7b7'} loading={lod} />
-</Box>
-</Center>
+            <HashLoader size={60} color={'#e40046'} loading={lod} />
+        </Box>
+        </Center>
     )
 }
 export default Loading;
