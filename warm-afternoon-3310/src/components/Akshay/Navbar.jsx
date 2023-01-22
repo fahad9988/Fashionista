@@ -56,7 +56,7 @@ const Navbar = () => {
       <Flex  px={{base:"20px",lg:"40px"}} h={{md:"65px",base:"50px"}} bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
           <Link to="/" ><Image src={Fs} border="1px solid white" height={{md:"50px",base:"30px"}}></Image></Link>
           <Flex display={{base:"none",sm:"flex",md:"flex"}} w={{md:"50%",base:"40%"}}>  
-          <Input bgColor={"white "} color="black" w="100%" h={{md:10,base:7}} fontWeight="300" fontSize={"13px"} borderRightRadius="0px" _placeholder={{fontSize:{base:"10px",md:"12px",lg:"14px"}}} placeholder='Search products and brands'  />
+          <Input bgColor={"white "} color="black" w="100%" h={{md:10,base:7}} fontWeight="300" fontSize={"13px"} borderRightRadius="0px" _placeholder={{fontSize:{base:"10px",md:"12px",lg:"14px"}}} placeholder='Search Products and Brands'  />
           <Button bgColor="black" h={{md:10,base:7}} fontSize={"13px"} borderLeftRadius="0px">Search</Button>
           </Flex>
           <Flex alignItems={"center"}>

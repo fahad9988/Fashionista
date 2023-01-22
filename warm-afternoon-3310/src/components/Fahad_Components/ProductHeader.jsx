@@ -12,7 +12,7 @@ const ProductHeader = ({products,search,setSearch,sort,setSort,popularity,setPop
     <Box display="flex" mb="17px"  >
 
      <Box display={{sm:"flex",base:"none"}} flex={{sm:"0.8",md:"0.8",lg:"0.6"}}  alignItems="center"  >
-      <Text fontSize={{sm:12,md:16,lg:19}} mr={{sm:"5px",md:"7px",lg:"10px"}}>Men Products</Text>
+      <Text fontSize={{sm:12,md:16,lg:19}} mr={{sm:"5px",md:"7px",lg:"10px"}}>Men</Text>
       <Text fontSize={{sm:9,md:12,lg:14}}>({products.data.length} items)</Text>
      </Box>
 
