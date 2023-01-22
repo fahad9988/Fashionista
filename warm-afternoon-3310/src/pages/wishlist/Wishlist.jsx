@@ -53,7 +53,7 @@ const handleClick=(item)=>{
   }
 }
 
-let exist=false;
+
 const goToCart=()=>{
   navigate("/productCart")
 }
@@ -75,6 +75,7 @@ const removeItem=(id)=>{
             }} >START SHOPPING NOW</Button>
             </Box>}
         {wishlistItems.map((item)=>{
+          let exist=false;
           cartItems.forEach((e)=>{
             if(e.id==item.id){
            exist=true;
