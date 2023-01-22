@@ -598,7 +598,7 @@ let api = "https://snapdeal-json-server.onrender.com/kids";
     </div>
   );
 };
-}
+
 
 export default Admin;
 
