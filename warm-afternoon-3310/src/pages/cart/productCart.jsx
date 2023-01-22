@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+
 import {Box,Image,Text,Button,Table,Td,Tr,Thead,Flex,Tbody,Input,useToast} from "@chakra-ui/react"
 let api = "https://snapdeal-json-server.onrender.com/cart"
 
 const ProductCart = () => {
     const [refresh, setRefresh] = useState(false);
     const [data, setData] = useState([]);
+
     const [quant,setQuant]=useState(0);
     const [amt,setAmt]=useState(0);
     const [samt,setsAmt]=useState(0)
@@ -43,6 +45,7 @@ const ProductCart = () => {
 
 
   let handleInc = async (id,price,quantity)=>{
+
     let res = await fetch(`${api}/${id}`, {
       method: "PATCH",
       body: JSON.stringify({quantity:quantity+1}),

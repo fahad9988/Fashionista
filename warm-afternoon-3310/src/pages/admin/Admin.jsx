@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router';
 import React from "react";
-import { useEffect } from "react";
+import { useEffect,useRef } from "react";
 import { useState } from "react";
+import "./Admin.css"
+import { v4 } from 'uuid';
+import { toast } from 'react-toastify';
+import { Alert, AlertDescription, AlertIcon, AlertTitle } from '@chakra-ui/react';
 
 let api = "https://snapdeal-json-server.onrender.com/kids";
 
@@ -10,6 +14,10 @@ const Admin = () => {
   const [refresh, setRefresh] = useState(false);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  //const toast = useToast()
+  //const toastIdRef = useRef()
+  
+  
 
   useEffect(() => {
     fetch("https://snapdeal-json-server.onrender.com/kids")
@@ -20,34 +28,71 @@ const Admin = () => {
       });
   }, [refresh]);
 
+  
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-    fetch("https://snapdeal-json-server.onrender.com/kids", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: { "Content-Type": "application/json" },
+    let id = v4()
+     event.preventDefault();
+    const input1 = document.getElementById("input1").value;
+    const input2 = document.getElementById("input2").value;
+    const input3 = document.getElementById("input3").value;
+   const input4 = document.getElementById("input4").value;
+   const input5 = document.getElementById("input5").value;
+   const input6 = document.getElementById("input6").value;
+   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === ""){
+    toast.warning('Fill all the fields');
+  }
+ else{
+  
+  fetch("https://snapdeal-json-server.onrender.com/kids", {
+    method: "POST",
+    body: JSON.stringify({...formData,id:id}),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      setRefresh(!refresh);
+      
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setRefresh(!refresh);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+    fetch("https://snapdeal-json-server.onrender.com/allProducts", {
+    method: "POST",
+    body: JSON.stringify({...formData,id:id}),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      setRefresh(!refresh);
+      
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+ }
   };
+
+
 
   let updateProduct = async (id) => {
     const new_name = window.prompt("Enter new Product Name");
+    const new_strikePrice = window.prompt("Enter new strikePrice");
     const new_price = window.prompt("Enter new Price");
+    const new_discount = window.prompt("Enter new discount")
     const new_rating = window.prompt("Enter new Rating");
     const new_image = window.prompt("Enter new ImageUrl");
 
     let data = {
       price: new_price,
       rating: new_rating,
-      name: new_name,
+      subtitle: new_name,
       images: new_image,
+      strike_price: new_strikePrice,
+      discount : new_discount
     };
 
     let res = await fetch(`${api}/${id}`, {
@@ -103,12 +148,10 @@ const Admin = () => {
   };
 
   const handleChange = (event) => {
-    if (event.target.name === "price" || event.target.name === "rating"){
+     if (event.target.name === "price" || event.target.name === "rating"){
       setFormData({ ...formData, [event.target.name]: +event.target.value });
     }
-    // else if(event.target.name === "image"){
-    //   setFormData({ ...formData, [event.target.name]: [...event.target.value] });
-    // }
+    
     else {
       setFormData({ ...formData, [event.target.name]: event.target.value });
     }
@@ -118,6 +161,8 @@ const Admin = () => {
     navigate('/usersdata')
   }
 
+  
+
   return (
     <div
       style={{
@@ -125,80 +170,127 @@ const Admin = () => {
         gridTemplateColumns: "repeat(2,1fr)",
         gap: "0px",
         height: "auto",
-        backgroundColor: "Cornsilk",
+        backgroundColor: "white",
+        width:"100%",
+        className:"rev_container"
       }}>
       <div
         className="left_side"
         style={{
           width: "370px",
-          border: "1px solid red",
-          height: "650px",
-          backgroundColor: "Cornsilk",
-          marginLeft: "20px",
+          border: "0px solid red",
+          height: "700px",
+          backgroundColor: "white",
+           marginLeft: "20px",
           // position:"fixed"
-          marginTop: "120px",
+          marginTop: "20px",
         }}>
         <div
           className="form"
           style={{
-            border: "1px solid black",
+            border: "0px solid black",
             marginTop: "0px",
             borderRadius: "10px",
             backgroundColor: "white",
             margin: "auto",
+            width:"370px",
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            className:"rev_form",
+            paddingTop:"20px"
+           
           }}>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="name"
+              name="subtitle"
               onChange={handleChange}
               placeholder="Product Name"
+              id="input1"
               style={{
                 width: "300px",
-                marginBottom: "7px",
+                marginBottom: "10px",
                 padding: "5px",
                 marginTop: "10px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
+                borderRadius:"5px"
+                
               }}
             />
             <input
               type="url"
               name="images"
               placeholder="Product Url"
+              id="input2"
               onChange={handleChange}
               style={{
                 width: "300px",
-                marginBottom: "7px",
+                marginBottom: "10px",
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
+                borderRadius:"5px"
+              }}
+            />
+            <input
+              type="number"
+              name="strike_price"
+              placeholder="Discount Price"
+              id="input3"
+              onChange={handleChange}
+              style={{
+                width: "300px",
+                marginBottom: "10px",
+                padding: "5px",
+                border: "1.5px solid black",
+                marginLeft: "30px",
+                borderRadius:"5px"
               }}
             />
             <input
               type="number"
               name="price"
               placeholder="Product Price"
+              id="input4"
               onChange={handleChange}
               style={{
                 width: "300px",
-                marginBottom: "7px",
+                marginBottom: "10px",
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
+                borderRadius:"5px"
               }}
             />
+            <input
+              type="text"
+              name="discount"
+              placeholder="Discount Percentage"
+              id="input5"
+              onChange={handleChange}
+              style={{
+                width: "300px",
+                marginBottom: "10px",
+                padding: "5px",
+                border: "1.5px solid black",
+                marginLeft: "30px",
+                borderRadius:"5px"
+              }}
+            />
+            
             <input
               type="number"
               name="rating"
               placeholder="Product Rating"
+              id="input6"
               onChange={handleChange}
               style={{
                 width: "300px",
-                marginBottom: "7px",
+                marginBottom: "10px",
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
+                borderRadius:"5px"
               }}
             />
 
@@ -206,11 +298,13 @@ const Admin = () => {
               type="submit"
               style={{
                 width: "200px",
-                marginBottom: "7px",
+                marginBottom: "20px",
                 padding: "5px",
-                backgroundColor: "IndianRed",
+                backgroundColor: "#E40046",
                 fontSize: "19px",
                 marginLeft: "80px",
+                color:"white",
+                marginTop:"10px"
               }}>
               Add Product
             </button>
@@ -220,12 +314,15 @@ const Admin = () => {
         <div
           className="filtering"
           style={{
-            border: "1px solid black",
+            border: "0px solid black",
             marginTop: "0px",
             borderRadius: "10px",
             backgroundColor: "white",
             height: "auto",
             marginTop: "40px",
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            paddingTop:"10px",
+            paddingBottom:"20px"
           }}>
           <h1
             style={{
@@ -234,6 +331,7 @@ const Admin = () => {
               fontSize: "18px",
               fontWeight: "bold",
               marginLeft: "30px",
+              
             }}>
             Sort By :- Price
           </h1>
@@ -244,6 +342,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
+              cursor:"pointer"
             }}>
             〇 Price: High To Low
           </h2>
@@ -254,6 +353,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
+              cursor:"pointer"
             }}>
             〇 Price: Low To High
           </h2>
@@ -262,12 +362,15 @@ const Admin = () => {
         <div
           className="filtering"
           style={{
-            border: "1px solid black",
+            border: "0px solid black",
             marginTop: "0px",
             borderRadius: "10px",
             backgroundColor: "white",
             height: "auto",
             marginTop: "40px",
+            boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            paddingTop:"10px",
+            paddingBottom:"20px"
           }}>
           <h1
             style={{
@@ -286,6 +389,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
+              cursor:"pointer"
             }}>
             〇 Price: High To Low
           </h2>
@@ -296,6 +400,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
+              cursor:"pointer"
             }}>
             〇 Price: Low To High
           </h2>
@@ -307,7 +412,7 @@ const Admin = () => {
                 width: "350px",
                 marginBottom: "7px",
                 padding: "5px",
-                backgroundColor: "black",
+                backgroundColor: "#E40046",
                 fontSize: "19px",
                 marginLeft: "10px",
                 marginTop:"50px",
@@ -315,7 +420,7 @@ const Admin = () => {
                 
               }}
                onClick={userHandle}
-              >Users Data</button>
+              >Go To Users Data →</button>
            
         </div>
       </div>
@@ -323,16 +428,17 @@ const Admin = () => {
       <div
         className="container"
         style={{
-          width: "900px",
+          width: "600px",
           border: "0px solid red",
           height: "auto",
-          backgroundColor: "Cornsilk",
-          marginLeft: "-300px",
-          marginTop: "120px",
+          backgroundColor: "white",
+           marginLeft: "-300px",
+          marginTop: "12px",
+          
         }}>
         <div
           style={{
-            width: "1000px",
+            width: "600px",
             border: "0px solid black",
             margin: "auto",
             height: "auto",
@@ -340,59 +446,87 @@ const Admin = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(3,1fr)",
-              gap: "20px",
+              gridTemplateColumns: "repeat(4,1fr)",
+              gap: "10px",
+              className:"reva_prod"
             }}>
             {data &&
               data.map((ele, ind) => (
-                <div
+                <div className='revati'
                   key={ind}
                   style={{
-                    padding: "50px",
-                    border: "1px solid gray",
+                    padding: "7px",
+                    border: "0px solid gray",
                     backgroundColor: "white",
-                    marginTop: "3px",
-                    borderRadius: "10px",
+                    marginTop: "10px",
+                    height:"400px"
                   }}>
                   <img
                     src={ele.images}
                     style={{
                       width: "200px",
-                      height: "250px",
-                      marginTop: "-40px",
+                      height: "220px",
+                     //marginTop: "-40px",
                       marginLeft: "10px",
                     }}></img>
+                    <div>
+                      <div style={{display:"flex"}} >
+                      
+                    <h1
+                     style={{
+                       fontFamily: "sans-serif",
+                      // marginTop: "10px",
+                       fontSize: "14px",
+                       marginLeft: "16px",
+                       margin:"auto",
+                       color:"#666666"
+                     }}>
+                       {ele.subtitle}
+                    </h1>
+                      </div>
+                  </div>
+                    <div style={{display:"flex"}}>
+                     <h1
+                      style={{
+                        fontFamily: "sans-serif",
+                        marginTop: "10px",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        marginLeft: "16px",
+                        color:"#CCCCCC",
+                        textDecoration: "line-through"
+                      }}>
+                         ₹{ele.strike_price}
+                     </h1>
+                     <h1
+                      style={{
+                        fontFamily: "sans-serif",
+                        marginTop: "10px",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        marginLeft: "30px",
+                      
+                      }}>
+                        ₹ {ele.price}
+                     </h1>
+                     <button style={{color:"#999999",border:"1px solid #999999",fontSize:"10px",marginTop:"14px",marginLeft:"20px",marginBottom:"25px"}}>
+                      {ele.discount}
+                      </button>
+                  </div>
+                  
                   <h1
                     style={{
                       fontFamily: "sans-serif",
-                      marginTop: "10px",
-                      fontSize: "20px",
-                      marginLeft: "20px",
-                      margin:"auto"
-                    }}>
-                    {ele.subtitle}
-                  </h1>
-                  <h1
-                    style={{
-                      fontFamily: "sans-serif",
-                      marginTop: "10px",
-                      fontSize: "20px",
-                      fontWeight: "bold",
-                      marginLeft: "80px",
-                    }}>
-                    ₹ {ele.price}
-                  </h1>
-                  <h1
-                    style={{
-                      fontFamily: "sans-serif",
-                      marginTop: "10px",
-                      fontSize: "20px",
+                      marginTop: "0px",
+                      fontSize: "10px",
                       fontWeight: "bold",
                       color: "HotPink",
-                      marginLeft: "90px",
+                      marginLeft: "17px",
+                      display:"flex"
                     }}>
-                    ★ {ele.rating}
+                    <span><img style={{width:"50px"}} src="https://www.shutterstock.com/image-vector/five-stars-customer-product-rating-260nw-1894989967.jpg"/></span><span>{ele.rating}</span>
                   </h1>
+                  
                   <div
                     style={{
                       border: "0px solid black",
@@ -407,8 +541,8 @@ const Admin = () => {
                       style={{
                         padding: "6px",
                         width: "100px",
-                        border: "1px solid black",
-                        backgroundColor: "black",
+                        border: "1px solid #E40046",
+                        backgroundColor: "#E40046",
                         color: "white",
                       }}>
                       Update
@@ -418,8 +552,8 @@ const Admin = () => {
                       style={{
                         padding: "6px",
                         width: "100px",
-                        border: "1px solid black",
-                        backgroundColor: "black",
+                        border: "1px solid #E40046",
+                        backgroundColor: "#E40046",
                         color: "white",
                       }}>
                       Remove

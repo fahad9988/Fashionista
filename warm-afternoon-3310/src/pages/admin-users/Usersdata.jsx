@@ -8,15 +8,18 @@ const Usersdata = () => {
   const [refresh, setRefresh] = useState(false);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const [available,setAvailable] = useState(false)
 
   let api = "https://snapdeal-json-server.onrender.com/users"
 
   useEffect(() => {
+    setAvailable(true);
     fetch("https://snapdeal-json-server.onrender.com/users")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setData(data);
+        setAvailable(false);
       });
       
   }, [refresh]);
@@ -28,14 +31,33 @@ const Usersdata = () => {
     setRefresh(!refresh);
   };
 
-  return (
+  let gotoAdmin = ()=>{
+    navigate('/admin')
+  }
+
+  return   (
     <div style={{
       height: "auto",
-      backgroundColor: "Cornsilk",
+      backgroundColor: "white",
     }}>
       <div style={{border:"1px solid Cornsilk"}}>
+        <button style={{
+                width: "350px",
+                marginBottom: "7px",
+                padding: "5px",
+                backgroundColor: "#E40046",
+                fontSize: "19px",
+                marginLeft: "600px",
+                marginTop:"50px",
+                color:"white",
+                
+              }} 
+              onClick={gotoAdmin}
+               >← Go To Admin Product</button>
+
+      
         
-         <table style={{border:"1px solid black",marginTop:"160px",marginLeft:"140px"}}>
+         <table style={{border:"1px solid black",marginTop:"60px",marginLeft:"140px"}}>
          {/* <thead>
           <tr>
             <th>Name</th>
@@ -46,7 +68,7 @@ const Usersdata = () => {
         </thead> */}
 
           <tbody>
-          {data &&
+          {available ? <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" style={{fontFamily:"sans-serif",fontSize:"20px",width:"1200px",height:"300px"}}/> : data &&
               data.map((ele,ind)=>(
                   <tr key={ele.id} style={{border:"1px solid black"}}>
                     <td style={{border:"1px solid black",padding:"20px",fontFamily:"sans-serif",fontSize:"20px",width:"60px"}}>{ind+1}</td>
