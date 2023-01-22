@@ -4,7 +4,7 @@ import { useEffect,useRef } from "react";
 import { useState } from "react";
 import "./Admin.css"
 import { v4 } from 'uuid';
-import { useToast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { Alert, AlertDescription, AlertIcon, AlertTitle } from '@chakra-ui/react';
 
 let api = "https://snapdeal-json-server.onrender.com/kids";
@@ -39,12 +39,8 @@ const Admin = () => {
    const input4 = document.getElementById("input4").value;
    const input5 = document.getElementById("input5").value;
    const input6 = document.getElementById("input6").value;
-   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === "") {
-    //window.alert("Please fill out all fields.");
-    <Alert status='error'>
-     <AlertIcon />
-      There was an error processing your request
-  </Alert>
+   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === ""){
+    toast.warning('Fill all the fields');
   }
  else{
   
