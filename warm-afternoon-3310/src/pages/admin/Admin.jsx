@@ -40,8 +40,12 @@ const Admin = () => {
    const input5 = document.getElementById("input5").value;
    const input6 = document.getElementById("input6").value;
    const input7 = document.getElementById("input7").value;
-   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === "" || input7 === ""){
+   
+
+   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === "" || input7==""){
+
     toast.warning('Fill all the fields');
+
   }
  else{
   
@@ -211,7 +215,11 @@ const Admin = () => {
               id="input7"
               style={{
                 width: "300px",
-                marginBottom: "10px",
+
+                
+
+                marginBottom: "2px",
+
                 padding: "5px",
                 marginTop: "10px",
                 border: "1.5px solid black",
@@ -255,7 +263,7 @@ const Admin = () => {
             <input
               type="number"
               name="strike_price"
-              placeholder="Discount Price"
+              placeholder="Product Price"
               id="input3"
               onChange={handleChange}
               style={{
@@ -270,7 +278,7 @@ const Admin = () => {
             <input
               type="number"
               name="price"
-              placeholder="Product Price"
+              placeholder="Discount Price"
               id="input4"
               onChange={handleChange}
               style={{
