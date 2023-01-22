@@ -1,11 +1,16 @@
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 import React from "react";
-import { useEffect,useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
-import "./Admin.css"
-import { v4 } from 'uuid';
-import { toast } from 'react-toastify';
-import { Alert, AlertDescription, AlertIcon, AlertTitle } from '@chakra-ui/react';
+import "./Admin.css";
+import { v4 } from "uuid";
+import { toast } from "react-toastify";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from "@chakra-ui/react";
 
 let api = "https://snapdeal-json-server.onrender.com/kids";
 
@@ -16,8 +21,6 @@ const Admin = () => {
   const navigate = useNavigate();
   //const toast = useToast()
   //const toastIdRef = useRef()
-  
-  
 
   useEffect(() => {
     fetch("https://snapdeal-json-server.onrender.com/kids")
@@ -28,69 +31,66 @@ const Admin = () => {
       });
   }, [refresh]);
 
-  
-
   const handleSubmit = (event) => {
-    let id = v4()
-     event.preventDefault();
+    let id = v4();
+    event.preventDefault();
     const input1 = document.getElementById("input1").value;
     const input2 = document.getElementById("input2").value;
     const input3 = document.getElementById("input3").value;
-   const input4 = document.getElementById("input4").value;
-   const input5 = document.getElementById("input5").value;
-   const input6 = document.getElementById("input6").value;
-   const input7 = document.getElementById("input7").value;
-   
+    const input4 = document.getElementById("input4").value;
+    const input5 = document.getElementById("input5").value;
+    const input6 = document.getElementById("input6").value;
+    const input7 = document.getElementById("input7").value;
 
-   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === "" || input7==""){
+    if (
+      input1 === "" ||
+      input2 === "" ||
+      input3 === "" ||
+      input4 === "" ||
+      input5 === "" ||
+      input6 === "" ||
+      input7 === ""
+    ) {
+      toast.warning("Fill all the fields");
+    } else {
+      fetch("https://snapdeal-json-server.onrender.com/kids", {
+        method: "POST",
+        body: JSON.stringify({ ...formData, id: id }),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setRefresh(!refresh);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
 
-    toast.warning('Fill all the fields');
-
-  }
- else{
-  
-  fetch("https://snapdeal-json-server.onrender.com/kids", {
-    method: "POST",
-    body: JSON.stringify({...formData,id:id}),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      setRefresh(!refresh);
-      
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-
-    fetch("https://snapdeal-json-server.onrender.com/allProducts", {
-    method: "POST",
-    body: JSON.stringify({...formData,id:id}),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      setRefresh(!refresh);
-      
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
- }
+      fetch("https://snapdeal-json-server.onrender.com/allProducts", {
+        method: "POST",
+        body: JSON.stringify({ ...formData, id: id }),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setRefresh(!refresh);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   };
-
-
 
   let updateProduct = async (id) => {
     const new_name = window.prompt("Enter new Product Name");
     const new_strikePrice = window.prompt("Enter new strikePrice");
     const new_price = window.prompt("Enter new Price");
-    const new_discount = window.prompt("Enter new discount")
+    const new_discount = window.prompt("Enter new discount");
     const new_rating = window.prompt("Enter new Rating");
     const new_image = window.prompt("Enter new ImageUrl");
-    const new_title = window.prompt("Enter new title")
+    const new_title = window.prompt("Enter new title");
 
     let data = {
       price: new_price,
@@ -98,8 +98,8 @@ const Admin = () => {
       subtitle: new_name,
       images: new_image,
       strike_price: new_strikePrice,
-      discount : new_discount,
-      title: new_title
+      discount: new_discount,
+      title: new_title,
     };
 
     let res = await fetch(`${api}/${id}`, {
@@ -122,18 +122,20 @@ const Admin = () => {
 
   let sortHtoL = async () => {
     console.log("ok");
-    let res = await fetch("https://snapdeal-json-server.onrender.com/kids?_sort=price&_order=desc");
+    let res = await fetch(
+      "https://snapdeal-json-server.onrender.com/kids?_sort=price&_order=desc"
+    );
     let data = await res.json();
     setData(data);
-    
   };
 
   let sortHightoLow = async () => {
     console.log("ok");
-    let res = await fetch("https://snapdeal-json-server.onrender.com/kids?_sort=rating&_order=desc");
+    let res = await fetch(
+      "https://snapdeal-json-server.onrender.com/kids?_sort=rating&_order=desc"
+    );
     let data = await res.json();
     setData(data);
-    
   };
 
   let sortLtoH = async () => {
@@ -143,32 +145,28 @@ const Admin = () => {
     );
     let data = await res.json();
     setData(data);
-    
   };
 
   let sortLowtoHigh = async () => {
     console.log("ok");
-    let res = await fetch("https://snapdeal-json-server.onrender.com/kids?_sort=rating&_order=asc");
+    let res = await fetch(
+      "https://snapdeal-json-server.onrender.com/kids?_sort=rating&_order=asc"
+    );
     let data = await res.json();
     setData(data);
-    
   };
 
   const handleChange = (event) => {
-     if (event.target.name === "price" || event.target.name === "rating"){
+    if (event.target.name === "price" || event.target.name === "rating") {
       setFormData({ ...formData, [event.target.name]: +event.target.value });
-    }
-    
-    else {
+    } else {
       setFormData({ ...formData, [event.target.name]: event.target.value });
     }
   };
 
-  function userHandle(){
-    navigate('/usersdata')
+  function userHandle() {
+    navigate("/usersdata");
   }
-
-  
 
   return (
     <div
@@ -178,8 +176,8 @@ const Admin = () => {
         gap: "0px",
         height: "auto",
         backgroundColor: "white",
-        width:"100%",
-        className:"rev_container"
+        width: "100%",
+        className: "rev_container",
       }}>
       <div
         className="left_side"
@@ -188,7 +186,7 @@ const Admin = () => {
           border: "0px solid red",
           height: "700px",
           backgroundColor: "white",
-           marginLeft: "20px",
+          marginLeft: "20px",
           // position:"fixed"
           marginTop: "20px",
         }}>
@@ -200,14 +198,13 @@ const Admin = () => {
             borderRadius: "10px",
             backgroundColor: "white",
             margin: "auto",
-            width:"370px",
+            width: "370px",
             boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-            className:"rev_form",
-            paddingTop:"20px"
-           
+            className: "rev_form",
+            paddingTop: "20px",
           }}>
           <form onSubmit={handleSubmit}>
-          <input
+            <input
               type="text"
               name="title"
               onChange={handleChange}
@@ -216,16 +213,13 @@ const Admin = () => {
               style={{
                 width: "300px",
 
-                
-
                 marginBottom: "2px",
 
                 padding: "5px",
                 marginTop: "10px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
-                
+                borderRadius: "5px",
               }}
             />
             <input
@@ -241,8 +235,7 @@ const Admin = () => {
                 marginTop: "10px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
-                
+                borderRadius: "5px",
               }}
             />
             <input
@@ -257,7 +250,7 @@ const Admin = () => {
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
+                borderRadius: "5px",
               }}
             />
             <input
@@ -272,7 +265,7 @@ const Admin = () => {
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
+                borderRadius: "5px",
               }}
             />
             <input
@@ -287,7 +280,7 @@ const Admin = () => {
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
+                borderRadius: "5px",
               }}
             />
             <input
@@ -302,10 +295,10 @@ const Admin = () => {
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
+                borderRadius: "5px",
               }}
             />
-            
+
             <input
               type="number"
               name="rating"
@@ -318,7 +311,7 @@ const Admin = () => {
                 padding: "5px",
                 border: "1.5px solid black",
                 marginLeft: "30px",
-                borderRadius:"5px"
+                borderRadius: "5px",
               }}
             />
 
@@ -331,8 +324,8 @@ const Admin = () => {
                 backgroundColor: "#E40046",
                 fontSize: "19px",
                 marginLeft: "80px",
-                color:"white",
-                marginTop:"10px"
+                color: "white",
+                marginTop: "10px",
               }}>
               Add Product
             </button>
@@ -349,8 +342,8 @@ const Admin = () => {
             height: "auto",
             marginTop: "40px",
             boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-            paddingTop:"10px",
-            paddingBottom:"20px"
+            paddingTop: "10px",
+            paddingBottom: "20px",
           }}>
           <h1
             style={{
@@ -359,7 +352,6 @@ const Admin = () => {
               fontSize: "18px",
               fontWeight: "bold",
               marginLeft: "30px",
-              
             }}>
             Sort By :- Price
           </h1>
@@ -370,7 +362,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
-              cursor:"pointer"
+              cursor: "pointer",
             }}>
             〇 Price: High To Low
           </h2>
@@ -381,7 +373,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
-              cursor:"pointer"
+              cursor: "pointer",
             }}>
             〇 Price: Low To High
           </h2>
@@ -397,8 +389,8 @@ const Admin = () => {
             height: "auto",
             marginTop: "40px",
             boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-            paddingTop:"10px",
-            paddingBottom:"20px"
+            paddingTop: "10px",
+            paddingBottom: "20px",
           }}>
           <h1
             style={{
@@ -417,7 +409,7 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
-              cursor:"pointer"
+              cursor: "pointer",
             }}>
             〇 Price: High To Low
           </h2>
@@ -428,28 +420,27 @@ const Admin = () => {
               marginTop: "10px",
               fontSize: "16px",
               marginLeft: "110px",
-              cursor:"pointer"
+              cursor: "pointer",
             }}>
             〇 Price: Low To High
           </h2>
         </div>
 
         <div>
-           
-          <button style={{
-                width: "350px",
-                marginBottom: "7px",
-                padding: "5px",
-                backgroundColor: "#E40046",
-                fontSize: "19px",
-                marginLeft: "10px",
-                marginTop:"50px",
-                color:"white",
-                
-              }}
-               onClick={userHandle}
-              >Go To Users Data →</button>
-           
+          <button
+            style={{
+              width: "350px",
+              marginBottom: "7px",
+              padding: "5px",
+              backgroundColor: "#E40046",
+              fontSize: "19px",
+              marginLeft: "10px",
+              marginTop: "50px",
+              color: "white",
+            }}
+            onClick={userHandle}>
+            Go To Users Data →
+          </button>
         </div>
       </div>
 
@@ -460,9 +451,8 @@ const Admin = () => {
           border: "0px solid red",
           height: "auto",
           backgroundColor: "white",
-           marginLeft: "-300px",
+          marginLeft: "-300px",
           marginTop: "12px",
-          
         }}>
         <div
           style={{
@@ -476,72 +466,79 @@ const Admin = () => {
               display: "grid",
               gridTemplateColumns: "repeat(4,1fr)",
               gap: "10px",
-              className:"reva_prod"
+              className: "reva_prod",
             }}>
             {data &&
               data.map((ele, ind) => (
-                <div className='revati'
+                <div
+                  className="revati"
                   key={ind}
                   style={{
                     padding: "7px",
                     border: "0px solid gray",
                     backgroundColor: "white",
                     marginTop: "10px",
-                    height:"400px"
+                    height: "400px",
                   }}>
                   <img
                     src={ele.images}
                     style={{
                       width: "200px",
                       height: "220px",
-                     //marginTop: "-40px",
+                      //marginTop: "-40px",
                       marginLeft: "10px",
                     }}></img>
-                    <div>
-                      <div style={{display:"flex"}} >
-                      
-                    <h1
-                     style={{
-                       fontFamily: "sans-serif",
-                      // marginTop: "10px",
-                       fontSize: "14px",
-                       marginLeft: "16px",
-                       margin:"auto",
-                       color:"#666666"
-                     }}>
-                       {ele.subtitle}
-                    </h1>
-                      </div>
+                  <div>
+                    <div style={{ display: "flex" }}>
+                      <h1
+                        style={{
+                          fontFamily: "sans-serif",
+                          // marginTop: "10px",
+                          fontSize: "14px",
+                          marginLeft: "16px",
+                          margin: "auto",
+                          color: "#666666",
+                        }}>
+                        {ele.subtitle}
+                      </h1>
+                    </div>
                   </div>
-                    <div style={{display:"flex"}}>
-                     <h1
+                  <div style={{ display: "flex" }}>
+                    <h1
                       style={{
                         fontFamily: "sans-serif",
                         marginTop: "10px",
                         fontSize: "14px",
                         fontWeight: "bold",
                         marginLeft: "16px",
-                        color:"#CCCCCC",
-                        textDecoration: "line-through"
+                        color: "#CCCCCC",
+                        textDecoration: "line-through",
                       }}>
-                         ₹{ele.strike_price}
-                     </h1>
-                     <h1
+                      ₹{ele.strike_price}
+                    </h1>
+                    <h1
                       style={{
                         fontFamily: "sans-serif",
                         marginTop: "10px",
                         fontSize: "14px",
                         fontWeight: "bold",
                         marginLeft: "30px",
-                      
                       }}>
-                        ₹ {ele.price}
-                     </h1>
-                     <button style={{color:"#999999",border:"1px solid #999999",fontSize:"10px",marginTop:"14px",marginLeft:"20px",marginBottom:"25px"}}>
+                      ₹ {ele.price}
+                    </h1>
+                    <button
+                      style={{
+                        color: "#999999",
+                        border: "1px solid #999999",
+                        fontSize: "10px",
+                        marginTop: "14px",
+                        marginLeft: "20px",
+                        marginBottom: "25px",
+                      }}>
                       {ele.discount}
-                      </button>
+                    </button>
                   </div>
-                  
+
                   <h1
                     style={{
                       fontFamily: "sans-serif",
@@ -550,11 +547,17 @@ const Admin = () => {
                       fontWeight: "bold",
                       color: "HotPink",
                       marginLeft: "17px",
-                      display:"flex"
+                      display: "flex",
                     }}>
-                    <span><img style={{width:"50px"}} src="https://www.shutterstock.com/image-vector/five-stars-customer-product-rating-260nw-1894989967.jpg"/></span><span>{ele.rating}</span>
+                    <span>
+                      <img
+                        style={{ width: "50px" }}
+                        src="https://www.shutterstock.com/image-vector/five-stars-customer-product-rating-260nw-1894989967.jpg"
+                      />
+                    </span>
+                    <span>{ele.rating}</span>
                   </h1>
-                  
+
                   <div
                     style={{
                       border: "0px solid black",
@@ -592,7 +595,6 @@ const Admin = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
