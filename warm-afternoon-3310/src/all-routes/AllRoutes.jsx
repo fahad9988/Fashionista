@@ -13,6 +13,7 @@ import Wishlist from '../pages/wishlist/Wishlist';
 import AdminRegister from '../pages/admin/AdminRegister';
 import AdminLogin from "../pages/admin/AdminLogin";
 import Payment from '../pages/payment/Payment';
+import PrivateRoute from './PrivateRoute';
 
 const AllRoutes = () => {
   return (
@@ -30,7 +31,13 @@ const AllRoutes = () => {
         <Route path='/wishlist' element={<Wishlist/>}></Route>
         <Route path='/adminregister' element={<AdminRegister/>} />
         <Route path='/adminlogin' element={<AdminLogin />} />
-        <Route path='/payment' element={<Payment />} />
+        
+          <Route path='/payment' element={<PrivateRoute><Payment /></PrivateRoute>} />
+       
+        
+        
+        
+        {/* <Route path='userlogin' element={<Auth />} /> */}
       </Routes>
       
     </div>

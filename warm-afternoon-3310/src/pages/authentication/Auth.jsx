@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, HStack, Link, Stack, Text, useDisclosure } from '@chakra-ui/react'
-import { Box, Button, Avatar, Modal, ModalBody, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalFooter, FormControl, FormLabel, Input, Image } from "@chakra-ui/react";
+import { Box, Button, Avatar, Modal, ModalBody, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalFooter, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import "./auth.css";
 import { useAuth0 } from "@auth0/auth0-react";
