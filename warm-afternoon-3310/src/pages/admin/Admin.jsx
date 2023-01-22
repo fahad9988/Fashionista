@@ -39,7 +39,8 @@ const Admin = () => {
    const input4 = document.getElementById("input4").value;
    const input5 = document.getElementById("input5").value;
    const input6 = document.getElementById("input6").value;
-   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === "") {
+   const input7 = document.getElementById("input7").value;
+   if (input1 === "" || input2 === "" || input3 === "" || input4 === "" || input5 === "" || input6 === "" || input7 === "") {
     //window.alert("Please fill out all fields.");
     <Alert status='error'>
      <AlertIcon />
@@ -89,6 +90,7 @@ const Admin = () => {
     const new_discount = window.prompt("Enter new discount")
     const new_rating = window.prompt("Enter new Rating");
     const new_image = window.prompt("Enter new ImageUrl");
+    const new_title = window.prompt("Enter new title")
 
     let data = {
       price: new_price,
@@ -96,7 +98,8 @@ const Admin = () => {
       subtitle: new_name,
       images: new_image,
       strike_price: new_strikePrice,
-      discount : new_discount
+      discount : new_discount,
+      title: new_title
     };
 
     let res = await fetch(`${api}/${id}`, {
@@ -204,6 +207,23 @@ const Admin = () => {
            
           }}>
           <form onSubmit={handleSubmit}>
+          <input
+              type="text"
+              name="title"
+              onChange={handleChange}
+              placeholder="Product Brand"
+              id="input7"
+              style={{
+                width: "300px",
+                marginBottom: "2px",
+                padding: "5px",
+                marginTop: "10px",
+                border: "1.5px solid black",
+                marginLeft: "30px",
+                borderRadius:"5px"
+                
+              }}
+            />
             <input
               type="text"
               name="subtitle"
@@ -239,7 +259,7 @@ const Admin = () => {
             <input
               type="number"
               name="strike_price"
-              placeholder="Discount Price"
+              placeholder="Product Price"
               id="input3"
               onChange={handleChange}
               style={{
@@ -254,7 +274,7 @@ const Admin = () => {
             <input
               type="number"
               name="price"
-              placeholder="Product Price"
+              placeholder="Discount Price"
               id="input4"
               onChange={handleChange}
               style={{
