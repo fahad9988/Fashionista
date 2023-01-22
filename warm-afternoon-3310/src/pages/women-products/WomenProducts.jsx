@@ -148,7 +148,7 @@ const WomenProducts = () => {
                 <Text fontSize="13px" color="#D6D0DB" textDecoration="line-through">
                     Rs. {item.strike_price}
                   </Text>
-                <b fontSize="13px">Rs. {item.discounted_price}</b>
+                <b fontSize="13px">Rs. {item.price}</b>
                  
                   <Tag size="xs" fontSize="12px" colorScheme="gray">{item.discount}</Tag>
                 </HStack>

@@ -108,7 +108,7 @@ const removeItem=(id)=>{
                 <Text fontSize="13px" color="#999999" textDecoration="line-through">
                     Rs. {item.strike_price}
                   </Text>
-                <b fontSize="13px">Rs. {item.discounted_price}</b>
+                <b fontSize="13px">Rs. {item.price}</b>
                  
                   <Tag size="xs" p="3px" fontSize="12px" colorScheme="gray">{item.discount}</Tag>
             </HStack>
