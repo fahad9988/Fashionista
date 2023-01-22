@@ -600,3 +600,4 @@ let api = "https://snapdeal-json-server.onrender.com/kids";
 }
 
 export default Admin;
+

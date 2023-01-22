@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, HStack, Link, Stack, Text, useDisclosure } from '@chakra-ui/react'
-import { Box, Button, Avatar, Modal, ModalBody, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalFooter, FormControl, FormLabel, Input, Image } from "@chakra-ui/react";
+import { Box, Button, Avatar, Modal, ModalBody, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalFooter, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import "./auth.css";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,12 +15,12 @@ function Auth() {
   
     return (
       <>
-        <Box>
+        <Box border="1px solid blue">
             <Box display={'flex'}>
 
-          <HStack class="dropdown">
+          <HStack class="dropdown" >
           {
-            !isAuthenticated ? (<Button className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm'/>} border='none'>Sign In</Button>) : (<Button _hover={{bgColor:'#e40046'}} color='white' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm' src={user.picture}/>}>{user.name}</Button>)
+            !isAuthenticated ? (<Button className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='xs'/>} border='none'><Text display={{lg:"block",base:"none"}}>Sign In</Text></Button>) : (<Button _hover={{bgColor:'#e40046'}} color='white' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm' src={user.picture}/>}>{user.name}</Button>)
           }
           
             <Stack class="dropdown-content">

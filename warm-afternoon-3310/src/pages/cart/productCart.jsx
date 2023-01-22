@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
+
 import {Box,Image,Text,Button,Table,Td,Tr,Thead,Flex,Tbody,Input,useToast} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { deleteCart,getCartItems } from "../../redux/cart/cart.action";
 import {addWishlist, getWishlistItems} from "../../redux/wishlist/wishlist.action"
-
 let api = "https://snapdeal-json-server.onrender.com/cart"
 
 const ProductCart = () => {
@@ -18,6 +18,7 @@ const ProductCart = () => {
     const [value,setValue]=useState("")
     const [applied,setApplied]=useState(false)
     const toast=useToast();
+
     const navigate=useNavigate();
 
     const cartItems=useSelector((store)=>{
@@ -27,6 +28,7 @@ const ProductCart = () => {
     const wishlistItems=useSelector((store)=>{
       return store.wishlist.wishlist;
     });
+
 
   useEffect(() => {
 dispatch(getCartItems())
@@ -219,7 +221,9 @@ wishlistItems.forEach((e)=>{
                 <Text fontWeight={"bold"}>₹{applied===true?(amt*0.7).toFixed(2):(amt.toFixed(2))}</Text>
               </Box>
             </Box>
+
             <Button bgColor={"#333333"} color="white" onClick={()=>{navigate("/payment")}} >
+
                 Checkout
             </Button>
             <Button bgColor={"rgb(255,255,255)"}>
