@@ -9,22 +9,22 @@ const ProductHeader3 = ({products,search,setSearch,sort,setSort,popularity,setPo
   return (
     <Box display="flex" mb="17px"  >
 
-     <Box display="flex" flex={{sm:"0.8",md:"0.8",lg:"0.6"}}  alignItems="center"  >
-      <Text fontSize={{sm:14,md:18,lg:20}} mr={{sm:"5px",md:"7px",lg:"10px"}}>Kid Products</Text>
+     <Box display={{sm:"flex",base:"none"}} flex={{sm:"0.8",md:"0.8",lg:"0.6"}}  alignItems="center"  >
+      <Text fontSize={{sm:12,md:16,lg:18}} mr={{sm:"5px",md:"7px",lg:"10px"}}>Kid Products</Text>
       <Text fontSize={{sm:9,md:12,lg:14}}>({products.data.length} items)</Text>
      </Box>
 
-     <Box flex={{sm:"0.8",md:"0.7",lg:"0.7"}}  >
-      <InputGroup size="sm" w={{sm:"100%",md:"100%",lg:"90%"}} >
+     <Box flex={{base:"0.9",sm:"0.8",md:"0.7",lg:"0.7"}}  >
+      <InputGroup size="sm" w={{base:"100%",md:"100%",lg:"90%"}} >
       <InputLeftElement pointerEvents="none"
-      children={<SearchIcon color="#999999" boxSize={{sm:"11px",md:"13px",lg:"16px"}} />}
+      children={<SearchIcon color="#999999" boxSize={{base:"11px",md:"13px",lg:"16px"}} />}
       />
-      <Input variant="flushed" size="sm" _placeholder={{fontSize:{sm:"10px",md:"12px",lg:"14px"}}} focusBorderColor='red.500'  placeholder="Search within Category"  type="text" value={search} onChange={handleSearch} />
+      <Input variant="flushed" size="sm" _placeholder={{fontSize:{base:"10px",md:"12px",lg:"14px"}}} focusBorderColor='red.500'  placeholder="Search within Category"  type="text" value={search} onChange={handleSearch} />
       </InputGroup>
      </Box>
 
-     <Box flex={{sm:"0.7",md:"0.8",lg:"0.8"}}  display="flex" justifyContent="flex-end" alignItems="center" >
-     <Select  size={{sm:"xs",md:"sm",lg:"sm"}} placeholder='Sort by:' width={{sm:"115px",md:"150px",lg:"175px"}}   focusBorderColor="red.500" value={sort} onChange={(e)=>{
+     <Box flex={{base:"0.7",md:"0.8",lg:"0.8"}}  display="flex" justifyContent="flex-end" alignItems="center" >
+     <Select  size={{base:"xs",md:"sm",lg:"sm"}} placeholder='Sort by:' width={{base:"100px",sm:"115px",md:"150px",lg:"175px"}}   focusBorderColor="red.500" value={sort} onChange={(e)=>{
       if(popularity=="desc"){
         setPopularity("")
       }

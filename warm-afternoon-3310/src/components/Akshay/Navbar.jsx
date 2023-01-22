@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { AiOutlineShoppingCart} from "react-icons/ai";
 import Auth from "../../pages/authentication/Auth";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -15,7 +16,7 @@ const Navbar = () => {
   }
 
   return (
-    <Box w="100%" m="auto" color="white" position="sticky" zIndex={30} top={0}>
+    <Box   w="100%" m="auto" color="white" position="sticky" zIndex={30} top={0}>
       <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
 
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
@@ -54,9 +55,9 @@ const Navbar = () => {
           </Flex>
       </Flex>
       <Flex  bgColor={"rgb(228,0,70)"} px="60px"  py="0px" borderTop="1px solid darkred" justifyContent="center"  gap="10%" fontSize={["8px","12px"]}>      
-          <Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{backroundColor:"black"}}>MEN</Text>
-          <Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{backroundColor:"black"}}>WOMEN</Text>
-          <Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{backroundColor:"black"}}>KIDS</Text>
+         <Link to="/menproducts" ><Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{color:"black"}}>MEN</Text></Link> 
+          <Link to="/womenproducts" > <Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{color:"black"}}>WOMEN</Text></Link>
+          <Link to="/kidproducts" ><Text fontSize={["xs","sm","md"]} py="2px" px="5px" cursor={"pointer"} _hover={{color:"black"}}>KIDS</Text></Link>
       </Flex>
     </Box>
     

@@ -60,15 +60,15 @@ const MenProducts = () => {
   
   return (
     <>
-    <Box display={{sm:"block",md:"flex"}} position="relative" p="10px">
+    <Box display={{base:"block",md:"flex"}}  p="10px" position="relative">
 
-      <Box flex={0.3} display={{sm:"none",md:"block"}} >
+      <Box flex={0.3} display={{base:"none",md:"block"}}  >
       <SideBar 
       joggers={joggers} setJoggers={setJoggers} jeans={jeans} setJeans={setJeans} sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} trousers={trousers} setTrousers={setTrousers} chinos={chinos} setChinos={setChinos} casualshirt={casualshirt} setCasualShirt={setCasualShirt} roadster={roadster} setRoadster={setRoadster} highlander={highlander} setHighlander={setHighlander} locomotive={locomotive} setLocomotive={setLocomotive} ivoc={ivoc} setIvoc={setIvoc} slider={slider} setSlider={setSlider} low={low} high={high}
       />
       </Box>
 
-      <Box display={{sm:"flex",md:"none"}} alignItems="center" >
+      <Box pl="12px" display={{base:"flex",md:"none"}} alignItems="center" >
        <BsFillFilterSquareFill onClick={onOpen} fontSize={20} color="#E40046" />
        <Text onClick={onOpen} cursor="pointer" fontSize="20px" fontWeight="bold"  ml="7px" >Filter</Text>
        <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
@@ -90,6 +90,7 @@ const MenProducts = () => {
 
         {
         products.loading && <Box display="grid" gridTemplateColumns={{
+          base:"repeat(1,1fr)",
           sm: "repeat(2,1fr)",
           md: "repeat(2,1fr)",
           lg: "repeat(3,1fr)",
@@ -117,6 +118,7 @@ const MenProducts = () => {
          <Grid  
         
             templateColumns={{
+              base: "repeat(1,1fr)",
               sm: "repeat(2,1fr)",
               md: "repeat(2,1fr)",
               lg: "repeat(3,1fr)",
@@ -133,7 +135,7 @@ const MenProducts = () => {
             
                  <Image
                   m="auto"
-                  src={item.images[0]}
+                  src={item.images}
                   width="200px"
                   height="230px"
                   alt="image"
@@ -152,7 +154,7 @@ const MenProducts = () => {
                 <Box display="flex"  alignItems="center" >
                   {Array(5)
                     .fill("")
-                    .map((_, i) => (
+                    .map((e, i) => (
                       <StarIcon
                         boxSize={3}
                         key={i}
