@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box,Flex,HStack,Input,Text,Image,Button,Center,Divider,Icon} from "@chakra-ui/react"
-import Fs from "./Images/Fashionista.png"
+import Fs from "./Images/Fashionista.jpeg"
 import { BiLogIn } from "react-icons/bi";
 import { useState ,useEffect} from 'react';
 import { AiOutlineShoppingCart} from "react-icons/ai";
@@ -26,11 +26,6 @@ const Navbar = () => {
       .then((data) => {
         console.log(data);
         setData(data);
-    let q=0;
-    for(let j=0;j<data.length;j++){
-      q+=data[j].quantity;
-    }
-    setItems(q);
       });
   }, [ ]);
   
@@ -38,8 +33,6 @@ const Navbar = () => {
 
     <Box w="100%" m="auto" color="white" position="sticky" zIndex={30} top={0}>
       <Flex display={["none","none","flex"]} bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
-
-
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
         <Flex gap={"20px"}>
           <Text>Impact@Snapdeal</Text>
@@ -49,7 +42,7 @@ const Navbar = () => {
           <Text>Download App</Text>
         </Flex>
       </Flex>
-      <Flex px="50px" h="65px" bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
+      <Flex px={{md:"0px",lg:"40px"}} h="65px" bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
           <Image src={Fs} height="50px"></Image>
           <Flex w="50%">  
           <Input bgColor={"white "} color="black" w="100%" h="10" fontWeight="300" fontSize={"13px"} borderRightRadius="0px" placeholder='Search products and brands'/>
@@ -60,9 +53,10 @@ const Navbar = () => {
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
-          <Box alignItems="center"  display="flex" px="20px" onClick={handleClick}>
-            Cart-{Items}
+          <Box alignItems="center" cursor="pointer" display="flex" px="20px" onClick={handleClick}>
+            <Box display={{lg:"block",base:"none"}}>Cart</Box>
             <Icon   as={AiOutlineShoppingCart} />
+            - {data.length}
           </Box>
           <Center height='65px'>
             <Divider borderColor="darkred" orientation='vertical' />

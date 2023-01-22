@@ -54,9 +54,9 @@ const HomePage = () => {
       </Box>
       
       <Box display={"flex"} w={["100%","100%","100%","100%","86%","86%"]}flexDirection={"column"} >
-        <Box display={"flex"}gap={"10px"}>
+        <Box display={"flex"}gap={"10px"} flexDirection={["column","column","column","row"]}>
             <ImageSlider ></ImageSlider>    
-            <Box bgColor={"white"} w="100%" justifyContent={"center"} gap="8px" p="8px" fontSize={"12px"} textalign="center" display="flex" flexDirection="column"alignItems="center">
+            <Box bgColor={"white"} w={["50^","50%","50%","100%"]} m="auto" justifyContent={"center"} gap="8px" p="8px" fontSize={"12px"} textalign="center" display="flex" flexDirection="column"alignItems="center">
               <Image src={ln} width="60%"></Image> 
               <Text>Your Delivery Pincode</Text>   
               <Text textAlign={"center"} lineHeight="1.3">Enter your pincode to check availability and faster delivery options</Text>
