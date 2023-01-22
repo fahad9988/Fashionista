@@ -2,21 +2,36 @@ import React from 'react'
 import {Box,Flex,HStack,Input,Text,Image,Button,Center,Divider,Icon} from "@chakra-ui/react"
 import Fs from "./Images/Fashionista.png"
 import { BiLogIn } from "react-icons/bi";
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { AiOutlineShoppingCart} from "react-icons/ai";
 import Auth from "../../pages/authentication/Auth";
 import { useNavigate } from 'react-router-dom';
-
+let api = "https://snapdeal-json-server.onrender.com/cart"
 const Navbar = () => {
-
+  const [Items,setItems]=useState(0);
+  const[data,setData]=useState([])
   const navigate = useNavigate()
   const handleClick = ()=>{
      navigate("/productCart")
   }
 
+  useEffect(() => {
+    fetch(api)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+    let q=0;
+    for(let j=0;j<data.length;j++){
+      q+=data[j].quantity;
+    }
+    setItems(q);
+      });
+  }, [ ]);
+  
   return (
     <Box w="100%" m="auto" color="white" position="sticky" zIndex={30} top={0}>
-      <Flex  bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
+      <Flex display={["none","none","flex"]} bgColor="rgb(199,0,61)" px="60px" py="5px" justifyContent="space-between" fontSize={["8px","12px"]}>
 
         <Text>Brand Waali Quality, Bazaar Waali Deal!</Text>
         <Flex gap={"20px"}>
@@ -39,7 +54,7 @@ const Navbar = () => {
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
           <Box alignItems="center"  display="flex" px="20px" onClick={handleClick}>
-            Cart
+            Cart-{Items}
             <Icon   as={AiOutlineShoppingCart} />
           </Box>
           <Center height='65px'>
