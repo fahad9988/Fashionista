@@ -14,7 +14,6 @@ import Footer from './components/Akshay/Footer'
 import Navbar from './components/Akshay/Navbar'
 import Usersdata from './pages/admin-users/Usersdata';
 import Admin from './pages/admin/Admin';
-import Payment from './pages/payment/Payment';
 
 
 

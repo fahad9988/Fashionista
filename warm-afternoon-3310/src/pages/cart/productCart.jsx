@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import {Box,Image,Text,Button,Table,Td,Tr,Thead,Flex,Tbody,Input,useToast} from "@chakra-ui/react"
 let api = "https://snapdeal-json-server.onrender.com/cart"
 
@@ -12,7 +12,9 @@ const ProductCart = () => {
     const [samt,setsAmt]=useState(0)
     const [value,setValue]=useState("")
     const [applied,setApplied]=useState(false)
-    const toast=useToast()
+    const toast=useToast();
+    const navigate = useNavigate();
+
   useEffect(() => {
     fetch(api)
       .then((res) => res.json())
@@ -169,7 +171,7 @@ const ProductCart = () => {
                 <Text fontWeight={"bold"}>₹{applied===true?(amt*0.7).toFixed(2):(amt.toFixed(2))}</Text>
               </Box>
             </Box>
-            <Button bgColor={"#333333"} color="white">
+            <Button bgColor={"#333333"} color="white" onClick={() => navigate('/payment')}>
                 Checkout
             </Button>
             <Button bgColor={"rgb(255,255,255)"}>
