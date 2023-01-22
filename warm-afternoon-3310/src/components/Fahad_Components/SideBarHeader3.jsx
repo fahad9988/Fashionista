@@ -17,7 +17,7 @@ const SideBarHeader3 = () => {
     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
   </BreadcrumbItem>
 
-  <BreadcrumbItem isCurrentPage>
+  <BreadcrumbItem >
     <BreadcrumbLink href='/kidproducts'>Kids</BreadcrumbLink>
   </BreadcrumbItem>
 

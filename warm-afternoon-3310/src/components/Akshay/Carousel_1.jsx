@@ -44,7 +44,7 @@ const ImageSlider = () => {
   return (
     <>
 
-      <Box w={["100%","100%","100%","80%"]}>
+      <Box m={{md:"0px",base:"auto"}} w={["90%","95%","100%","80%"]}>
         <Slider {...settings}>
           {images.map((item) => (
             <Box key={item.id}>

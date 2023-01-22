@@ -16,8 +16,8 @@ const SideBarHeader = () => {
     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
   </BreadcrumbItem>
 
-  <BreadcrumbItem isCurrentPage>
-    <BreadcrumbLink href='/menproducts'>Mens</BreadcrumbLink>
+  <BreadcrumbItem >
+    <BreadcrumbLink href='/menproducts'>Men</BreadcrumbLink>
   </BreadcrumbItem>
 
 </Breadcrumb>

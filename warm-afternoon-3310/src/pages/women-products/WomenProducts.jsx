@@ -60,16 +60,16 @@ const WomenProducts = () => {
   
   return (
     <>
-    <Box display={{base:"block",md:"flex"}} position="relative" p="10px">
+    <Box display={{base:"block",lg:"flex"}} position="relative" p="10px">
 
-      <Box flex={0.3} display={{base:"none",md:"block"}} >
+      <Box flex={0.3} display={{base:"none",lg:"block"}} >
       <SideBar2 
       kurta={kurta} setKurta={setKurta} jeans={jeans} setJeans={setJeans} saree={saree} setSaree={setSaree} trousers={trousers} setTrousers={setTrousers}  kalini={kalini} setKalini={setKalini} anouk={anouk} setAnouk={setAnouk} khushalk={khushalk} setKhushalk={setKhushalk} fashor={fashor} setFashor={setFashor} slider={slider} setSlider={setSlider}
       low={low} high={high}
       />
       </Box>
 
-      <Box  pl="12px" display={{base:"flex",md:"none"}} alignItems="center" >
+      <Box  pl="12px" display={{base:"flex",lg:"none"}} alignItems="center" >
        <BsFillFilterSquareFill onClick={onOpen} fontSize={20} color="#E40046" />
        <Text onClick={onOpen} cursor="pointer" fontSize="20px" fontWeight="bold"  ml="7px" >Filter</Text>
        <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
@@ -93,7 +93,7 @@ const WomenProducts = () => {
         products.loading && <Box display="grid" gridTemplateColumns={{
           base:"repeat(1,1fr)",
           sm: "repeat(2,1fr)",
-          md: "repeat(2,1fr)",
+          md: "repeat(3,1fr)",
           lg: "repeat(3,1fr)",
           xl:"repeat(4,1fr)"
         }} gap="20px" >
@@ -121,7 +121,7 @@ const WomenProducts = () => {
             templateColumns={{
               base: "repeat(1,1fr)",
               sm: "repeat(2,1fr)",
-              md: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
               lg: "repeat(3,1fr)",
               xl:"repeat(4,1fr)"
             }}

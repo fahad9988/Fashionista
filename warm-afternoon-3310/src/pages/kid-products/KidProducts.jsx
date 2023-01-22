@@ -60,15 +60,15 @@ const KidProducts = () => {
   
   return (
     <>
-    <Box display={{base:"block",md:"flex"}} position="relative" p="10px">
+    <Box display={{base:"block",lg:"flex"}} position="relative" p="10px">
 
-      <Box flex={0.3} display={{base:"none",md:"block"}}  >
+      <Box flex={0.3} display={{base:"none",lg:"block"}}  >
       <SideBar3 
       sweatshirt={sweatshirt} setSweatshirt={setSweatshirt} tshirt={tshirt} setTshirt={setTshirt} trackpants={trackpants} setTrackpants={setTrackpants} blazer={blazer} setBlazer={setBlazer}  hellcat={hellcat} setHellcat={setHellcat} hopscotch={hopscotch} setHopscotch={setHopscotch} plumtree={plumtree} setPlumtree={setPlumtree} max={max} setMax={setMax} slider={slider} setSlider={setSlider} low={low} high={high}
       />
       </Box>
 
-      <Box pl="12px" display={{base:"flex",md:"none"}} alignItems="center" >
+      <Box pl="12px" display={{base:"flex",lg:"none"}} alignItems="center" >
        <BsFillFilterSquareFill onClick={onOpen} fontSize={20} color="#E40046" />
        <Text onClick={onOpen} cursor="pointer" fontSize="20px" fontWeight="bold"  ml="7px" >Filter</Text>
        <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
@@ -92,7 +92,7 @@ const KidProducts = () => {
         products.loading && <Box display="grid" gridTemplateColumns={{
           base:"repeat(1,1fr)",
           sm: "repeat(2,1fr)",
-          md: "repeat(2,1fr)",
+          md: "repeat(3,1fr)",
           lg: "repeat(3,1fr)",
           xl:"repeat(4,1fr)"
         }} gap="20px" >
@@ -120,7 +120,7 @@ const KidProducts = () => {
             templateColumns={{
               base: "repeat(1,1fr)",
               sm: "repeat(2,1fr)",
-              md: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
               lg: "repeat(3,1fr)",
               xl:"repeat(4,1fr)"
             }}

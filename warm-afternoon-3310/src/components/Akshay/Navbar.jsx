@@ -53,31 +53,31 @@ const Navbar = () => {
           <Text>Download App</Text>
         </Flex>
       </Flex>
-      <Flex  px={{base:"20px",lg:"40px"}} h="65px" bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
-          <Link to="/" ><Image src={Fs} border="1px solid white" height="50px"></Image></Link>
-          <Flex display={{base:"none",md:"flex"}} w="50%">  
-          <Input bgColor={"white "} color="black" w="100%" h="10" fontWeight="300" fontSize={"13px"} borderRightRadius="0px" placeholder='Search products and brands'/>
-          <Button bgColor="black" h={"10"} fontSize={"13px"} borderLeftRadius="0px">Search</Button>
+      <Flex  px={{base:"20px",lg:"40px"}} h={{md:"65px",base:"50px"}} bgColor={"rgb(228,0,70)"} alignItems="center" justifyContent={"space-between"}>
+          <Link to="/" ><Image src={Fs} border="1px solid white" height={{md:"50px",base:"30px"}}></Image></Link>
+          <Flex display={{base:"none",sm:"flex",md:"flex"}} w={{md:"50%",base:"40%"}}>  
+          <Input bgColor={"white "} color="black" w="100%" h={{md:10,base:7}} fontWeight="300" fontSize={"13px"} borderRightRadius="0px" _placeholder={{fontSize:{base:"10px",md:"12px",lg:"14px"}}} placeholder='Search products and brands'  />
+          <Button bgColor="black" h={{md:10,base:7}} fontSize={"13px"} borderLeftRadius="0px">Search</Button>
           </Flex>
           <Flex alignItems={"center"}>
 
-          <Center height='65px'>
+          <Center h={{md:"65px",base:"50px"}}>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
 
-          <Box alignItems="center" cursor="pointer" display="flex" px="20px" onClick={handleClick}>
+          <Box  alignItems="center" cursor="pointer" display="flex" px={{md:"20px",base:"10px"}} onClick={handleClick}>
             <Box display={{lg:"block",base:"none"}}>Cart</Box>
-
-            <Icon   as={AiOutlineShoppingCart} />
-            - {cartItems.length}
-          </Box>
-          <Center height='65px'>
+            <Icon boxSize={{md:6,base:4}}   as={AiOutlineShoppingCart} />
+              <Text fontSize={{md:"18px",base:"13px"}} >-{cartItems.length}</Text> 
+            </Box>
+          <Center h={{md:"65px",base:"50px"}}>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
-          <Box alignItems="center"  display="flex" px="20px">
+
+          <Box alignItems="center"  display="flex" px={{md:"20px",base:"0px"}}>
             <Auth />
           </Box>
-          <Center height='65px'>
+          <Center h={{md:"65px",base:"50px"}}>
             <Divider borderColor="darkred" orientation='vertical' />
           </Center>
           </Flex>

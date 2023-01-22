@@ -28,7 +28,7 @@ function Footer() {
     <Box mt="70px">
         <SimpleGrid  columns={[1,2,4]} justifyContent={"center"} m="auto" borderTop="1px solid lightgray" borderBottom="1px solid lightgray">
             {data.map((el,i)=>(
-                <Box textAlign={"center"}  display="flex"  gap="10px"flexDirection="column" alignItems="center" borderLeft={i==0?"1px solid lightgray":"none"} borderRight="1px solid lightgray" p="20px" px="30px" >
+                <Box key={i} textAlign={"center"}  display="flex"  gap="10px"flexDirection="column" alignItems="center" borderLeft={i==0?"1px solid lightgray":"none"} borderRight="1px solid lightgray" p="20px" px="30px" >
                     <Image src={el.src} boxSize="100px" >
                     </Image>
                     <Heading fontSize="18px" color="#494141">{el.title}</Heading>

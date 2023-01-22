@@ -21,7 +21,7 @@ import SideBarHeader2 from './SideBarHeader2';
 const SideBar2 = ({   kurta,setKurta,jeans,setJeans,saree,setSaree,trousers ,setTrousers  ,kalini,setKalini,anouk,setAnouk,khushalk,setKhushalk,fashor,setFashor,slider,setSlider,low,high}) => {
   return (
     <>
-    <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={130}boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
+    <Box   textAlign="left" fontSize="15px" cursor="pointer" position="sticky" top={75} boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px;" pb="40px" >
       <Flex flexDirection="column"  p="15px 15px">
         <SideBarHeader2/>
 

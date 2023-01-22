@@ -15,12 +15,15 @@ function Auth() {
   
     return (
       <>
-        <Box >
-            <Box display={'flex'}>
-
-          <HStack class="dropdown" >
+        <Box>
+         <Box display={'flex'}>
+          <HStack class="dropdown"  >
           {
-            !isAuthenticated ? (<Button className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='xs'/>} border='none'><Text display={{lg:"block",base:"none"}}>Sign In</Text></Button>) : (<Button _hover={{bgColor:'#e40046'}} color='white' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm' src={user.picture}/>}>{user.name}</Button>)
+            !isAuthenticated ? (<Button  className='dropbtn' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='xs'/>} border='none'>
+              <Text display={{lg:"block",base:"none"}}>Sign In</Text>
+              </Button>) 
+              : 
+              (<Button _hover={{bgColor:'#e40046'}} color='white' bgColor='#e40046' rightIcon={<Avatar bgColor='#e40046' size='sm' src={user.picture}/>}>{user.name}</Button>)
           }
           
             <Stack class="dropdown-content">
@@ -30,26 +33,26 @@ function Auth() {
               <Divider orientation='horizontal' />
               
               <Link align={'center'} fontWeight={'600'} color='white' href='/adminregister' bgColor={'red.300'}>Admin Register</Link>
-              <Text align={'center'} color='black' marginTop={'20px'}>If you are a new user</Text>
+              <Text align={'center'} color='black' marginTop={{md:"20px",base:"10px"}}>If you are a new user</Text>
               {
                 !isAuthenticated ?(
-                  <Button display={'block'} margin="auto" mb={'15px'} onClick={() => loginWithRedirect()} bg='#333333' _hover={{bgColor:'white', color:'#333333', border:'2px solid #333333'}} color={'white'} width={'80%'} marginTop={'20px'}>Login / Sign Up</Button> 
-                ): (<Button display={'block'} margin="auto" mb={'15px'} onClick={() => logout({ returnTo: window.location.origin })} bg='#333333' _hover={{bgColor:'white', color:'#333333', border:'2px solid #333333'}} color={'white'} width={'80%'} marginTop={'20px'}>
+                  <Button display={'block'} margin="auto" mb={'15px'} onClick={() => loginWithRedirect()} bg='#333333' _hover={{bgColor:'white', color:'#333333', border:'2px solid #333333'}} color={'white'} width={'80%'} marginTop={{md:"20px",base:"10px"}}>Login / Sign Up</Button> 
+                ): (<Button display={'block'} margin="auto" mb={'15px'} onClick={() => logout({ returnTo: window.location.origin })} bg='#333333' _hover={{bgColor:'white', color:'#333333', border:'2px solid #333333'}} color={'white'} width={'80%'} marginTop={{md:"20px",base:"10px"}}>
                 Logout
               </Button>)
               }
   
             </Stack>
           </HStack>
-          {/* onClick={onOpen} */}
-        </Box>
+          
+         </Box>
   
-        <Modal
+         <Modal
           initialFocusRef={initialRef}
           finalFocusRef={finalRef}
           isOpen={isOpen}
           onClose={onClose}
-        >
+         >
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Login/Sign Up On Fashionista</ModalHeader>
