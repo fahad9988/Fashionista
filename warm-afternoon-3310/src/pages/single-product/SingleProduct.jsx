@@ -129,7 +129,7 @@ dispatch(removeWishlist(id))
          </Text>
          <Box display="flex" >
           <Box mr="10px" >
-            <Text color="#FF2341" fontSize={{md:"22px",base:"18px"}}>RS. {product.discounted_price}</Text>
+            <Text color="#FF2341" fontSize={{md:"22px",base:"18px"}}>RS. {product.price}</Text>
           </Box>
           <Box display="flex" alignItems="center" >
             <Tag >{product.discount}</Tag>
