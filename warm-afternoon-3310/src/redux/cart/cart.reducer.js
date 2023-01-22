@@ -1,4 +1,4 @@
-import {ADD_TO_CART , CART_ERROR , CART_LOADING, GET_CART } from "./cart.types";
+import {ADD_TO_CART , CART_ERROR , CART_LOADING, GET_CART ,REMOVE_FROM_CART} from "./cart.types";
 
 const initialState ={
   loading : false,
@@ -32,10 +32,19 @@ const cartReducer = (state=initialState , {type,payload}) =>{
     case GET_CART: return {
       ...state,
       cart:payload
-    }
+    };
+    case REMOVE_FROM_CART:
+      let deleted=state.cart.filter((e)=>{
+        return e.id!==payload
+      })
+      return {
+        ...state,
+        cart:deleted
+      }
     default:{
       return state
     }
+
   }
 
 }
