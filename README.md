@@ -4,21 +4,21 @@
 <p>This is the clone of Snapdeal website, an e-commerce website which deals with the sales of various products like clothing products, electronics etc. This is an collaborative project completed in a span of 5 days.</p>
 
 <h2>Homepage</h2>
-<img src="https://i.ibb.co/1msW618/Screenshot-7696.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/9qbR2hW/Screenshot-7701.png" alt="Fashionista" border="0">
 <h2>Login/Signup Page</h2>
-<img src="https://i.ibb.co/WF6tBKD/Screenshot-7697.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/WF6tBKD/Screenshot-7697.pn" alt="Fashionista" border="0">
 <h2>Products Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 <h2>Single Product Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 <h2>Cart Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 <h2>Wishlist Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 <h2>Checkout Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 <h2>Admin Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Reliance Digital" border="0">
+<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 
 
 <h2>Tech Stacks used in this project</h2>
