@@ -4,7 +4,7 @@
 <p>This is the clone of Snapdeal website, an e-commerce website which deals with the sales of various products like clothing products, electronics etc. This is an collaborative project completed in a span of 5 days.</p>
 
 <h2>Homepage</h2>
-<img src="https://i.ibb.co/9qbR2hW/Screenshot-7701.png" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/gPqqzkK/Screenshot-7701.png" alt="Fashionista" border="0">
 <h2>Login/Signup Page</h2>
 <img src="https://i.ibb.co/WF6tBKD/Screenshot-7697.p" alt="Fashionista" border="0">
 <h2>Products Page</h2>
