@@ -6,17 +6,17 @@
 <h2>Homepage</h2>
 <img src="https://i.ibb.co/gPqqzkK/Screenshot-7701.png" alt="Fashionista" border="0">
 <h2>Login/Signup Page</h2>
-<img src="https://i.ibb.co/WF6tBKD/Screenshot-7697.p" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/L67D2JQ/Screenshot-7795.png" alt="Fashionista" border="0">
 <h2>Products Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/F6jzrxB/Screenshot-7796.png" alt="Fashionista" border="0">
 <h2>Single Product Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/gtshYhS/Screenshot-7797.png" alt="Fashionista" border="0">
 <h2>Cart Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/TtfwZ4c/Screenshot-7798.png" alt="Fashionista" border="0">
 <h2>Wishlist Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/ysXBFZg/Screenshot-7799.png" alt="Fashionista" border="0">
 <h2>Checkout Page</h2>
-<img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/wdkzM2Q/Screenshot-7800.png" alt="Fashionista" border="0">
 <h2>Admin Page</h2>
 <img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 
