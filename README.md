@@ -6,7 +6,7 @@
 <h2>Homepage</h2>
 <img src="https://i.ibb.co/9qbR2hW/Screenshot-7701.png" alt="Fashionista" border="0">
 <h2>Login/Signup Page</h2>
-<img src="https://i.ibb.co/WF6tBKD/Screenshot-7697.pn" alt="Fashionista" border="0">
+<img src="https://i.ibb.co/WF6tBKD/Screenshot-7697.p" alt="Fashionista" border="0">
 <h2>Products Page</h2>
 <img src="https://i.ibb.co/r29hhqk/Screenshot-7699.pn" alt="Fashionista" border="0">
 <h2>Single Product Page</h2>
