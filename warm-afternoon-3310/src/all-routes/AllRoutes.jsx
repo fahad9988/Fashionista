@@ -14,6 +14,9 @@ import AdminRegister from '../pages/admin/AdminRegister';
 import AdminLogin from "../pages/admin/AdminLogin";
 import Payment from '../pages/payment/Payment';
 import PrivateRoute from './PrivateRoute';
+import { AdminSideAddProducts } from '../pages/admin-review/AdminSideAddProducts';
+import AdminSideProducts from '../pages/admin-review/AdminSideProducts';
+import AllUsers from '../pages/admin-review/Alladmins';
 
 const AllRoutes = () => {
   return (
@@ -25,7 +28,10 @@ const AllRoutes = () => {
         <Route path='/kidproducts' element={<KidProducts/>} ></Route>
         <Route path='/products/:id' element={<SingleProduct/>}></Route>
         <Route path='/usersdata' element={<Usersdata/>} ></Route>
-        <Route path='/admin' element={<Admin/>} ></Route>
+        {/* <Route path='/admin' element={<Admin/>} ></Route> */}
+        <Route path='/adminadd' element={<AdminSideAddProducts/>} ></Route>
+        <Route path='/adminproducts' element={<AdminSideProducts/>} ></Route>
+        <Route path='/adminall' element={<AllUsers/>} ></Route>
         <Route path='/productCart' element={<ProductCart/>} ></Route>
         <Route path='/menproducts' element={<MenProducts/>}></Route>
         <Route path='/wishlist' element={<Wishlist/>}></Route>

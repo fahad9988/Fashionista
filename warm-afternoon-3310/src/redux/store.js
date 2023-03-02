@@ -3,13 +3,15 @@ import { productReducer } from "./product/product.reducer";
 import thunk from "redux-thunk";
 import cartReducer from "./cart/cart.reducer";
 import wishlistReducer from "./wishlist/wishlist.reducer";
+import { datareducer } from "./admin/admin.reducer";
 
 
 
 const rootReducer=combineReducers({
  productManager:productReducer,
  cart: cartReducer,
- wishlist:wishlistReducer
+ wishlist:wishlistReducer,
+ data:datareducer
 })
 const composer=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__||compose;
 
