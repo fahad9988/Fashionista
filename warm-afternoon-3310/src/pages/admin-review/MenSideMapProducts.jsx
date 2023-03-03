@@ -1,11 +1,11 @@
 import { Box, Heading, Image, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { REMOVE_data_item } from '../../redux/admin/admin.action'
-import UpdateProduct from './updateProduct'
+import { deleteMensData } from '../../redux/admin/admin.action'
+import UpdateMenProduct from './updateProductsMen'
 
 
-const AdminMapProductBox = ({el}) => {
+const MenSideMapProducts = ({el}) => {
     const dispatch = useDispatch()
     
    
@@ -30,11 +30,11 @@ const AdminMapProductBox = ({el}) => {
         
             
             
-            <Td cursor={"pointer"}>  <UpdateProduct el={el} /></Td>
-            <Td><Text backgroundColor={"black"} color={"white"} textAlign={"center"} padding={"5px"} borderRadius={"8%"} fontWeight={"medium"} onClick={()=>{dispatch(REMOVE_data_item(el.id))}} fontSize={["xl","2xl"]} cursor={"pointer"}>Delete</Text></Td>
+            <Td cursor={"pointer"}>  <UpdateMenProduct el={el} /></Td>
+            <Td><Text backgroundColor={"black"} color={"white"} textAlign={"center"} padding={"5px"} borderRadius={"8%"} fontWeight={"medium"} onClick={()=>{dispatch(deleteMensData(el.id))}} fontSize={["xl","2xl"]} cursor={"pointer"}>Delete</Text></Td>
         
     </Tr>
   )
 }
 
-export default AdminMapProductBox
+export default MenSideMapProducts

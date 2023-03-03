@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteUser, getUsers } from '../../redux/admin/admin.action'
 import AdminNavbar from './adminNavbar'
-//import admin from "../AdminAssets/admin.jpg";
+
 
 
 const AllUsers = () => {
@@ -12,10 +12,8 @@ const AllUsers = () => {
     
 
     const dispatch = useDispatch()
-   // console.log(users)
 
-    const AdnUser = users.filter((el) => el.id == user)
-   // console.log(AdnUser)
+   let available = false
 
 
     useEffect(() => {
@@ -37,7 +35,7 @@ const AllUsers = () => {
             </Box>
             <Box  width={"80%"}  border= "0px solid red" margin={"auto"} mt="50px">
 
-                <SimpleGrid columns={[1, 2, 3, 4]} gap="5%" width={"80%"}>
+                <SimpleGrid columns={[1, 2, 3, 4]} gap="5%" width={"100%"}>
                     {
                         users.map((el => {
                             return (
@@ -45,7 +43,7 @@ const AllUsers = () => {
                                 <div >
                                     <Box boxShadow= "rgba(0, 0, 0, 0.16) 0px 1px 4px"  pb={"7px"} >
                                         
-                                        <div>
+                                        <div style={{padding:"5px",width:"auto",height:"150px"}} >
                                             <p>
                                                 <span style={{fontWeight:"bold"}} >Name: </span>  {el.name}
                                             </p>
@@ -60,12 +58,16 @@ const AllUsers = () => {
                                             </p>
                                         </div>
                                     
-                                    <div style={{color:"red"}} >
-                                        <DeleteIcon
+                                    <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"190px",margin:"auto"}}>
+                                        <button
                                             onClick={() =>handleDelete(el.id)}
                                             fontSize="130%"
                                             cursor="pointer"
-                                        />
+                                            textAlign={"center"}
+                                            
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                     </Box>
                                 </div>

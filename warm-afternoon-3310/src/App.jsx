@@ -18,6 +18,8 @@ import AdminNavbar from './pages/admin-review/adminNavbar';
 import { AdminSideAddProducts } from './pages/admin-review/AdminSideAddProducts';
 import AdminSideProducts from './pages/admin-review/AdminSideProducts';
 import AllUsers from './pages/admin-review/Alladmins';
+import MenSideProducts from './pages/admin-review/MenSideProducts';
+import WomenSideProducts from './pages/admin-review/WomenSideProducts';
 
 
 

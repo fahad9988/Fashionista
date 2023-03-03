@@ -17,12 +17,12 @@ import {
   } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action";
+import {   getWomensData,  updateWomensData} from "../../redux/admin/admin.action";
 // import { UpdateAction } from "../../redux/authReducer/auth.action";
   
 
 
-  function UpdateProduct({el}) {
+  function UpdateWomenProduct({el}) {
     const toast = useToast();
     const [val,setVal] = useState({})
     const [prod,setProd]  = useState({})
@@ -31,7 +31,7 @@ import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action
 
     // let {products} = useSelector((store)=>store.adminManager)
     // console.log(products)
-    //console.log(el,"l")
+   // console.log(el,"l")
     
 
     // useEffect(()=>{
@@ -43,11 +43,11 @@ import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action
 
       setVal({...val,[name]:value})
     }
-    //console.log(val)
+   // console.log(val)
 
     const handleUpdate = async(e) => {
-        dispatch(UPDATE_data_item(el.id,val))
-        dispatch(Get_data_item())
+        dispatch(updateWomensData(el.id,val))
+        dispatch(getWomensData())
         console.log(val)
       e.preventDefault();
       toast({
@@ -153,4 +153,4 @@ import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action
     );
   }
   
-  export default UpdateProduct;
+  export default UpdateWomenProduct;

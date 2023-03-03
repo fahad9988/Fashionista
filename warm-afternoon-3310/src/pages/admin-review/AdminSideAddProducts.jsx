@@ -16,12 +16,12 @@ function AdminSideAddProducts() {
 
     setVal({...val,[name]:value})
   }
-   console.log(val)
+   console.log(val.category)
   
   const handleSubmit =()=>{
     dispatch(ADD_data_item(val))
-    document.getElementById("product_item_meta__title").value = ""
-    document.getElementById("product_item__primary_image").value = ""
+    document.getElementById("title").value = ""
+    document.getElementById("images").value = ""
     
     document.getElementById("category").value = ""
     document.getElementById("strike_price").value = ""
@@ -43,8 +43,8 @@ function AdminSideAddProducts() {
       </Box>
     <Box backgroundColor={"tomato"} width={"50%"} margin={"auto"} paddingBottom={"30px"} borderRadius="5%" paddingTop={"20px"} marginTop="30px"   >
       <Box width={"80%"} margin={"auto"} backgroundColor={"white"} padding={"10px"} borderRadius="5%" marginTop={"30px"}>
-        <Input type="text"  onChange={(e)=>{handleChange(e)}} margin="7px" name="product_item_meta__title" id="product_item_meta__title" placeholder="Enter Product Title" required /> <br />
-        <Input type="text" onChange={(e)=>{handleChange(e)}} margin="7px" name="product_item__primary_image" id="product_item__primary_image" placeholder="Image" required/> <br />
+        <Input type="text"  onChange={(e)=>{handleChange(e)}} margin="7px" name="title" id="title" placeholder="Enter Product Title" required /> <br />
+        <Input type="url" onChange={(e)=>{handleChange(e)}} margin="7px" name="images" id="images" placeholder="Image" required/> <br />
        
         <Select name="category"  onChange={(e)=>{handleChange(e)}} margin="7px" id="category" placeholder='Select Category' >
           <option value='mens'>Mens </option>

@@ -1,20 +1,21 @@
 import { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Get_data_item } from "../../redux/admin/admin.action";
+import { getMensData, Get_data_item } from "../../redux/admin/admin.action";
 import { Box, Heading, Table, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import AdminMapProductBox from "./AdminMapProductBox";
 import AdminNavbar from "./adminNavbar";
+import MenSideMapProducts from "./MenSideMapProducts";
 
-const AdminSideProducts = () => {
+const MenSideProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector((store) => store.data);
 
   useEffect(()=>{
-    dispatch(Get_data_item())
+    dispatch(getMensData())
 
   },[])
- // console.log(products)
+ //console.log(products.mensData)
 
 
 
@@ -43,10 +44,10 @@ const AdminSideProducts = () => {
                   </Thead>
                   <Tbody>
                       {
-                      (
-                        products.data.map((el) => {
+                      (products.mensData &&
+                        products.mensData.map((el) => {
                           return (
-                                  <AdminMapProductBox  
+                                  <MenSideMapProducts  
                                    key={el.id}  
                                   el={el}  />
                           );
@@ -61,4 +62,4 @@ const AdminSideProducts = () => {
   );
 };
 
-export  default AdminSideProducts ;
+export  default MenSideProducts ;

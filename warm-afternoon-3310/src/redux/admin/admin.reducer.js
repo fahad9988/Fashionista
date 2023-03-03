@@ -1,12 +1,14 @@
 
 import * as types from "./admin.types";
-import {GET_USERS_REQUEST,GET_USERS_SUCCESS,GET_USERS_FAILURE} from "./admin.types"
+import {GET_USERS_REQUEST,GET_USERS_SUCCESS,GET_USERS_FAILURE, ADD_MENS_SUCCESS , ADD_WOMENS_SUCCESS , GET_MENS_SUCCESS , GET_WOMENS_SUCCESS , UPDATE_PRODUCT_MENS ,UPDATE_PRODUCT_WOMENS, DELETE_PRODUCT_MENS , DELETE_PRODUCT_WOMENS} from "./admin.types"
 
 const initialState = {
   isLoading: false,
   isError: false,
   data:[],
   users: [],
+  mensData: [],
+  womensData: [],
 };
 
 export const datareducer = (state = initialState, { type, payload }) => {
@@ -109,15 +111,16 @@ export const datareducer = (state = initialState, { type, payload }) => {
      }
     
      case types.REMOVE_data_SUCCESS:{
+
       let removed=state.data.filter((data)=>data.id!=payload)
 
       return {
         ...state,
         data:removed
-
-
       }
+
      }
+
      case types.REMOVE_data_ERROR:{
       return {
         ...state,
@@ -165,6 +168,93 @@ export const datareducer = (state = initialState, { type, payload }) => {
         isLoading: false,
         isError: true,
       };
+
+
+
+
+
+
+
+
+
+    case ADD_MENS_SUCCESS: {
+        return {
+            ...state,
+            isLoading:false,
+            mensData:[...state.mensData,payload]
+        }
+    }
+    case ADD_WOMENS_SUCCESS: {
+        return {
+            ...state,
+            isLoading:false,
+            womensData:[...state.womensData,payload]
+        }
+    }
+
+    case GET_MENS_SUCCESS: {
+      return {
+          ...state,
+          isLoading: false,
+          isError: false,
+          mensData: payload,
+      }
+  }
+  case GET_WOMENS_SUCCESS: {
+      return {
+          ...state,
+          isLoading: false,
+          isError: false,
+          womensData: payload,
+      }
+  }
+
+  case UPDATE_PRODUCT_MENS: {
+    let Updated=state.mensData.map((mensData)=>{
+      if(mensData.id==payload.id){
+       return {...mensData,payload}
+      }
+      return mensData
+  })
+  return {
+    ...state,
+    mensData:Updated
+
+
+  }
+}
+
+case UPDATE_PRODUCT_WOMENS: {
+  let Updated=state.womensData.map((womensData)=>{
+    if(womensData.id==payload.id){
+     return {...womensData,payload}
+    }
+    return womensData
+})
+return {
+  ...state,
+  womensData:Updated
+}
+}
+
+
+case DELETE_PRODUCT_MENS: {
+  let removed=state.mensData.filter((mensData)=>mensData.id!=payload)
+
+      return {
+        ...state,
+        mensData:removed
+      }
+}
+
+case DELETE_PRODUCT_WOMENS: {
+  let removed=state.womensData.filter((womensData)=>womensData.id!=payload)
+
+      return {
+        ...state,
+        womensData:removed
+      }
+}
 
 
  
