@@ -26,7 +26,7 @@ const AdminRegister = () => {
 
   const IsValidate = () => {
     let isProceed = true;
-    let errormessage = 'Please enter all the required feilds';
+    let errormessage = 'Please enter all the required fields';
     if(username === null || username === '') {
       isProceed = false;
       errormessage;

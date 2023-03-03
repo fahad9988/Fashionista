@@ -4,23 +4,101 @@ import './Payment.css';
 import img1 from '../../assets/card_img.png';
 import Loading from "./Loading"
 import Otp from "./Otp";
-import { Navigate } from 'react-router-dom';
-import PaymentSuccess from "./PaymentSuccess";
-
-function Payment(){
-
-const[loading,setLoding]=useState(false)
-const[pay,setPay]=useState(false)
+// import { Navigate } from 'react-router-dom';
+// import PaymentSuccess from "./PaymentSuccess";
+import { toast } from 'react-toastify';
 
 
-const handleClick=()=>{
-setLoding(true)
-setTimeout(() => {
-  setLoding(false)
-    setPay(true)
-}, 4000);
+const Payment = () => {
 
+    const [fullname, setFullname] = useState("");
+    const [email, setEmail] = useState("");
+    const [address, setAddress] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [zip, setZip] = useState("");
+    const [cardname, setCardname] = useState("");
+    const [cardnumber, setCardnumber] = useState("");
+    const [expmonth, setExpmonth] = useState("");
+    const [expyear, setExpyear] = useState("");
+    const [cvv, setCvv] = useState("");
+
+    const IsValidate = () => {
+        let isProceed = true;
+        let errormessage = 'Please enter all the required fields';
+        if(fullname === '') {
+          isProceed = false;
+          errormessage;
+        }
+        if(email === ""){
+            isProceed = false;
+            errormessage
+        }
+        if(address === ""){
+            isProceed = false;
+            errormessage
+        }
+        if(city === ""){
+            isProceed = false;
+            errormessage
+        }
+        if(state === ""){
+            isProceed = false;
+            errormessage
+        }
+        if(zip === "" || zip.length !== 6){
+            isProceed = false;
+            errormessage
+        }
+        if(cardname === ""){
+            isProceed = false;
+            errormessage
+        }
+        if(cardnumber === "" || cardnumber.length !== 16){
+            isProceed = false;
+            errormessage
+        }
+        if(expmonth === ""){
+            isProceed = false;
+            errormessage
+        }
+        if(expyear === "" || expyear < 2023){
+            isProceed = false;
+            errormessage
+        }
+        if(cvv === "" || cvv.length !== 3){
+            isProceed = false;
+            errormessage
+        }
+        if(!isProceed) {
+            toast.warning(errormessage);
+          } else {
+            if(/^[a-zA-Z0-0]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+                
+            } else{
+                isProceed = false;
+                toast.warning("Please enter the valid email");
+                console.log("Hello")
+            }
+          }
+          return isProceed;
+        }
+
+const [loading, setLoding] = useState(false);
+const [pay, setPay] = useState(false);
+
+
+const handleClick = (e) => {
+    e.preventDefault();
+    if(IsValidate()) {
+        setLoding(true)
+        setTimeout(() => {
+            setLoding(false)
+            setPay(true)
+        }, 4000);
+    } 
 }
+
        
 if(pay){
     return <Otp/>
@@ -32,76 +110,76 @@ if(pay){
 
     return(
         <div>
-        <div class="container">
+        <div className="container">
         
 
     <form action="" >
 
-        <div class="row">
+        <div className="row">
 
-            <div class="col col1">
+            <div className="col col1">
 
-                <h3 class="title">Billing Address</h3>
+                <h3 className="title">Billing Address</h3>
 
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Full Name :</span>
-                    <input type="text" placeholder="john deo"/>
+                    <input value={fullname} onChange={e => setFullname(e.target.value)} type="text" placeholder="Name" />
                 </div>
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Email :</span>
-                    <input type="email" placeholder="example@example.com"/>
+                    <input value={email} onChange={e => setEmail(e.target.value)} type="email" placeholder="example@example.com"/>
                 </div>
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Address :</span>
-                    <input type="text" placeholder="room - street - locality"/>
+                    <input value={address} onChange={e => setAddress(e.target.value)} type="text" placeholder="room - street - locality"/>
                 </div>
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>City :</span>
-                    <input type="text" placeholder="mumbai"/>
+                    <input value={city} onChange={e => setCity(e.target.value)} type="text" placeholder="City"/>
                 </div>
 
-                <div class="flex">
-                    <div class="inputBox">
+                <div className="flex">
+                    <div className="inputBox">
                         <span>State :</span>
-                        <input type="text" placeholder="india"/>
+                        <input value={state} onChange={e => setState(e.target.value)} type="text" placeholder="State"/>
                     </div>
-                    <div class="inputBox">
+                    <div className="inputBox">
                         <span>Zip Code :</span>
-                        <input type="text" placeholder="123 456"/>
+                        <input value={zip} onChange={e => setZip(e.target.value)} type="text" placeholder="123456"/>
                     </div>
                 </div>
 
             </div>
 
-            <div class="col col2">
+            <div className="col col2">
 
-                <h3 class="title">Payment</h3>
+                <h3 className="title">Payment</h3>
 
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Cards Accepted :</span>
                     <img src={img1} alt=""/>
                 </div>
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Name on Card :</span>
-                    <input type="text" placeholder="mr. john deo"/>
+                    <input value={cardname} onChange={e => setCardname(e.target.value)} type="text" placeholder="Name on card"/>
                 </div>
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Credit Card Number :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444"/>
+                    <input value={cardnumber} onChange={e => setCardnumber(e.target.value)} type="number" placeholder="1111-2222-3333-4444"/>
                 </div>
-                <div class="inputBox">
+                <div className="inputBox">
                     <span>Exp month :</span>
-                    <input type="text" placeholder="january"/>
+                    <input value={expmonth} onChange={e => setExpmonth(e.target.value)} type="text" placeholder="month"/>
                 </div>
 
-                <div class="flex">
-                    <div class="inputBox">
+                <div className="flex">
+                    <div className="inputBox">
                         <span>Exp year :</span>
-                        <input type="number" placeholder="2022"/>
+                        <input value={expyear} onChange={e => setExpyear(e.target.value)} type="number" placeholder="2023"/>
                     </div>
-                    <div class="inputBox">
+                    <div className="inputBox">
                         <span>CVV :</span>
-                        <input type="text" placeholder="1234"/>
+                        <input value={cvv} onChange={e => setCvv(e.target.value)} type="text" placeholder="123"/>
                     </div>
                 </div>
 
@@ -109,7 +187,7 @@ if(pay){
     
         </div>
 
-        <input type="submit" value="Proceed to Payment" class="submit-btn" onClick={handleClick}/>
+        <input type="submit" value="Proceed to Payment" className="submit-btn" onClick={handleClick}/>
 
     </form>
 
