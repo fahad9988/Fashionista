@@ -12,7 +12,7 @@ const AdminLogin = () => {
 
   useEffect(() => {
     sessionStorage.clear();
-  })
+  },[])
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const AdminLogin = () => {
           if(res.password === password) {
               toast.success("Successfully Login");
               sessionStorage.setItem('id', id);
-              navigate('/admin');
+              navigate('/adminproducts');
           } else {
               toast.error('Please Enter valid credentials');
           }
