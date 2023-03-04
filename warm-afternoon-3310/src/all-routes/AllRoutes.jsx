@@ -41,8 +41,7 @@ const AllRoutes = () => {
         <Route path='/wishlist' element={<Wishlist/>}></Route>
         <Route path='/adminregister' element={<AdminRegister/>} />
         <Route path='/adminlogin' element={<AdminLogin />} />
-        
-          <Route path='/payment' element={<PrivateRoute><Payment /></PrivateRoute>} />
+        <Route path='/payment' element={<PrivateRoute><Payment /></PrivateRoute>} />
        
         
         

@@ -7,13 +7,12 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
-
-
 import reactLogo from './assets/react.svg'
 import Footer from './components/Akshay/Footer'
 import Navbar from './components/Akshay/Navbar'
 import Usersdata from './pages/admin-users/Usersdata';
-
+import Admin from './pages/admin/Admin';
+import Payment from './pages/payment/Payment';
 import AdminNavbar from './pages/admin-review/adminNavbar';
 import { AdminSideAddProducts } from './pages/admin-review/AdminSideAddProducts';
 import AdminSideProducts from './pages/admin-review/AdminSideProducts';

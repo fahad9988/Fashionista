@@ -9,13 +9,13 @@ import App from "./App"
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<ChakraProvider>
-  <Provider store={store} >
-<BrowserRouter>
-<ScrollToTop>
-    <App />
-    </ScrollToTop>
-  </BrowserRouter>
-  </Provider>
-</ChakraProvider>
+  <ChakraProvider>
+    <Provider store={store} >
+      <BrowserRouter>
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
+      </BrowserRouter>
+    </Provider>
+  </ChakraProvider>
 )
