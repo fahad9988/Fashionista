@@ -9,11 +9,9 @@ import AdminNavbar from './adminNavbar'
 
 const AllUsers = () => {
     const { users } = useSelector((store) => store.data)
-    
-
     const dispatch = useDispatch()
 
-   let available = false
+    let available = false
 
 
     useEffect(() => {
@@ -26,6 +24,7 @@ const AllUsers = () => {
     const handleDelete=(id)=>{
         dispatch(deleteUser(id))
     }
+    
     return (
         <div>
             <AdminNavbar/>
@@ -58,7 +57,11 @@ const AllUsers = () => {
                                             </p>
                                         </div>
                                     
+
+                                    <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"170px",margin:"auto"}}>
+
                                     <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"150px",margin:"auto"}}>
+
                                         <button
                                             onClick={() =>handleDelete(el.id)}
                                             fontSize="130%"
