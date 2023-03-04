@@ -33,7 +33,7 @@ const AllUsers = () => {
 
                 <Heading fontSize={"23px"}>Admin data</Heading>
             </Box>
-            <Box  width={"80%"}  border= "0px solid red" margin={"auto"} mt="50px">
+            <Box  width={"90%"}  border= "0px solid red" margin={"auto"} mt="50px">
 
                 <SimpleGrid columns={[1, 2, 3, 4]} gap="5%" width={"100%"}>
                     {
@@ -58,7 +58,7 @@ const AllUsers = () => {
                                             </p>
                                         </div>
                                     
-                                    <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"190px",margin:"auto"}}>
+                                    <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"150px",margin:"auto"}}>
                                         <button
                                             onClick={() =>handleDelete(el.id)}
                                             fontSize="130%"
