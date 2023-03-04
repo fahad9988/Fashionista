@@ -58,7 +58,7 @@ const AllUsers = () => {
                                         </div>
                                     
 
-                                    <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"170px",margin:"auto"}}>
+                                   
 
                                     <div style={{color:"white",backgroundColor:"black",textAlign:"center",width:"150px",margin:"auto"}}>
 
