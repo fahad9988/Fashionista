@@ -18,7 +18,7 @@ import {
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action";
-// import { UpdateAction } from "../../redux/authReducer/auth.action";
+
   
 
 
@@ -29,21 +29,14 @@ import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action
     const dispatch = useDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    // let {products} = useSelector((store)=>store.adminManager)
-    // console.log(products)
-    //console.log(el,"l")
     
-
-    // useEffect(()=>{
-    //      dispatch(Get_data_item())
-    // },[dispatch])
 
     const handleChange = (e)=>{
       const {name,value} = e.target
 
       setVal({...val,[name]:value})
     }
-    //console.log(val)
+   
 
     const handleUpdate = async(e) => {
         dispatch(UPDATE_data_item(el.id,val))
@@ -100,18 +93,6 @@ import { Get_data_item , UPDATE_data_item } from "../../redux/admin/admin.action
   
                
                 
-    
-  
-                <FormControl mt={4}>
-                  <FormLabel >Category</FormLabel>
-                
-                  <Select name="category"  onChange={(e)=>{handleChange(e)}}  id="category" placeholder='Select Category' >
-                              <option value='mens'>Mens </option>
-                              <option value='womens'>Womens</option>
-                              <option value='child'>Child</option>
-                    </Select>
-                  
-                </FormControl>
 
                 <FormControl mt={4}>
                   <FormLabel >Offer Price</FormLabel>

@@ -15,10 +15,9 @@ import {
     Select,
     Text
   } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useState } from "react";
+import { useDispatch } from "react-redux";
 import {   getWomensData,  updateWomensData} from "../../redux/admin/admin.action";
-// import { UpdateAction } from "../../redux/authReducer/auth.action";
   
 
 
@@ -29,21 +28,12 @@ import {   getWomensData,  updateWomensData} from "../../redux/admin/admin.actio
     const dispatch = useDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure();
 
-    // let {products} = useSelector((store)=>store.adminManager)
-    // console.log(products)
-   // console.log(el,"l")
-    
-
-    // useEffect(()=>{
-    //      dispatch(Get_data_item())
-    // },[dispatch])
-
     const handleChange = (e)=>{
       const {name,value} = e.target
 
       setVal({...val,[name]:value})
     }
-   // console.log(val)
+   
 
     const handleUpdate = async(e) => {
         dispatch(updateWomensData(el.id,val))
@@ -99,19 +89,6 @@ import {   getWomensData,  updateWomensData} from "../../redux/admin/admin.actio
                 </FormControl>
   
                
-                
-    
-  
-                <FormControl mt={4}>
-                  <FormLabel >Category</FormLabel>
-                
-                  <Select name="category"  onChange={(e)=>{handleChange(e)}}  id="category" placeholder='Select Category' >
-                              <option value='mens'>Mens </option>
-                              <option value='womens'>Womens</option>
-                              <option value='child'>Child</option>
-                    </Select>
-                  
-                </FormControl>
 
                 <FormControl mt={4}>
                   <FormLabel >Offer Price</FormLabel>

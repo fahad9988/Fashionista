@@ -48,7 +48,7 @@ export const ADD_data_item=(cred)=>async(dispatch)=>{
     dispatch({type:types.ADD_data_LOADING})
     try {
         let res=await axios.post('https://snapdeal-json-server.onrender.com/kids',cred)
-        console.log(res.data)
+       // console.log(res.data)
         dispatch({type:types.ADD_data_SUCCESS,payload:res.data})
         
     } catch (error) {

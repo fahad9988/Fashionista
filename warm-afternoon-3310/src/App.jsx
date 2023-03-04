@@ -12,7 +12,6 @@ import { BrowserRouter } from 'react-router-dom';
 import reactLogo from './assets/react.svg'
 import Footer from './components/Akshay/Footer'
 import Navbar from './components/Akshay/Navbar'
-import Usersdata from './pages/admin-users/Usersdata';
 
 import AdminNavbar from './pages/admin-review/adminNavbar';
 import { AdminSideAddProducts } from './pages/admin-review/AdminSideAddProducts';
@@ -20,6 +19,8 @@ import AdminSideProducts from './pages/admin-review/AdminSideProducts';
 import AllUsers from './pages/admin-review/Alladmins';
 import MenSideProducts from './pages/admin-review/MenSideProducts';
 import WomenSideProducts from './pages/admin-review/WomenSideProducts';
+import AllCharts from './pages/admin-review/charts';
+
 
 
 
@@ -38,10 +39,10 @@ function App() {
         <Footer/>
       </Auth0Provider> 
       
-      
-      
-      
 
+
+
+       
     </div>
 
   )

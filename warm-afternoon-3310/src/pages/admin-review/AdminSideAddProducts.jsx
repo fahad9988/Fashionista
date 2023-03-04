@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 
 
 import {useDispatch} from "react-redux"
+import { postMensData } from '../../redux/admin/admin.action'
+import { postWomensData } from '../../redux/admin/admin.action'
 import { ADD_data_item } from '../../redux/admin/admin.action'
 import AdminNavbar from './adminNavbar'
 
@@ -11,27 +13,41 @@ function AdminSideAddProducts() {
   const [val, setVal] = useState({})
 
   const dispatch = useDispatch()
+
+
   let handleChange = (e)=>{
     const {name,value} = e.target
 
     setVal({...val,[name]:value})
+    
   }
-   console.log(val.category)
+
+
   
   const handleSubmit =()=>{
-    dispatch(ADD_data_item(val))
+    
     document.getElementById("title").value = ""
     document.getElementById("images").value = ""
-    
     document.getElementById("category").value = ""
     document.getElementById("strike_price").value = ""
-    document.getElementById("price2").value = ""
     document.getElementById("price").value = ""
     document.getElementById("rating").value = ""
    
     alert("Product is added")
-  }
 
+    if(val.category === "Mens"){
+     dispatch(postMensData(val))
+    console.log(val,"men")
+    } 
+    else if(val.category === "Womens"){
+      dispatch(postWomensData(val))
+     console.log(val,"women")
+    } else {
+      dispatch(ADD_data_item(val))
+     console.log(val,"kids")
+    }
+
+  }
 
 
   return (
@@ -47,9 +63,9 @@ function AdminSideAddProducts() {
         <Input type="url" onChange={(e)=>{handleChange(e)}} margin="7px" name="images" id="images" placeholder="Image" required/> <br />
        
         <Select name="category"  onChange={(e)=>{handleChange(e)}} margin="7px" id="category" placeholder='Select Category' >
-          <option value='mens'>Mens </option>
-          <option value='womens'>Womens</option>
-          <option value='child'>Child</option>
+          <option value='Mens'>Mens </option>
+          <option value='Womens'>Womens</option>
+          <option value='Kids'>Kids</option>
           
         </Select>
         <Input type="text" onChange={(e)=>{handleChange(e)}} margin="7px" name="strike_price" id="strike_price" placeholder="Strike Price" required/> <br />

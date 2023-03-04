@@ -14,11 +14,13 @@ const AdminNavbar = ()=>{
     
 
         <Box></Box>
-        <Box ><Link to={"/adminadd"}><Heading size={"md"}>Add-Product</Heading></Link></Box> &nbsp;
-        <Box ><Link to={"/adminproducts"}><Heading size={"md"}>Kids-Products</Heading></Link></Box> &nbsp;
-        <Box ><Link to={"/menproducts"}><Heading size={"md"}>Men-Products</Heading></Link></Box> &nbsp;
-        <Box ><Link to={"/womenproducts"}><Heading size={"md"}>Women-Products</Heading></Link></Box> &nbsp;
-        <Box ><Link to={"/adminall"}><Heading size={"md"}>All Admin</Heading></Link></Box> &nbsp;
+        <Box ><Link to={"/adminall"}><Heading size={["xs","sm","md"]}>Admin</Heading></Link></Box> &nbsp;
+        <Box ><Link to={"/adminproducts"}><Heading size={["xs","sm","md"]}>Kids</Heading></Link></Box> &nbsp;
+        <Box ><Link to={"/adminmenproducts"}><Heading size={["xs","sm","md"]}>Men</Heading></Link></Box> &nbsp;
+        <Box ><Link to={"/adminwomenproducts"}><Heading size={["xs","sm","md"]}>Women</Heading></Link></Box> &nbsp;
+        <Box ><Link to={"/adminadd"}><Heading size={["xs","sm","md"]}>Add-Product</Heading></Link></Box> &nbsp;
+        <Box ><Link to={"/graphproduct"}><Heading size={["xs","sm","md"]}>Price-Graph</Heading></Link></Box> &nbsp;
+       
         
     </Box>
     </div>
