@@ -110,6 +110,9 @@ const removeItem=(id)=>{
 dispatch(removeWishlist(id))
 }
 
+//optimising below
+const sizeData=["XS","S","M","L","XL","XXL"];
+
   return (
     <>
    <Box display={{lg:"flex",base:"block"}}  w="90%" m="auto" mt="40px"  boxShadow= "rgba(149, 157, 165, 0.2) 0px 8px 24px">
@@ -176,25 +179,23 @@ dispatch(removeWishlist(id))
         <Box  flex={{xl:"0.15",lg:"0.2",md:"0.2",base:"0.25"}}  display="flex" alignItems="center"  >
           <Text fontSize={{md:"16px",base:"13px"}}>Size</Text>
         </Box>
-        {mySize?
-         <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between" >
-         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="XS"?"red.200":"#EDF2F7"} >XS</Tag>
-         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="S"?"red.200":"#EDF2F7"} >S</Tag>
-         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="M"?"red.200":"#EDF2F7"} >M</Tag>
-         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="L"?"red.200":"#EDF2F7"} >L</Tag>
-         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="XL"?"red.200":"#EDF2F7"} >XL</Tag>
-         <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize=="XXL"?"red.200":"#EDF2F7"} >XXL</Tag>
-       </Box>
-        :
-          <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between" >
-          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XS"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XS")}} >XS</Tag>
-          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="S"?"red.200":"#EDF2F7"} onClick={()=>{setSize("S")}}>S</Tag>
-          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="M"?"red.200":"#EDF2F7"} onClick={()=>{setSize("M")}}>M</Tag>
-          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="L"?"red.200":"#EDF2F7"} onClick={()=>{setSize("L")}}>L</Tag>
-          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XL")}}>XL</Tag>
-          <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size=="XXL"?"red.200":"#EDF2F7"} onClick={()=>{setSize("XXL")}}>XXL</Tag>
-        </Box>
+        {
+          mySize?<Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between">
+          {
+          sizeData.map((e)=>{
+            return <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={mySize==e?"red.200":"#EDF2F7"}>{e}</Tag>
+          })
           }
+          </Box>
+          :
+          <Box flex="1" flexWrap="wrap" display={{md:"block",base:"flex"}} alignContent="space-between">
+          {
+            sizeData.map((e)=>{
+              return  <Tag size={{md:"lg",base:"sm"}} cursor="pointer" mr="12px" mb={{md:"0px",base:"7px"}} mt={{md:"0px",base:"7px"}} bgColor={size==e?"red.200":"#EDF2F7"} onClick={()=>{setSize(e)}} >{e}</Tag>
+            })
+          }
+          </Box>
+        }
         <Box flex={{md:"0.2",base:"0.3"}}    display={{md:"flex",base:"none"}} alignItems="center" >
           <Text fontSize={{md:"16px",base:"13px"}} color="#63ADEF" >Size Chart</Text>
         </Box>
