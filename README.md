@@ -45,4 +45,4 @@
 </ul>
 
 <h2>Deployed Link</h2>
-<p>https://darling-mooncake-57603b.netlify.app/<p>
+<p>https://fashionista-rct201.netlify.app/<p>
